@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رموز المخاطر GHS | SDS Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <span>SDS Smart</span>
+    </div>
+
+    <ul class="nav-links">
+      <a href="../index.html"><li class="nav-item"><i class="fa-solid fa-house"></i> الرئيسية</li></a>
+      <a href="library.html"><li class="nav-item"><i class="fa-solid fa-book-bookmark"></i> دليل المواد الكيميائية</li></a>
+      <a href="ghs.html"><li class="nav-item active"><i class="fa-solid fa-triangle-exclamation"></i> رموز المخاطر GHS</li></a>
+      <a href="storage.html"><li class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> التخزين الآمن</li></a>
+      <a href="firstaid.html"><li class="nav-item"><i class="fa-solid fa-kit-medical"></i> الإسعافات الأولية</li></a>
+      <a href="waste.html"><li class="nav-item"><i class="fa-solid fa-trash-can"></i> إدارة النفايات</li></a>
+      <a href="calculators.html"><li class="nav-item"><i class="fa-solid fa-calculator"></i> حسابات كيميائية</li></a>
+      <a href="about.html"><li class="nav-item"><i class="fa-solid fa-circle-info"></i> معلومات المنصة</li></a>
+    </ul>
+
+    <button class="user-profile-btn" onclick="toggleUserSession()">
+      <span id="user-display-name"><i class="fa-solid fa-user-lock"></i> تسجيل الدخول</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">⚠️ رموز المخاطر الكيميائية لنظام GHS العالمي</h2>
+      <p style="color: var(--text-muted); font-size: 1rem;">النظام المتوافق عالمياً لتصنيف المواد الكيميائية ووسمها (Globally Harmonized System) وتحديد مستويات الخطورة.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+      
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #dc2626;"><i class="fa-solid fa-fire-flame-curved"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #dc2626; margin-bottom: 0.3rem;">قابل للاشتعال (Flammable)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">سوائل وغازات ومواد صلبة تشتعل بسهولة عند تعرضها للهب أو الشرر أو درجات الحرارة المرتفعة مثل الإيثانول والأسيتون.</p>
+        </div>
+      </div>
+
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #ea580c;"><i class="fa-solid fa-circle-notch"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #ea580c; margin-bottom: 0.3rem;">مؤكسد (Oxidizing)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">تطلق الأكسجين وتزيد من اشتعال المواد الأخرى وتسبب حرائق شديدة مثل برمنغنات البوتاسيوم ونترات الفضة وبيروكسيد الهيدروجين.</p>
+        </div>
+      </div>
+
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #475569;"><i class="fa-solid fa-vial-virus"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #475569; margin-bottom: 0.3rem;">مادة أكالة (Corrosive)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">تسبب حروقاً بالغة وتآكلاً لا رجعة فيه للأنسجة الحية وللعينين وتتلف الحاويات المعدنية كحمض الكبريتيك وهيدروكسيد الصوديوم.</p>
+        </div>
+      </div>
+
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #991b1b;"><i class="fa-solid fa-skull-crossbones"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #991b1b; margin-bottom: 0.3rem;">سمية حادة قاتلة (Toxic)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">تسبب التسمم الحاد والوفاة عند التعرض لجرعات ضئيلة بالبلع أو الاستنشاق أو التلامس الجلدي مثل كلوريد الزئبق وكاشف نيسلر.</p>
+        </div>
+      </div>
+
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #d97706;"><i class="fa-solid fa-triangle-exclamation"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #d97706; margin-bottom: 0.3rem;">مهيج وضار (Irritant)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">يسبب تهيجاً للعينين والجهاز التنفسي وتحسساً للجلد، وله تأثير مخدر موضعي عند الاستنشاق كالكلوريدات والأملاح الخفيفة.</p>
+        </div>
+      </div>
+
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #7c3aed;"><i class="fa-solid fa-lungs"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #7c3aed; margin-bottom: 0.3rem;">خطر صحي مزمن (Health Hazard)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">مواد مسرطنة ومطفرة وراثياً أو سامة للقدرة التناسلية والأجنة وتتلف الأعضاء الحيوية كمركبات الرصاص والكادميوم والنيكل.</p>
+        </div>
+      </div>
+
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #0284c7;"><i class="fa-solid fa-fish-fins"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #0284c7; margin-bottom: 0.3rem;">خطر على البيئة المائية (Aquatic)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">شديد السمية للكائنات المائية مع تأثيرات مدمرة طويلة الأجل على النظم البيئية مثل كبريتات النحاس وأملاح الزنك.</p>
+        </div>
+      </div>
+
+      <div class="dash-box" style="display: flex; gap: 1.2rem; align-items: center; padding: 1.5rem;">
+        <div class="ghs-diamond"><div class="ghs-diamond-bg"></div><span class="ghs-symbol" style="color: #b91c1c;"><i class="fa-solid fa-burst"></i></span></div>
+        <div>
+          <h3 style="font-weight: 800; color: #b91c1c; margin-bottom: 0.3rem;">متفجر (Explosive)</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5;">مواد سريعة التحلل والانفجار عند الصدمات أو الاحتكاك الشديد أو التعرض لدرجات حرارة مفاجئة.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../js/chemicals_data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
+

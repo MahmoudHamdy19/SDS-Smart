@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التخزين الآمن | SDS Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <span>SDS Smart</span>
+    </div>
+
+    <ul class="nav-links">
+      <a href="../index.html"><li class="nav-item"><i class="fa-solid fa-house"></i> الرئيسية</li></a>
+      <a href="library.html"><li class="nav-item"><i class="fa-solid fa-book-bookmark"></i> دليل المواد الكيميائية</li></a>
+      <a href="ghs.html"><li class="nav-item"><i class="fa-solid fa-triangle-exclamation"></i> رموز المخاطر GHS</li></a>
+      <a href="storage.html"><li class="nav-item active"><i class="fa-solid fa-boxes-stacked"></i> التخزين الآمن</li></a>
+      <a href="firstaid.html"><li class="nav-item"><i class="fa-solid fa-kit-medical"></i> الإسعافات الأولية</li></a>
+      <a href="waste.html"><li class="nav-item"><i class="fa-solid fa-trash-can"></i> إدارة النفايات</li></a>
+      <a href="calculators.html"><li class="nav-item"><i class="fa-solid fa-calculator"></i> حسابات كيميائية</li></a>
+      <a href="about.html"><li class="nav-item"><i class="fa-solid fa-circle-info"></i> معلومات المنصة</li></a>
+    </ul>
+
+    <button class="user-profile-btn" onclick="toggleUserSession()">
+      <span id="user-display-name"><i class="fa-solid fa-user-lock"></i> تسجيل الدخول</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">🗄️ دليل التخزين الآمن وتوافق المواد الكيميائية بالمعمل</h2>
+      <p style="color: var(--text-muted); font-size: 1rem;">قواعد الفصل والتخزين المعتمدة للحد من مخاطر التفاعلات العكسية أو انبعاث الغازات الخانقة داخل المعامل.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      
+      <div class="dash-box" style="border-right: 6px solid #ef4444; padding: 1.6rem;">
+        <h3 style="font-weight: 800; color: #991b1b; margin-bottom: 0.8rem; font-size: 1.2rem;">🔴 خزانة الأحماض القوية (Acids Cabinet)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          <strong>المواد:</strong> حمض الكبريتيك، حمض الهيدروكلوريك، وحمض النيتريك.<br>
+          <strong>شروط التخزين:</strong> خزانة مقاومة للأحماض مزودة بأحواض تجميع سفلية من البولي إيثيلين.<br>
+          <strong>قواعد الفصل:</strong> تفصل كلياً عن القواعد العضوية وغير العضوية، وعن المذيبات القابلة للاشتعال.<br>
+          <strong>تحذير خاص:</strong> لا تخزن حمض النيتريك مع حمض الأسيتيك لتفادي خطر الانفجار الذاتي.
+        </p>
+      </div>
+
+      <div class="dash-box" style="border-right: 6px solid #2563eb; padding: 1.6rem;">
+        <h3 style="font-weight: 800; color: #1e40af; margin-bottom: 0.8rem; font-size: 1.2rem;">🔵 خزانة القواعد والهيدروكسيدات (Bases)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          <strong>المواد:</strong> هيدروكسيد الصوديوم، هيدروكسيد البوتاسيوم، ومحلول الأمونيا.<br>
+          <strong>شروط التخزين:</strong> أوعية بلاستيكية محكمة الإغلاق في مكان جاف تماماً نظراً للشغف الشديد للرطوبة وامتصاص CO₂.<br>
+          <strong>قواعد الفصل:</strong> تفصل تماماً عن الأحماض لمنع تفاعلات التعادل الطاردة للحرارة الشديدة.
+        </p>
+      </div>
+
+      <div class="dash-box" style="border-right: 6px solid #f59e0b; padding: 1.6rem;">
+        <h3 style="font-weight: 800; color: #92400e; margin-bottom: 0.8rem; font-size: 1.2rem;">🟡 خزانة المذيبات القابلة للاشتعال (Flammables)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          <strong>المواد:</strong> الإيثانول، الأسيتون، أسيتات الإيثيل، وأسيتات الميثيل.<br>
+          <strong>شروط التخزين:</strong> خزانة معدنية مصفحة ومعتمدة مضادة للحرائق مع تأريض كهربائي ونظام تهوية طبيعي.<br>
+          <strong>قواعد الفصل:</strong> تعزل بعيداً عن المؤكسدات القوية ومصادر الشرر والحرارة.
+        </p>
+      </div>
+
+      <div class="dash-box" style="border-right: 6px solid #7c3aed; padding: 1.6rem;">
+        <h3 style="font-weight: 800; color: #6b21a8; margin-bottom: 0.8rem; font-size: 1.2rem;">🟣 دولاب السموم المحكم (Poisons Locked Cabinet)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          <strong>المواد:</strong> مركبات الرصاص، الكادميوم، كلوريد الزئبق، وكاشف نيسلر.<br>
+          <strong>شروط التخزين:</strong> دولاب مغلق بمفتاح مزدوج وتحت إشراف مباشر من مسؤول المعمل مع دفتر حصر دقيق.<br>
+          <strong>قواعد الفصل:</strong> يمنع نهائياً تداولها بدون قفازات وكمامات متخصصة.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../js/chemicals_data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
+

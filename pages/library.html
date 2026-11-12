@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل المواد الكيميائية | SDS Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="../js/qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <span>SDS Smart</span>
+    </div>
+
+    <ul class="nav-links">
+      <a href="../index.html"><li class="nav-item"><i class="fa-solid fa-house"></i> الرئيسية</li></a>
+      <a href="library.html"><li class="nav-item active"><i class="fa-solid fa-book-bookmark"></i> دليل المواد الكيميائية</li></a>
+      <a href="ghs.html"><li class="nav-item"><i class="fa-solid fa-triangle-exclamation"></i> رموز المخاطر GHS</li></a>
+      <a href="storage.html"><li class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> التخزين الآمن</li></a>
+      <a href="firstaid.html"><li class="nav-item"><i class="fa-solid fa-kit-medical"></i> الإسعافات الأولية</li></a>
+      <a href="waste.html"><li class="nav-item"><i class="fa-solid fa-trash-can"></i> إدارة النفايات</li></a>
+      <a href="calculators.html"><li class="nav-item"><i class="fa-solid fa-calculator"></i> حسابات كيميائية</li></a>
+      <a href="about.html"><li class="nav-item"><i class="fa-solid fa-circle-info"></i> معلومات المنصة</li></a>
+    </ul>
+
+    <button class="user-profile-btn" onclick="toggleUserSession()">
+      <span id="user-display-name"><i class="fa-solid fa-user-lock"></i> تسجيل الدخول</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">📚 دليل وجرد المواد الكيميائية بالمعمل</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">فهرس شامل لجميع المواد الكيميائية المسجلة بالدواليب مع إمكانية التصدير والإضافة.</p>
+      </div>
+      
+      <!-- Action Toolbar (Export & Add) -->
+      <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;">
+        <button class="action-btn" onclick="openAddChemicalModal()" style="background: #0284c7; color: white;">
+          <i class="fa-solid fa-plus"></i> إضافة مادة جديدة
+        </button>
+        <button class="action-btn" onclick="exportChemicalsToCSV()" style="background: #10b981; color: white;">
+          <i class="fa-solid fa-file-excel"></i> تصدير Excel / CSV
+        </button>
+        <button class="action-btn" onclick="window.print()" style="background: #475569; color: white;">
+          <i class="fa-solid fa-print"></i> طباعة الكشف
+        </button>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div style="display: flex; gap: 0.8rem; margin-bottom: 1.2rem; flex-wrap: wrap; background: white; padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+      <div style="flex: 1; min-width: 250px; position: relative;">
+        <input type="text" id="library-filter-input" placeholder="بحث فوري بالاسم أو الصيغة الكيميائية أو رقم CAS..." style="width: 100%; padding: 0.65rem 1.2rem; border-radius: 8px; border: 1.5px solid #cbd5e1; font-size: 0.95rem;" oninput="filterLibraryTable(); handleLibrarySuggestions(this.value);" onkeydown="handleLibraryNav(event)" autocomplete="off">
+        <ul id="library-autocomplete-box" class="autocomplete-dropdown"></ul>
+      </div>
+      <div>
+        <select id="library-category-select" style="padding: 0.65rem 1.2rem; border-radius: 8px; border: 1.5px solid #cbd5e1; font-size: 0.95rem; font-weight: 700; color: var(--primary);" onchange="filterLibraryTable()">
+          <option value="all">كل التصنيفات (78+ مادة)</option>
+          <option value="acids">الأحماض (Acids)</option>
+          <option value="bases">القواعد (Bases)</option>
+          <option value="solvents">المذيبات العضوية (Solvents)</option>
+          <option value="flammable">المواد القابلة للاشتعال (Flammable)</option>
+          <option value="salts">الأملاح (Salts)</option>
+          <option value="oxidizers">المؤكسدات (Oxidizers)</option>
+          <option value="toxic">المواد السامة (Toxic)</option>
+          <option value="corrosive">المواد الأكالة (Corrosive)</option>
+          <option value="other">مواد أخرى (Other)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Search Result / SDS Card Presentation Area -->
+    <div id="search-result-display" style="display: none; margin-bottom: 2.5rem;">
+      <div class="sds-action-bar">
+        <button class="action-btn action-btn-back" onclick="closeSdsView()">✖ إغلاق بطاقة SDS والعودة للقائمة</button>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="action-btn action-btn-qr" onclick="generateQrForCurrentChem()"><i class="fa-solid fa-qrcode"></i> رمز QR للعبوة</button>
+          <button class="action-btn action-btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة بطاقة السلامة</button>
+        </div>
+      </div>
+      <div id="sds-card-render-slot"></div>
+    </div>
+
+    <!-- Library Table -->
+    <div class="table-container">
+      <table class="chem-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>الاسم بالعربي</th>
+            <th>English Name</th>
+            <th>الصيغة الكيميائية</th>
+            <th>رقم CAS</th>
+            <th>التصنيف</th>
+            <th>الحالة</th>
+            <th>الكمية والرصيد</th>
+            <th>الموقع بالمعمل</th>
+            <th>بطاقة SDS</th>
+          </tr>
+        </thead>
+        <tbody id="library-table-body">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Add New Chemical Modal -->
+  <div id="add-chem-modal" class="login-modal-overlay" style="display: none;" onclick="if(event.target === this) closeAddChemicalModal()">
+    <div class="login-card" style="max-width: 550px; text-align: right;">
+      <h3 style="color: var(--primary); font-weight: 800; margin-bottom: 1rem;"><i class="fa-solid fa-flask-circle-plus"></i> إضافة مادة كيميائية جديدة للسجل</h3>
+      
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الاسم بالعربي *</label>
+          <input type="text" id="new-chem-name-ar" placeholder="مثال: كبريتات الخارصين">
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">English Name *</label>
+          <input type="text" id="new-chem-name-en" placeholder="e.g. Zinc sulphate">
+        </div>
+      </div>
+
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الصيغة الكيميائية *</label>
+          <input type="text" id="new-chem-formula" placeholder="e.g. ZnSO4">
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">رقم CAS *</label>
+          <input type="text" id="new-chem-cas" placeholder="e.g. 7446-20-0">
+        </div>
+      </div>
+
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الكتلة الجزيئية (g/mol)</label>
+          <input type="text" id="new-chem-mw" placeholder="e.g. 161.47 g/mol">
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">التصنيف الكيميائي</label>
+          <select id="new-chem-category">
+            <option value="salts">الأملاح (Salts)</option>
+            <option value="acids">الأحماض (Acids)</option>
+            <option value="bases">القواعد (Bases)</option>
+            <option value="solvents">المذيبات العضوية (Solvents)</option>
+            <option value="oxidizers">المؤكسدات (Oxidizers)</option>
+            <option value="toxic">المواد السامة (Toxic)</option>
+            <option value="other">مواد أخرى (Other)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الحالة الفيزيائية</label>
+          <select id="new-chem-state">
+            <option value="Solid (صلب)">Solid (صلب)</option>
+            <option value="Liquid (سائل)">Liquid (سائل)</option>
+            <option value="Gas (غاز)">Gas (غاز)</option>
+          </select>
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الكمية المتوفرة</label>
+          <input type="text" id="new-chem-quantity" placeholder="e.g. 500g أو 1L">
+        </div>
+      </div>
+
+      <div class="login-form-group">
+        <label>الموقع بالمعمل (Cabinet / Shelf)</label>
+        <input type="text" id="new-chem-location" value="Cabinet 1" placeholder="مثال: Cabinet 1 - Shelf 2">
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+        <button class="login-submit-btn" onclick="saveNewChemical()" style="flex: 2; margin-top: 0;">حفظ وإضافة للمخزون ✅</button>
+        <button class="action-btn action-btn-back" onclick="closeAddChemicalModal()" style="flex: 1;">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Modal View -->
+  <div id="qr-modal" class="login-modal-overlay" style="display: none;" onclick="if(event.target === this) closeQrModal()">
+    <div class="qr-modal-view">
+      <h3 style="font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;" id="qr-chem-title">إنشاء ملصق QR للمادة الكيميائية</h3>
+      <p style="font-size: 0.88rem; color: var(--text-muted);">امسح هذا الرمز بواسطة كاميرا الهاتف للانتقال الفوري إلى بطاقة السلامة SDS الكاملة</p>
+      
+      <div id="qr-display-box"></div>
+
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <button class="action-btn action-btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة الملصق</button>
+        <button class="action-btn action-btn-back" onclick="closeQrModal()">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/chemicals_data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

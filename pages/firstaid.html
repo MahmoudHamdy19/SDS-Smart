@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الإسعافات الأولية | SDS Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <span>SDS Smart</span>
+    </div>
+
+    <ul class="nav-links">
+      <a href="../index.html"><li class="nav-item"><i class="fa-solid fa-house"></i> الرئيسية</li></a>
+      <a href="library.html"><li class="nav-item"><i class="fa-solid fa-book-bookmark"></i> دليل المواد الكيميائية</li></a>
+      <a href="ghs.html"><li class="nav-item"><i class="fa-solid fa-triangle-exclamation"></i> رموز المخاطر GHS</li></a>
+      <a href="storage.html"><li class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> التخزين الآمن</li></a>
+      <a href="firstaid.html"><li class="nav-item active"><i class="fa-solid fa-kit-medical"></i> الإسعافات الأولية</li></a>
+      <a href="waste.html"><li class="nav-item"><i class="fa-solid fa-trash-can"></i> إدارة النفايات</li></a>
+      <a href="calculators.html"><li class="nav-item"><i class="fa-solid fa-calculator"></i> حسابات كيميائية</li></a>
+      <a href="about.html"><li class="nav-item"><i class="fa-solid fa-circle-info"></i> معلومات المنصة</li></a>
+    </ul>
+
+    <button class="user-profile-btn" onclick="toggleUserSession()">
+      <span id="user-display-name"><i class="fa-solid fa-user-lock"></i> تسجيل الدخول</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">➕ بروتوكول الإسعافات الأولية لحوادث التعرض الكيميائي</h2>
+      <p style="color: var(--text-muted); font-size: 1rem;">الإرشادات الطبية الميدانية العاجلة للتعامل مع حالات الطوارئ المعملية لحين استلام الفريق الطبي.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+      
+      <div class="dash-box" style="padding: 1.8rem;">
+        <div style="font-size: 2.5rem; color: #0284c7; margin-bottom: 0.8rem;"><i class="fa-solid fa-eye"></i></div>
+        <h3 style="font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.25rem;">ملامسة العين (Eye Contact)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          1. نقل المصاب فوراً إلى مغسلة العيون الطارئة (Eyewash Station).<br>
+          2. فتح الجفون بأطراف أصابع نظيفة والغسيل المستمر بالماء الفاتر لمدة 15 إلى 20 دقيقة على الأقل.<br>
+          3. إزالة العدسات اللاصقة إن تيسر ذلك أثناء تدفق المياه.<br>
+          4. <strong>تحذير:</strong> يمنع وضع قطرات أو مستحضرات كيميائية بدون إشراف طبي، واستدعاء الإسعاف فوراً.
+        </p>
+      </div>
+
+      <div class="dash-box" style="padding: 1.8rem;">
+        <div style="font-size: 2.5rem; color: #10b981; margin-bottom: 0.8rem;"><i class="fa-solid fa-hand-dots"></i></div>
+        <h3 style="font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.25rem;">ملامسة الجلد (Skin Contact)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          1. نزع الملابس والأحذية الملوثة فوراً تحت الدش المعملي للطوارئ.<br>
+          2. غسل المنطقة المتضررة بكميات غزيرة من الماء الجاري والصابون اللطيف لمدة 15 دقيقة.<br>
+          3. <em>حالة خاصة:</em> عند انسكاب حمض الكبريتيك المركز يتم مسح الفائض بقطعة قماش قطنية جافة أولاً ثم سكب كميات ضخمة من الماء لتفادي حرارة الذوبان.<br>
+          4. تغطية الحروق بضمادات معقمة جافة غير لاصقة وطلب الرعاية الطبية.
+        </p>
+      </div>
+
+      <div class="dash-box" style="padding: 1.8rem;">
+        <div style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 0.8rem;"><i class="fa-solid fa-lungs"></i></div>
+        <h3 style="font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.25rem;">الاستنشاق (Inhalation)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          1. إخلاء المصاب فوراً إلى الهواء الطلق خارج نطاق المعمل والأبخرة.<br>
+          2. إرخاء الملابس الضيقة حول الرقبة والخصر لضمان سهولة حركة القفص الصدري.<br>
+          3. جعل المصاب في وضعية شبه جالسة للمساعدة في التنفس وتقليل الإجهاد الرئوي.<br>
+          4. إذا توقف التنفس يتم البدء فوراً بعملية الإنعاش القلبي الرئوي (CPR) وطلب الطوارئ.
+        </p>
+      </div>
+
+      <div class="dash-box" style="padding: 1.8rem;">
+        <div style="font-size: 2.5rem; color: #dc2626; margin-bottom: 0.8rem;"><i class="fa-solid fa-head-side-cough"></i></div>
+        <h3 style="font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.25rem;">الابتلاع (Ingestion)</h3>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: #334155;">
+          1. <strong>قاعدة أساسية: يمنع تحفيز التقيؤ نهائياً</strong> خاصة عند ابتلاع الأحماض أو القلويات الكاوية أو المذيبات لتجنب تلف المريء والرئتين.<br>
+          2. المضمضة وغسل التجويف الفموي بالماء النظيف عدة مرات.<br>
+          3. إعطاء كوب صغير من الماء فقط إذا كان الشخص كامل الوعي.<br>
+          4. نقل المصاب لمركز علاج السموم فوراً مصطحباً بطاقة SDS أو عبوة المادة.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../js/chemicals_data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
+

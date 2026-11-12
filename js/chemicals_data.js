@@ -1,0 +1,4752 @@
+// chemicals_data.js - قاعدة بيانات المواد الكيميائية لمنصة SDS Smart
+const chemicalDatabase = [
+  {
+    "nameEn": "Ammonium thiocyanate",
+    "nameAr": "ثيوسيانات الأمونيوم",
+    "formula": "NH4SCN",
+    "mw": "76.12 g/mol",
+    "cas": "1762-95-4",
+    "purity": "≥ 98.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "150g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302+H312+H332",
+        "ar": "ضار إذا ابتلع أو لامس الجلد أو استنشق.",
+        "en": "Harmful if swallowed, in contact with skin or if inhaled."
+      },
+      {
+        "code": "H412",
+        "ar": "ضار بالحياة المائية مع تأثيرات طويلة الأجل.",
+        "en": "Harmful to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P261",
+        "ar": "تجنب استنشاق الغبار أو الرذاذ.",
+        "en": "Avoid breathing dust/fume/gas/mist."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات واقية / ملابس واقية / نظارات حماية.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      },
+      {
+        "code": "P301+P312",
+        "ar": "في حالة الابتلاع: اتصل بمركز السموم أو الطبيب فوراً.",
+        "en": "IF SWALLOWED: Call a POISON CENTER/doctor if you feel unwell."
+      }
+    ],
+    "firstAid": {
+      "eye": "اشطف العينين بالماء الجاري لمدة 15 دقيقة على الأقل مع فتح الجفون.",
+      "skin": "اغسل المنطقة المصابة بالكثير من الماء والصابون وانزع الملابس الملوثة.",
+      "inhalation": "انقل المصاب إلى الهواء النقي واجعله في وضع مريح للتنفس.",
+      "ingestion": "اشرب كمية وافرة من الماء ولا تحفز القيء واستشر الطبيب فوراً."
+    },
+    "storage": "يحفظ في مكان جاف وبارد، في وعاء محكم الإغلاق، بعيداً عن الأحماض والمؤكسدات القوية.",
+    "fire": "استخدم رذاذ الماء أو مسحوق كيميائي جاف أو ثاني أكسيد الكربون أو رغوة مناسبة.",
+    "disposal": "تخلص من المحتويات والوعاء وفقاً للأنظمة البيئية والمحلية المعتمدة للمخلفات الكيميائية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Aluminium screw type (granular/wire)",
+    "nameAr": "ألومنيوم معدني (حبيبي / قلاووظ)",
+    "formula": "Al",
+    "mw": "26.98 g/mol",
+    "cas": "7429-90-5",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "flammable"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H261",
+        "ar": "يطلق غازات قابلة للاشتعال عند ملامسة الماء.",
+        "en": "In contact with water releases flammable gas."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P223",
+        "ar": "تجنب أي تلامس مع الماء.",
+        "en": "Do not allow contact with water."
+      },
+      {
+        "code": "P232",
+        "ar": "يحفظ بعيداً عن الرطوبة.",
+        "en": "Protect from moisture."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق مع تجنب الاحتكاك الشديد.",
+      "skin": "اغسل الجلد بالماء والصابون.",
+      "inhalation": "انقل المصاب للهواء الطلق.",
+      "ingestion": "اشطف الفم بالماء واستشر الطبيب."
+    },
+    "storage": "مكان جاف تماماً، بعيداً عن مصادر المياه والرطوبة والأحماض.",
+    "fire": "استخدم رمال جافة أو طفاية مسحوق جاف من الفئة D. يمنع استخدام الماء تماماً!",
+    "disposal": "تخلص كنفايات كيميائية صلبة جافة وفق القوانين المحلية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Aluminium nitrate nonahydrate",
+    "nameAr": "نترات الألومنيوم تساعية الهيدرات",
+    "formula": "Al(NO3)3·9H2O",
+    "mw": "375.13 g/mol",
+    "cas": "7784-27-2",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الاحتراق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H315",
+        "ar": "يسبب تهيج الجلد.",
+        "en": "Causes skin irritation."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والأسطح الساخنة والشرر.",
+        "en": "Keep away from heat, sparks, open flames."
+      },
+      {
+        "code": "P220",
+        "ar": "احفظ بعيداً عن المواد القابلة للاحتراق.",
+        "en": "Keep/Store away from combustible materials."
+      }
+    ],
+    "firstAid": {
+      "eye": "اشطف بالماء لمدة 15 دقيقة واطلب العناية الطبية.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل المصاب للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب المساعدة الطبية دون تحفيز القيء."
+    },
+    "storage": "مكان بارد وجاف، معزولاً عن المواد القابلة للاشتعال والمختزلات.",
+    "fire": "رذاذ ماء بكميات وفيرة. لا تستخدم المواد الخانقة دون تبريد بالماء.",
+    "disposal": "تجميع كنفايات أملاح مؤكسدة غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Ammonia solution",
+    "nameAr": "محلول الأمونيا (هيدروكسيد الأمونيوم)",
+    "formula": "NH3 (aq) / NH4OH",
+    "mw": "17.03 g/mol",
+    "cas": "1336-21-6",
+    "purity": "25% - 28%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "2L",
+    "notice": "1 Bottle",
+    "category": "bases",
+    "categoryAr": "القواعد",
+    "ghs": [
+      "corrosive",
+      "toxic",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H335",
+        "ar": "قد يسبب تهيجاً في الجهاز التنفسي.",
+        "en": "May cause respiratory irritation."
+      },
+      {
+        "code": "H400",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "لا تستنشق الأبخرة والغازات الصادرة.",
+        "en": "Do not breathe mist or vapors."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ ملابس وواقيات للعين والوجه وقفازات مناسبة.",
+        "en": "Wear eye protection/face protection/gloves."
+      },
+      {
+        "code": "P305+P351+P338",
+        "ar": "في حال ملامسة العين: اغسل بحذر بالماء لعدة دقائق.",
+        "en": "IF IN EYES: Rinse cautiously with water for several minutes."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء الجاري لمدة 15-20 دقيقة واستدعِ الإسعاف فوراً.",
+      "skin": "انزع الملابس الملوثة واغسل بالماء الغزير لدقائق عديدة.",
+      "inhalation": "انقل المريض للهواء الطلق، أعطِ أكسجين إذا لزم واستدعِ الطبيب.",
+      "ingestion": "لا تسبب القيء، اعطِ ماء إن كان واعياً، واطلب الإسعاف في الحال."
+    },
+    "storage": "مكان جيد التهوية، بارد ومحكم، بعيداً عن الأحماض والهالوجينات.",
+    "fire": "رذاذ ماء، رغوة، ثاني أكسيد الكربون.",
+    "disposal": "معادلة حذرة أو تسليم لشركات إدارة النفايات الخطرة المعتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Acetic acid",
+    "nameAr": "حمض الأسيتيك (حمض الخليك)",
+    "formula": "CH3COOH",
+    "mw": "60.05 g/mol",
+    "cas": "64-19-7",
+    "purity": "≥ 99.5%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "2.5L",
+    "notice": "1 Bottle",
+    "category": "acids",
+    "categoryAr": "الأحماض",
+    "ghs": [
+      "corrosive",
+      "flammable"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H226",
+        "ar": "سائل وبخار قابلان للاشتعال.",
+        "en": "Flammable liquid and vapor."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والشرر واللهب المكشوف.",
+        "en": "Keep away from heat, sparks, open flames."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ القفازات والنظارات الواقية والكمامة المناسبة.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بماء وفير لمدة 15 دقيقة مع رفع الجفون واستدعِ الإسعاف.",
+      "skin": "انزع الملابس الملوثة واغسل فوراً بالماء لـ 15 دقيقة.",
+      "inhalation": "انقل للهواء الطلق، وفي حال صعوبة التنفس راجع المركز الطبي.",
+      "ingestion": "لا تحث على التقيؤ، اشرب ماء وتوجه للمستشفى فوراً."
+    },
+    "storage": "في خزانة أحماض مخصصة، بعيداً عن القواعد والمؤكسدات والحرارة.",
+    "fire": "رذاذ الماء، مسحوق كيميائي جاف، رغوة مقاومة للكحول، CO2.",
+    "disposal": "يتم تخفيفه ومعادلته بمادة قلوية خفيفة ثم التخلص وفق التعليمات.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Acetic acid glacial",
+    "nameAr": "حمض الأسيتيك الثلجي (المركز)",
+    "formula": "CH3COOH",
+    "mw": "60.05 g/mol",
+    "cas": "64-19-7",
+    "purity": "≥ 99.8%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "400ml",
+    "notice": "1 Bottle",
+    "category": "acids",
+    "categoryAr": "الأحماض",
+    "ghs": [
+      "corrosive",
+      "flammable"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H226",
+        "ar": "سائل وبخار قابل للاشتعال.",
+        "en": "Flammable liquid and vapor."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً بالغة وتآكلاً للأنسجة والعينين.",
+        "en": "Causes severe skin burns and eye damage."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "لا تستنشق الأبخرة الحادة المتطايرة.",
+        "en": "Do not breathe mist/vapors."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء تجهيزات الحماية الفردية المقاومة للأحماض العضوية.",
+        "en": "Wear full protective gear."
+      }
+    ],
+    "firstAid": {
+      "eye": "غسيل فوري بالماء 20 دقيقة واستشارة طبية عاجلة.",
+      "skin": "غسيل مستمر بالماء وإزالة الملابس الملوثة فوراً.",
+      "inhalation": "نقل سريع إلى بيئة نقية وأكسجين إذا استدعى الأمر.",
+      "ingestion": "ممنوع التقيؤ تماماً، رعاية طبية طارئة عاجلة."
+    },
+    "storage": "درجة حرارة فوق 16 مئوية لتفادي التصلب، في خزانة المواد الأكالة.",
+    "fire": "رغوة كحولية، رذاذ ماء، مسحوق كيميائي جاف.",
+    "disposal": "تجميع كنفايات عضوية حمضية خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Acetone",
+    "nameAr": "أسيتون",
+    "formula": "C3H6O / CH3COCH3",
+    "mw": "58.08 g/mol",
+    "cas": "67-64-1",
+    "purity": "≥ 99.5%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "300ml",
+    "notice": "1 Bottle",
+    "category": "solvents",
+    "categoryAr": "المذيبات العضوية",
+    "ghs": [
+      "flammable",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H225",
+        "ar": "سائل وبخار شديدا الاشتعال.",
+        "en": "Highly flammable liquid and vapor."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      },
+      {
+        "code": "H336",
+        "ar": "قد يسبب النعاس أو الدوار.",
+        "en": "May cause drowsiness or dizziness."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة واللهب والشرر.",
+        "en": "Keep away from heat/sparks/open flames."
+      },
+      {
+        "code": "P233",
+        "ar": "أبقِ الحاوية مغلقة بإحكام.",
+        "en": "Keep container tightly closed."
+      },
+      {
+        "code": "P305+P351",
+        "ar": "اغسل العينين بحذر بالماء لعدة دقائق.",
+        "en": "Rinse eyes cautiously with water."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لمدة 15 دقيقة واستشر الطبيب إذا استمر التهيج.",
+      "skin": "اغسل بالماء والصابون، واستخدم مرطباً للبشرة.",
+      "inhalation": "اخرج للهواء النقي، واجلس بوضع مريح للاسترخاء.",
+      "ingestion": "اشرب الماء ولا تحث على التقيؤ، اطلب الرعاية إذا لزم."
+    },
+    "storage": "خزانة المذيبات القابلة للاشتعال، في مكان بارد وجيد التهوية.",
+    "fire": "مسحوق جاف، CO2، أو رغوة مقاومة للكحول. رذاذ ماء للتبريد.",
+    "disposal": "نفايات مذيبات عضوية غير مكلورة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Calcium chloride",
+    "nameAr": "كلوريد الكالسيوم",
+    "formula": "CaCl2",
+    "mw": "110.98 g/mol",
+    "cas": "10043-52-4",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بعد المناولة.",
+        "en": "Wash hands thoroughly after handling."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ نظارات واقية.",
+        "en": "Wear eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء الغزير لمدة 15 دقيقة واستشر طبيباً.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل المصاب للهواء المنعش.",
+      "ingestion": "اشرب كمية كافية من الماء وراجع الطبيب إن شعر بألم."
+    },
+    "storage": "مكان جاف تماماً لأنه شديد الامتصاص للرطوبة من الهواء (استرطابي).",
+    "fire": "المادة غير قابلة للاشتعال؛ استخدم الوسائل المناسبة للمواد المجاورة.",
+    "disposal": "يمكن التخلص كنفايات أملاح غير خطرة وفق اللوائح المتبعة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Cupric Nitrate (Copper(II) nitrate)",
+    "nameAr": "نترات النحاسيك (نترات النحاس الثنائي)",
+    "formula": "Cu(NO3)2·3H2O",
+    "mw": "241.60 g/mol",
+    "cas": "10031-43-3",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "corrosive",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الاحتراق؛ مؤكسد قوي.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً للجلد وتلفاً في العين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأمد.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب إطلاقه في البيئة أو الصرف الصحي.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات واقية ونظارات حماية الوجه والجلد.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة وراجع طبيب العيون.",
+      "skin": "اغسل بالماء والصابون وأزل الملابس الملوثة فوراً.",
+      "inhalation": "انقل المريض للهواء الطلق واستشر الطبيب.",
+      "ingestion": "اشرب الماء ولا تحث على التقيؤ، اطلب الرعاية العاجلة."
+    },
+    "storage": "محكم الإغلاق في مكان بارد وجاف بعيداً عن المواد العضوية والمختزلة.",
+    "fire": "رذاذ الماء بكميات كبيرة لتبريد الحاويات والمحيط.",
+    "disposal": "مخلفات معادن ثقيلة؛ يمنع رميها بالصرف الصحي بتاتاً.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Citric acid",
+    "nameAr": "حمض الستريك (حمض الليمون)",
+    "formula": "C6H8O7",
+    "mw": "192.12 g/mol",
+    "cas": "77-92-9",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottle",
+    "category": "acids",
+    "categoryAr": "الأحماض",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      },
+      {
+        "code": "H335",
+        "ar": "قد يسبب تهيج الجهاز التنفسي عند استنشاق غباره.",
+        "en": "May cause respiratory irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P261",
+        "ar": "تجنب تنفس الغبار المتطاير.",
+        "en": "Avoid breathing dust."
+      },
+      {
+        "code": "P305+P351",
+        "ar": "اغسل بالماء بحذر لعدة دقائق.",
+        "en": "Rinse cautiously with water."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء النقي لمدة 10-15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "استنشق هواءً نقياً واشرب ماءً دافئاً.",
+      "ingestion": "اشرب الماء، وفي العادة لا يمثل خطراً حاداً ما لم تكن الكمية ضخمة."
+    },
+    "storage": "مكان بارد وجاف مع إحكام الغلق لمنع تكتل البلورات.",
+    "fire": "ماء، مسحوق كيميائي، ثاني أكسيد الكربون.",
+    "disposal": "نفايات عضوية غير خطرة، يمكن التخفيف بالماء بعد التحييد.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Copper sulphate pentahydrate",
+    "nameAr": "كبريتات النحاس خماسية الهيدرات",
+    "formula": "CuSO4·5H2O",
+    "mw": "249.68 g/mol",
+    "cas": "7758-99-8",
+    "purity": "≥ 98.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful",
+      "environmental",
+      "corrosive"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H315",
+        "ar": "يسبب تهيج الجلد.",
+        "en": "Causes skin irritation."
+      },
+      {
+        "code": "H318",
+        "ar": "يسبب تلفاً خطيراً للعين.",
+        "en": "Causes serious eye damage."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع تأثيرات ممتدة.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب تفريغه في المجاري المائية والبيئة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ نظارات واقية وقفازات معملية.",
+        "en": "Wear eye protection/gloves."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل العين فوراً بماء جارٍ لمدة 15 دقيقة على الأقل واستشر طبيب عيون.",
+      "skin": "اغسل الجلد جيداً بالماء والصابون.",
+      "inhalation": "انتقل للهواء الطلق.",
+      "ingestion": "اشرب كميات كبيرة من الماء واطلب الطبيب فوراً، لا تحث على التقيؤ."
+    },
+    "storage": "وعاء محكم الإغلاق، بيئة باردة وجافة وجيدة التهوية.",
+    "fire": "غير قابل للاشتعال، استعمل الوسائط الملائمة للحرائق المحيطة.",
+    "disposal": "مخلفات أملاح معادن ثقيلة تسلم لشركات التدوير الكيميائي المتخصصة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Cadmium sulphate",
+    "nameAr": "كبريتات الكادميوم",
+    "formula": "CdSO4",
+    "mw": "208.47 g/mol",
+    "cas": "10124-36-4",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "200g",
+    "notice": "1 Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H301+H330",
+        "ar": "سام إذا ابتلع وقاتل إذا استنشق.",
+        "en": "Toxic if swallowed and fatal if inhaled."
+      },
+      {
+        "code": "H340",
+        "ar": "قد يسبب عيوباً وراثية.",
+        "en": "May cause genetic defects."
+      },
+      {
+        "code": "H350",
+        "ar": "قد يسبب السرطان.",
+        "en": "May cause cancer."
+      },
+      {
+        "code": "H360FD",
+        "ar": "قد يضر بالخصوبة أو الجنين.",
+        "en": "May damage fertility or the unborn child."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للبيئة المائية.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات خاصة قبل الاستخدام.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P260",
+        "ar": "لا تتنفس الغبار بتاتاً.",
+        "en": "Do not breathe dust."
+      },
+      {
+        "code": "P281",
+        "ar": "استخدم معدات الوقاية الشخصية المناسبة والمشددة.",
+        "en": "Use personal protective equipment as required."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واستدعِ الطوارئ.",
+      "skin": "اغسل بالماء والصابون، واستبدل الملابس الملوثة بحذر شديد.",
+      "inhalation": "انقل المصاب للهواء الطلق واستخدم تنفساً اصطناعياً إذا تطلب الأمر واطلب الإسعاف.",
+      "ingestion": "اطلب الإسعاف فوراً دون إبطاء ولا تحث على التقيؤ."
+    },
+    "storage": "في خزانة السموم المقفلة بإحكام وبمفتاح، مع بطاقة تحذير واضحة.",
+    "fire": "مسحوق جاف، رذاذ ماء خفيف، رغوة.",
+    "disposal": "نفايات خطرة جداً ومسرطنة؛ تسلم حصرياً للجهات الرسمية للتخلص الآمن.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Ethyl acetate",
+    "nameAr": "أسيتات الإيثيل (إيثيل أسيتات)",
+    "formula": "C4H8O2 / CH3COOC2H5",
+    "mw": "88.11 g/mol",
+    "cas": "141-78-6",
+    "purity": "≥ 99.5%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "250ML",
+    "notice": "1 Bottle",
+    "category": "solvents",
+    "categoryAr": "المذيبات العضوية",
+    "ghs": [
+      "flammable",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H225",
+        "ar": "سائل وبخار شديدا الاشتعال.",
+        "en": "Highly flammable liquid and vapor."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً في العينين.",
+        "en": "Causes serious eye irritation."
+      },
+      {
+        "code": "H336",
+        "ar": "قد يسبب النعاس أو الدوار.",
+        "en": "May cause drowsiness or dizziness."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن مصادر الحرارة والشرر واللهب.",
+        "en": "Keep away from heat/sparks/open flames."
+      },
+      {
+        "code": "P261",
+        "ar": "تجنب استنشاق البخار في أماكن مغلقة.",
+        "en": "Avoid breathing vapors."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء المتدفق لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انتقل لمكان ذي تهوية جيدة وهواء منعش.",
+      "ingestion": "اشرب الماء واطلب الاستشارة الطبية إن لزم."
+    },
+    "storage": "خزانة المذيبات سريعة الاشتعال، في مكان بارد وجيد التهوية.",
+    "fire": "رغوة مقاومة للكحول، مسحوق ثاني أكسيد الكربون.",
+    "disposal": "نفايات عضوية قابلة للحرق في محارق مخصصة للمذيبات.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Ethanol",
+    "nameAr": "إيثانول (كحول إيثيلي)",
+    "formula": "C2H5OH",
+    "mw": "46.07 g/mol",
+    "cas": "64-17-5",
+    "purity": "96% - 99.9%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "2L",
+    "notice": "1 Bottles",
+    "category": "solvents",
+    "categoryAr": "المذيبات العضوية",
+    "ghs": [
+      "flammable",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H225",
+        "ar": "سائل وبخار شديدا الاشتعال.",
+        "en": "Highly flammable liquid and vapor."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والأسطح الساخنة والشرر واللهب.",
+        "en": "Keep away from heat, hot surfaces, sparks, open flames."
+      },
+      {
+        "code": "P233",
+        "ar": "أبقِ الحاوية مغلقة بإحكام دائم.",
+        "en": "Keep container tightly closed."
+      },
+      {
+        "code": "P305+P351+P338",
+        "ar": "في حال ملامسة العينين: اشطف بحذر بالماء لعدة دقائق.",
+        "en": "IF IN EYES: Rinse cautiously with water for several minutes."
+      }
+    ],
+    "firstAid": {
+      "eye": "اشطف بالماء الجاري لعدة دقائق مع إزالة العدسات اللاصقة إن وجدت.",
+      "skin": "اغسل الجلد بالماء والصابون إذا حدث تهيج.",
+      "inhalation": "انقل الشخص المصاب للهواء الطلق للاستراحة.",
+      "ingestion": "اشرب الماء ولا تحث على التقيؤ، اطلب المساعدة الطبية عند الحاجة."
+    },
+    "storage": "خزانة المواد القابلة للاشتعال، في مكان بارد، جاف، بعيداً عن أي مصدر شرر.",
+    "fire": "استخدم رغوة مقاومة للكحول، ثاني أكسيد الكربون، أو مسحوق كيميائي جاف.",
+    "disposal": "تجميع كنفايات مذيبات عضوية قابلة للاشتعال تودع لشركات التخلص المعتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Ferrous sulphate heptahydrate",
+    "nameAr": "كبريتات الحديدوز سباعية الهيدرات",
+    "formula": "FeSO4·7H2O",
+    "mw": "278.02 g/mol",
+    "cas": "7782-63-0",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H315",
+        "ar": "يسبب تهيج الجلد.",
+        "en": "Causes skin irritation."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيج العين.",
+        "en": "Causes eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بالماء بعد العمل بها.",
+        "en": "Wash hands thoroughly after handling."
+      },
+      {
+        "code": "P301+P312",
+        "ar": "إذا ابتلع: اتصل بالطبيب أو مركز مكافحة السموم.",
+        "en": "IF SWALLOWED: Call a doctor if you feel unwell."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل العين بالماء لمدة 15 دقيقة.",
+      "skin": "اغسل الجلد بالماء والصابون.",
+      "inhalation": "انتقل للهواء النقي.",
+      "ingestion": "اشرب ماءً واطلب الرعاية الطبية."
+    },
+    "storage": "محكم الإغلاق ومحمي من الهواء والرطوبة لتجنب تأكسده لحديديك.",
+    "fire": "غير قابل للاشتعال، استعمل الوسائل المناسبة للبيئة المحيطة.",
+    "disposal": "نفايات أملاح غير عضوية، يتم تسليمها للجهة المختصة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Hydrogen peroxide",
+    "nameAr": "بيروكسيد الهيدروجين (ماء الأكسجين)",
+    "formula": "H2O2",
+    "mw": "34.01 g/mol",
+    "cas": "7722-84-1",
+    "purity": "30% - 35%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "2L",
+    "notice": "2Bottles",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "corrosive",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H271",
+        "ar": "قد يسبب حريقاً أو انفجاراً؛ مؤكسد قوي.",
+        "en": "May cause fire or explosion; strong oxidizer."
+      },
+      {
+        "code": "H302+H332",
+        "ar": "ضار إذا ابتلع أو استنشق.",
+        "en": "Harmful if swallowed or if inhaled."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والمواد القابلة للاشتعال والمعادن.",
+        "en": "Keep away from heat, combustible materials."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ واقيات العين واليدين والوجه.",
+        "en": "Wear eye/face protection and gloves."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واطلب الإسعاف في الحال.",
+      "skin": "اغسل بالماء الوفير فوراً وانزع الملابس الملوثة.",
+      "inhalation": "انقل للهواء النقي، وقدم مساعدة طبية عاجلة.",
+      "ingestion": "لا تحفز القيء واطلب الطبيب فوراً."
+    },
+    "storage": "في عبوات مع فتحات تنفيس خاصة، مكان مظلم وبارد بعيداً عن الأوساخ والمعادن.",
+    "fire": "اغمر بالماء بكميات وفيرة جداً؛ لا تستخدم طفايات المسحوق الجاف.",
+    "disposal": "تخفيف كبير بالماء ومعالجة متوافقة بيئياً.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Hydrochloric acid",
+    "nameAr": "حمض الهيدروكلوريك",
+    "formula": "HCl",
+    "mw": "36.46 g/mol",
+    "cas": "7647-01-0",
+    "purity": "35% - 37%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "2.5L",
+    "notice": "1Bottles",
+    "category": "acids",
+    "categoryAr": "الأحماض",
+    "ghs": [
+      "corrosive",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً كبيراً في العين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H335",
+        "ar": "قد يسبب تهيجاً حاداً في الجهاز التنفسي.",
+        "en": "May cause respiratory irritation."
+      },
+      {
+        "code": "H290",
+        "ar": "قد يؤدي إلى تآكل المعادن.",
+        "en": "May be corrosive to metals."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "لا تستنشق الغازات والأبخرة الحمضية الخانقة.",
+        "en": "Do not breathe mist or vapors."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ معدات الحماية الكاملة المقاومة للأحماض.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      },
+      {
+        "code": "P301+P330+P331",
+        "ar": "في حال الابتلاع: اشطف الفم، ولا تحث على التقيؤ.",
+        "en": "IF SWALLOWED: Rinse mouth. Do NOT induce vomiting."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 20 دقيقة مع فتح الجفون واطلب الإسعاف عاجلاً.",
+      "skin": "اغسل فوراً بماء غزير وانزع الملابس الملوثة فوراً.",
+      "inhalation": "انقل إلى مكان به هواء نقي، واجلس بوضع شبه جالس لسهولة التنفس.",
+      "ingestion": "لا تستفرغ أبداً، اشرب جرعات صغيرة من الماء واطلب الإسعاف في التو."
+    },
+    "storage": "في خزانة الأحماض المقاومة للتآكل والمزودة بتهوية، بعيداً عن القواعد والفلزات.",
+    "fire": "غير قابل للاشتعال بذاته؛ رذاذ ماء لامتصاص الأبخرة وإخماد المحيط.",
+    "disposal": "يتم تحييده تدريجياً بواسطة محلول قاعدي خفيف (مثل كربونات الكالسيوم أو الصوديوم) والتخلص منه بأمان.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Iodine resublimed",
+    "nameAr": "يود نقي (متبلور)",
+    "formula": "I2",
+    "mw": "253.81 g/mol",
+    "cas": "7553-56-2",
+    "purity": "≥ 99.8%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "50g",
+    "notice": "1 Bottle",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "harmful",
+      "environmental",
+      "corrosive"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H312+H332",
+        "ar": "ضار عند ملامسة الجلد أو الاستنشاق.",
+        "en": "Harmful in contact with skin or if inhaled."
+      },
+      {
+        "code": "H315",
+        "ar": "يسبب تهيج الجلد وحروقه بالأبخرة.",
+        "en": "Causes skin irritation."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      },
+      {
+        "code": "H400",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب انبعاثه أو إلقائه في البيئة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P280",
+        "ar": "استخدم قفازات مناسبة ونظارات واقية.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء المتدفق لمدة 15 دقيقة واستشر طبيب.",
+      "skin": "اغسل بالماء والصابون واستخدم محلول ثيوكبريتات مخفف لإزالة البقع.",
+      "inhalation": "انقل المريض للهواء المنعش واطلب الرعاية.",
+      "ingestion": "اعطِ محلول نشا مخفف وماء واطلب مساعدة طبية عاجلة."
+    },
+    "storage": "محكم الإغلاق في زجاجات بنية داكنة، بارد وجاف لتجنب التسامي.",
+    "fire": "غير قابل للاشتعال؛ رذاذ الماء لمكافحة الحريق وتثبيط الأبخرة البنفسجية.",
+    "disposal": "معالجة بمحلول ثيوكبريتات الصوديوم للتحويل ليوديد ثم التخلص وفق اللوائح.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Lead Acetate trihydrate",
+    "nameAr": "أسيتات الرصاص ثلاثية الهيدرات",
+    "formula": "Pb(CH3COO)2·3H2O",
+    "mw": "379.33 g/mol",
+    "cas": "6080-56-4",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "150g",
+    "notice": "2 Bottles",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H360Df",
+        "ar": "قد يضر بالجنين ويشتبه في الإضرار بالخصوبة.",
+        "en": "May damage the unborn child. Suspected of damaging fertility."
+      },
+      {
+        "code": "H373",
+        "ar": "قد يسبب تلفاً للأعضاء عند التعرض لفترات طويلة.",
+        "en": "May cause damage to organs through prolonged exposure."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار ممتدة.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "الحصول على التعليمات والاحتياطات قبل الاستخدام.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P273",
+        "ar": "تجنب طرحه في البيئة تماماً.",
+        "en": "Avoid release to the environment."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء النقي لمدة 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون جيداً وانزع الثياب الملوثة.",
+      "inhalation": "انقل المصاب للهواء الطلق واستدعِ الإسعاف فوراً.",
+      "ingestion": "اطلب الإسعاف فوراً، اشرب ماء مع ملح إبسوم (كبريتات ماغنيسيوم) لترسيب الرصاص إن توفر."
+    },
+    "storage": "في خزانة السموم المخصصة والمغلقة، بعيداً عن الأطعمة والأطفال.",
+    "fire": "رذاذ الماء، مسحوق كيميائي جاف، رغوة.",
+    "disposal": "مخلفات مركبات الرصاص السامة؛ تسلم لشركات إدارة النفايات الخطرة حصراً.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Lead nitrate",
+    "nameAr": "نترات الرصاص",
+    "formula": "Pb(NO3)2",
+    "mw": "331.20 g/mol",
+    "cas": "10099-74-8",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1050g",
+    "notice": "2 Bottles",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "oxidizer",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H302+H332",
+        "ar": "ضار إذا ابتلع أو استنشق.",
+        "en": "Harmful if swallowed or if inhaled."
+      },
+      {
+        "code": "H360Df",
+        "ar": "قد يضر بالجنين ويشتبه بضرر الخصوبة.",
+        "en": "May damage the unborn child. Suspected of damaging fertility."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للبيئة المائية.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات السلامة قبل التداول.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P220",
+        "ar": "احفظ بعيداً عن المواد القابلة للاشتعال.",
+        "en": "Keep away from combustible materials."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة واطلب الفحص الطبي.",
+      "skin": "اغسل بالماء والصابون بحذر.",
+      "inhalation": "انقل المريض للهواء المنعش فوراً.",
+      "ingestion": "اطلب الإسعاف دون إبطاء ولا تسبب التقيؤ."
+    },
+    "storage": "مكان مقفل، بارد، جاف، بعيداً عن المواد العضوية والمختزلة.",
+    "fire": "كميات وفيرة من رذاذ الماء.",
+    "disposal": "مخلفات سمية خطرة تسلم للجهات المرخصة فقط.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Lead chloride",
+    "nameAr": "كلوريد الرصاص",
+    "formula": "PbCl2",
+    "mw": "278.10 g/mol",
+    "cas": "7758-95-4",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1500g",
+    "notice": "2 Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302+H332",
+        "ar": "ضار إذا ابتلع أو استنشق.",
+        "en": "Harmful if swallowed or if inhaled."
+      },
+      {
+        "code": "H360Df",
+        "ar": "يضر بالأجنة والخصوبة والأجهزة الحيوية.",
+        "en": "May damage fertility or the unborn child."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب الإطلاق في الطبيعة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P281",
+        "ar": "استخدم المعدات الوقائية الفردية المشددة.",
+        "en": "Use personal protective equipment as required."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء الطلق.",
+      "ingestion": "اطلب المساعدة الطبية الطارئة فوراً."
+    },
+    "storage": "محكم الإغلاق في خزانة المواد السامة.",
+    "fire": "وسائط إطفاء متوافقة مع المواد المحيطة.",
+    "disposal": "معاملة خاصة كنفايات معادن ثقيلة خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Lead sulphate",
+    "nameAr": "كبريتات الرصاص",
+    "formula": "PbSO4",
+    "mw": "303.26 g/mol",
+    "cas": "7446-14-2",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302+H332",
+        "ar": "ضار إذا ابتلع أو استنشق غباره.",
+        "en": "Harmful if swallowed or inhaled."
+      },
+      {
+        "code": "H373",
+        "ar": "يسبب تلفاً للأعضاء مع التعرض المديد.",
+        "en": "Causes damage to organs through prolonged exposure."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "تجنب استنشاق الأغبرة تماماً.",
+        "en": "Do not breathe dust."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء واقيات تنفس وقفازات ونظارات.",
+        "en": "Wear respiratory protection/gloves/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة.",
+      "skin": "اغسل جيداً بالصابون والماء.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اطلب الرعاية الصحية فوراً."
+    },
+    "storage": "مكان جاف وبارد في حاويات مقفلة وموسومة بالسمية.",
+    "fire": "غير قابل للاشتعال، طفايات متوافقة مع المواد المحيطة.",
+    "disposal": "نفايات رصاص خطرة معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Lead metal granular",
+    "nameAr": "رصاص معدني حبيبي",
+    "formula": "Pb",
+    "mw": "207.2 g/mol",
+    "cas": "7439-92-1",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H360FD",
+        "ar": "قد يضر بالخصوبة والجنين.",
+        "en": "May damage fertility or the unborn child."
+      },
+      {
+        "code": "H372",
+        "ar": "يسبب تلفاً للأعضاء والجهاز العصبي.",
+        "en": "Causes damage to organs."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "اقرأ احتياطات السلامة الخاصة بالرصاص.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ القفازات الواقية دائماً عند اللمس.",
+        "en": "Wear protective gloves."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء مع إزالة الحبيبات بلطف.",
+      "skin": "اغسل بالماء والصابون بعد أي تعامل.",
+      "inhalation": "انقل للهواء النقي.",
+      "ingestion": "اطلب المعونة الطبية الفورية."
+    },
+    "storage": "حاويات محكمة لمنع التعرية وتكون أكاسيد الرصاص السامة.",
+    "fire": "مسحوق جاف فئة D أو رمل جاف.",
+    "disposal": "إعادة تدوير معادن خاصة أو مخلفات ثقيلة معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Manganese dioxide (Manganese oxide)",
+    "nameAr": "ثاني أكسيد المنغنيز (أكسيد المنغنيز)",
+    "formula": "MnO2",
+    "mw": "86.94 g/mol",
+    "cas": "1313-13-9",
+    "purity": "≥ 80.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H302+H332",
+        "ar": "ضار إذا ابتلع أو استنشق.",
+        "en": "Harmful if swallowed or if inhaled."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة ومواد الاحتراق.",
+        "en": "Keep away from heat/sparks."
+      },
+      {
+        "code": "P260",
+        "ar": "تجنب تنفس الأتربة الناتجة.",
+        "en": "Do not breathe dust."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل العين بالماء لمدة 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "اخرج للهواء النقي.",
+      "ingestion": "اشرب الماء واطلب المشورة الطبية."
+    },
+    "storage": "مكان بارد وجاف، معزول عن المواد القابلة للأكسدة والأحماض.",
+    "fire": "رذاذ الماء بكميات كبيرة لإخماد المحيط وتبريد الحاوية.",
+    "disposal": "نفايات أكسيد معادن غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Manganese (II) chloride tetrahydrate",
+    "nameAr": "كلوريد المنغنيز (II) رباعي الهيدرات",
+    "formula": "MnCl2·4H2O",
+    "mw": "197.9 g/mol",
+    "cas": "13446-34-9",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "300g",
+    "notice": "1 Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful",
+      "environmental"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H315",
+        "ar": "يسبب تهيج الجلد.",
+        "en": "Causes skin irritation."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً للعين.",
+        "en": "Causes serious eye irritation."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأمد.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب إطلاقه في البيئة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بعد المناولة.",
+        "en": "Wash hands thoroughly after handling."
+      },
+      {
+        "code": "P270",
+        "ar": "لا تأكل أو تشرب أو تدخن أثناء الاستخدام.",
+        "en": "Do not eat, drink or smoke when using this product."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات / ملابس واقية / نظارات واقية.",
+        "en": "Wear protective gloves / protective clothing / eye protection."
+      },
+      {
+        "code": "P301+P312",
+        "ar": "في حالة الابتلاع: اتصل بمركز السموم أو الطبيب فوراً.",
+        "en": "IF SWALLOWED: Call a POISON CENTER or doctor."
+      },
+      {
+        "code": "P305+P351+P338",
+        "ar": "في ملامسة العين: اشطف بحذر بالماء لعدة دقائق.",
+        "en": "IF IN EYES: Rinse cautiously with water for several minutes."
+      },
+      {
+        "code": "P391",
+        "ar": "اجمع الانسكاب.",
+        "en": "Collect spillage."
+      },
+      {
+        "code": "P501",
+        "ar": "تخلص من المحتويات/العبوة وفقاً للأنظمة المحلية.",
+        "en": "Dispose of contents/container in accordance with local regulations."
+      }
+    ],
+    "firstAid": {
+      "eye": "اشطف العين بالماء الجاري لمدة 15 دقيقة على الأقل.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل المصاب إلى هواء نقي.",
+      "ingestion": "اتصل فوراً بمركز السموم أو الطبيب."
+    },
+    "storage": "يحفظ في مكان بارد وجاف وفي وعاء محكم الإغلاق، بعيداً عن المواد غير المتوافقة.",
+    "fire": "استخدم وسائل إطفاء مناسبة للمواد المحيطة.",
+    "disposal": "تخلص من النفايات وفقاً للأنظمة المحلية المعتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Manganese sulphate monohydrate",
+    "nameAr": "كبريتات المنغنيز أحادية الهيدرات",
+    "formula": "MnSO4·H2O",
+    "mw": "169.02 g/mol",
+    "cas": "10034-96-5",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "400g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful",
+      "environmental",
+      "health_hazard"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H373",
+        "ar": "قد يسبب تلفاً للأعضاء بالتعرض المتكرر.",
+        "en": "May cause damage to organs through prolonged exposure."
+      },
+      {
+        "code": "H411",
+        "ar": "سام للحياة المائية مع آثار ممتدة.",
+        "en": "Toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "لا تستنشق الأغبرة المتصاعدة.",
+        "en": "Do not breathe dust."
+      },
+      {
+        "code": "P273",
+        "ar": "تجنب الإلقاء في البيئة.",
+        "en": "Avoid release to the environment."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انتقل لمكان جيد التهوية.",
+      "ingestion": "اشرب كميات كافية من الماء واستشر الطبيب."
+    },
+    "storage": "مكان بارد وجاف، حاويات محكمة السد.",
+    "fire": "وسائط الإطفاء المعتادة والمناسبة للموقع.",
+    "disposal": "مخلفات أملاح منغنيز كيميائية غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Magnesium sulphate heptahydrate",
+    "nameAr": "كبريتات المغنيسيوم سباعية الهيدرات (ملح إبسوم)",
+    "formula": "MgSO4·7H2O",
+    "mw": "246.47 g/mol",
+    "cas": "10034-99-8",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً طفيفاً للعين عند التلامس المباشر.",
+        "en": "May cause slight eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين بعد الاستعمال.",
+        "en": "Wash hands after handling."
+      }
+    ],
+    "firstAid": {
+      "eye": "اشطف بالماء المتدفق لدقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء، المادة قليلة السمية جداً (تستخدم كملين طبي بجرعات محددة)."
+    },
+    "storage": "في مكان جاف، وعاء مغلق لمنع فقدان أو امتصاص ماء التبلور.",
+    "fire": "غير قابل للاشتعال.",
+    "disposal": "نفايات غير خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Magnesium chloride hexahydrate",
+    "nameAr": "كلوريد المغنيسيوم سداسي الهيدرات",
+    "formula": "MgCl2·6H2O",
+    "mw": "203.30 g/mol",
+    "cas": "7791-18-6",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1400g",
+    "notice": "3 Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً خفيفاً في العينين.",
+        "en": "Causes mild eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتداء نظارات واقية وقفازات.",
+        "en": "Wear eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انتقل للهواء المنعش.",
+      "ingestion": "اشرب الماء وراجع الطبيب في حال ابتلاع كميات كبيرة."
+    },
+    "storage": "محكم الإغلاق تماماً لأنه سريع الامتصاص لرطوبة الجو وسيلان البلورات.",
+    "fire": "غير قابل للاشتعال.",
+    "disposal": "مخلفات أملاح عادية غير سامة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Magnesium nitrate hexahydrate",
+    "nameAr": "نترات المغنيسيوم سداسية الهيدرات",
+    "formula": "Mg(NO3)2·6H2O",
+    "mw": "256.41 g/mol",
+    "cas": "13446-18-9",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "700g",
+    "notice": "2Bottles",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الاحتراق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن مصادر الحرارة والشرر والمواد القابلة للاشتعال.",
+        "en": "Keep away from heat, sparks, open flames."
+      },
+      {
+        "code": "P220",
+        "ar": "احفظ بمعزل عن المواد القابلة للاحتراق.",
+        "en": "Keep/Store away from clothing/combustible materials."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب النصيحة الطبية."
+    },
+    "storage": "مكان بارد وجاف معزول عن المواد العضوية والمختزلة.",
+    "fire": "استخدم كميات وفيرة من الماء للتبريد والإخماد.",
+    "disposal": "تجميع كنفايات أملاح مؤكسدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Magnesium metal ribbon/powder",
+    "nameAr": "مغنيسيوم معدني (شريط / حبيبي)",
+    "formula": "Mg",
+    "mw": "24.31 g/mol",
+    "cas": "7439-95-4",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "100g",
+    "notice": "1Bottles",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "flammable"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H228",
+        "ar": "مادة صلبة قابلة للاشتعال بلهب ساطع جداً.",
+        "en": "Flammable solid."
+      },
+      {
+        "code": "H261",
+        "ar": "تطلق غاز الهيدروجين القابل للاشتعال عند ملامسة الماء.",
+        "en": "In contact with water releases flammable gas."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن أي لهب مكشوف أو حرارة.",
+        "en": "Keep away from heat/sparks/open flames."
+      },
+      {
+        "code": "P223",
+        "ar": "تجنب ملامسة الماء بتاتاً.",
+        "en": "Do not allow contact with water."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء نظارات خاصة للحماية من الأشعة فوق البنفسجية لوميض المغنيسيوم.",
+        "en": "Wear eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بحذر بالماء في حال دخول برادة معدنية.",
+      "skin": "اغسل بالماء والصابون، وعالج الحروق بالتبريد والضمادات المعقمة.",
+      "inhalation": "انقل المصاب للهواء الطلق في حال استنشاق أكسيد المغنيسيوم.",
+      "ingestion": "اشرب ماءً واستشر طبيباً."
+    },
+    "storage": "مكان جاف تماماً، بعيداً عن الماء والرطوبة والأحماض والهالوجينات.",
+    "fire": "طفاية مسحوق جاف من الفئة D أو رمل جاف ناعم. يحظر استخدام الماء أو طفايات CO2 نهائياً!",
+    "disposal": "تجميع كنفايات فلزات نشطة قابلة للاشتعال.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Methyl acetate",
+    "nameAr": "أسيتات الميثيل (ميثيل أسيتات)",
+    "formula": "C3H6O2 / CH3COOCH3",
+    "mw": "74.08 g/mol",
+    "cas": "79-20-9",
+    "purity": "≥ 99.0%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "2.5l",
+    "notice": "1 Bottle",
+    "category": "solvents",
+    "categoryAr": "المذيبات العضوية",
+    "ghs": [
+      "flammable",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H225",
+        "ar": "سائل وبخار شديدا الاشتعال.",
+        "en": "Highly flammable liquid and vapor."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العينين.",
+        "en": "Causes serious eye irritation."
+      },
+      {
+        "code": "H336",
+        "ar": "قد يسبب الدوار أو النعاس.",
+        "en": "May cause drowsiness or dizziness."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة واللهب والشرر.",
+        "en": "Keep away from heat, sparks, open flames."
+      },
+      {
+        "code": "P261",
+        "ar": "تجنب استنشاق الأبخرة.",
+        "en": "Avoid breathing vapors."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة مع مراجعة الطبيب إن استمر التهيج.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "اخرج للهواء النقي.",
+      "ingestion": "اشرب ماء ولا تحث على التقيؤ."
+    },
+    "storage": "خزانة المذيبات القابلة للاشتعال، في مكان بارد ومغلق.",
+    "fire": "رغوة مقاومة للكحول، مسحوق ثاني أكسيد الكربون.",
+    "disposal": "تجميع مع المذيبات العضوية غير المكلورة للتخلص الآمن.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Nitric acid",
+    "nameAr": "حمض النيتريك (حمض الآزوت)",
+    "formula": "HNO3",
+    "mw": "63.01 g/mol",
+    "cas": "7697-37-2",
+    "purity": "65% - 68%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "300ml",
+    "notice": "1 Bottle",
+    "category": "acids",
+    "categoryAr": "الأحماض",
+    "ghs": [
+      "oxidizer",
+      "corrosive",
+      "toxic"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد قوي جداً.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً بالغة وشديدة وتآكلاً للجلد والأعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H330",
+        "ar": "قاتل إذا استنشقت أبخرته (أكاسيد النيتروجين NO2).",
+        "en": "Fatal if inhaled."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P220",
+        "ar": "احفظ بعيداً تماماً عن المواد العضوية والمذيبات.",
+        "en": "Keep/Store away from combustible materials."
+      },
+      {
+        "code": "P260",
+        "ar": "لا تستنشق الأبخرة الصفراء أو البنية إطلاقاً.",
+        "en": "Do not breathe dust/fume/gas/mist/vapours."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء واقي وجه كامل ومريلة مقاومة للأحماض وقفازات متينة.",
+        "en": "Wear protective gloves/clothing/eye protection/face protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 20 دقيقة واستدعِ الإسعاف فوراً دون أي تأخير.",
+      "skin": "اغسل بالماء الغزير الجاري فوراً لمدة 20 دقيقة على الأقل وانزع الملابس.",
+      "inhalation": "انقل المريض للهواء النقي، واجلسه بوضع تنفس مريح واطلب الإسعاف العاجل للأكسجين.",
+      "ingestion": "لا تستفرغ! اشرب ماء بكميات قليلة واطلب الطوارئ في أسرع وقت."
+    },
+    "storage": "في خزانة أحماض خاصة مخصصة ومفصولة تماماً عن المذيبات والأحماض العضوية والقواعد.",
+    "fire": "رذاذ ماء بكميات ضخمة جداً لتبريد الحاويات وتخفيف الحمض وحجب الأبخرة.",
+    "disposal": "تحييد حذر جداً وبطيء بمحلول هيدروكسيد الصوديوم أو الجير المخفف بواسطة متخصصين.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Oxalic acid dihydrate",
+    "nameAr": "حمض الأوكساليك ثنائي الهيدرات",
+    "formula": "C2H2O4·2H2O",
+    "mw": "126.07 g/mol",
+    "cas": "6153-56-6",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1500g",
+    "notice": "2 Bottles",
+    "category": "acids",
+    "categoryAr": "الأحماض",
+    "ghs": [
+      "harmful",
+      "corrosive"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302+H312",
+        "ar": "ضار إذا ابتلع أو لامس الجلد.",
+        "en": "Harmful if swallowed or in contact with skin."
+      },
+      {
+        "code": "H318",
+        "ar": "يسبب تلفاً خطيراً للعين.",
+        "en": "Causes serious eye damage."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear eye protection and protective gloves."
+      },
+      {
+        "code": "P301+P312",
+        "ar": "إذا ابتلع: استشر مركز السموم فوراً.",
+        "en": "IF SWALLOWED: Call a POISON CENTER/doctor."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة واستشر طبيب عيون.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انتقل للهواء المنعش.",
+      "ingestion": "اشرب محلولاً من لاكتات الكالسيوم أو حليباً لترسيب الأوكسالات واستدعِ الطبيب."
+    },
+    "storage": "محكم الإغلاق في مكان بارد وجاف بعيداً عن القواعد والمؤكسدات.",
+    "fire": "ماء، مسحوق كيميائي جاف، رغوة.",
+    "disposal": "نفايات عضوية حمضية معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Potassium chloride",
+    "nameAr": "كلوريد البوتاسيوم",
+    "formula": "KCl",
+    "mw": "74.55 g/mol",
+    "cas": "7447-40-7",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً طفيفاً للعين في حال التلامس المباشر.",
+        "en": "May cause slight eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بعد الانتهاء.",
+        "en": "Wash hands thoroughly after handling."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انتقل للهواء النقي.",
+      "ingestion": "اشرب الماء، وفي العادة لا يشكل خطورة بالكميات الصغيرة."
+    },
+    "storage": "مكان جاف وبارد، في حاوية مغلقة.",
+    "fire": "غير قابل للاشتعال.",
+    "disposal": "نفايات أملاح عادية غير سامة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Potassium iodate",
+    "nameAr": "يودات البوتاسيوم",
+    "formula": "KIO3",
+    "mw": "214.00 g/mol",
+    "cas": "7758-05-6",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "750g",
+    "notice": "2 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد قوي.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة ومواد الاشتعال.",
+        "en": "Keep away from heat/sparks."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ القفازات والنظارات الواقية.",
+        "en": "Wear eye protection and gloves."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لمدة 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واستشر الطبيب فوراً."
+    },
+    "storage": "مكان بارد وجاف معزول عن المواد القابلة للاشتعال والأحماض.",
+    "fire": "كميات وفيرة من رذاذ الماء.",
+    "disposal": "تجميع كنفايات أملاح مؤكسدة للتخلص الكيميائي.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Potassium nitrate",
+    "nameAr": "نترات البوتاسيوم (ملح البارود)",
+    "formula": "KNO3",
+    "mw": "101.10 g/mol",
+    "cas": "7757-79-1",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "400g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الاحتراق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والشرر والمواد القابلة للاشتعال.",
+        "en": "Keep away from heat, sparks, open flames."
+      },
+      {
+        "code": "P220",
+        "ar": "احفظ بعيداً عن الملابس والمواد العضوية.",
+        "en": "Keep away from combustible materials."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لمدة 10 دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "اخرج للهواء النقي.",
+      "ingestion": "اشرب الماء واستشر الطبيب."
+    },
+    "storage": "مكان بارد وجاف بعيداً عن أي مواد قابلة للاحتراق كالكبريت أو الكربون.",
+    "fire": "كميات كبيرة من رذاذ الماء.",
+    "disposal": "نفايات مؤكسدة غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Potassium permanganate",
+    "nameAr": "برمنغنات البوتاسيوم",
+    "formula": "KMnO4",
+    "mw": "158.03 g/mol",
+    "cas": "7722-64-7",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "550g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "harmful",
+      "environmental",
+      "corrosive"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد قوي جداً.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً بالغة للجلد والعينين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأمد.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والمواد القابلة للاحتراق.",
+        "en": "Keep away from heat and combustible materials."
+      },
+      {
+        "code": "P273",
+        "ar": "تجنب تفريغه في مياه الصرف أو البيئة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ ملابس وواقيات ونظارات وقفازات مناسبة.",
+        "en": "Wear eye/face protection and gloves."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واستدعِ طبيب العيون.",
+      "skin": "اغسل بالماء الوفير، تزال البقع البنية بمحلول حمض الأكساليك المخفف أو ثيوكبريتات.",
+      "inhalation": "انقل المريض للهواء المنعش فوراً.",
+      "ingestion": "اشرب الماء ولا تحث على التقيؤ، اطلب الإسعاف العاجل."
+    },
+    "storage": "في حاوية محكمة في مكان بارد وجاف بعيداً تماماً عن الجلسرين والمذيبات والأحماض.",
+    "fire": "رذاذ الماء بكميات وافرة؛ تجنب استخدام مساحيق إطفاء قد تتفاعل معها.",
+    "disposal": "اختزال كيميائي خاضع للمراقبة بواسطة كبريتيت الصوديوم ثم تحييد والتخلص الآمن.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Potassium persulfate",
+    "nameAr": "بيرسلفات البوتاسيوم (فوق كبريتات البوتاسيوم)",
+    "formula": "K2S2O8",
+    "mw": "270.32 g/mol",
+    "cas": "7727-21-1",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "100g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "harmful",
+      "health_hazard"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H315+H319",
+        "ar": "يسبب تهيج الجلد والعيون.",
+        "en": "Causes skin and eye irritation."
+      },
+      {
+        "code": "H334",
+        "ar": "قد يسبب أعراض الحساسية والربو عند الاستنشاق.",
+        "en": "May cause allergy or asthma symptoms if inhaled."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P220",
+        "ar": "احفظ بعيداً عن المواد القابلة للاشتعال.",
+        "en": "Keep away from combustible materials."
+      },
+      {
+        "code": "P261",
+        "ar": "تجنب استنشاق الغبار تماماً.",
+        "en": "Avoid breathing dust."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش واستشر الطبيب إن استمرت الصعوبة في التنفس.",
+      "ingestion": "اشرب الماء واطلب المساعدة الطبية."
+    },
+    "storage": "مكان بارد وجاف معزول عن الرطوبة والأحماض والمواد المختزلة.",
+    "fire": "رذاذ ماء بكميات وفيرة.",
+    "disposal": "تجميع كنفايات أملاح مؤكسدة غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Phenol / Phenolphthalein",
+    "nameAr": "فينولفثالين (كاشف دليل حمضي قاعدي)",
+    "formula": "C20H14O4",
+    "mw": "318.32 g/mol",
+    "cas": "77-09-8",
+    "purity": "كاشف دليلي كيميائي",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "250g",
+    "notice": "1 Bottle",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "health_hazard"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H341",
+        "ar": "يشتبه في أنه يسبب عيوباً وراثية.",
+        "en": "Suspected of causing genetic defects."
+      },
+      {
+        "code": "H350",
+        "ar": "قد يسبب السرطان عند التعرض الطويل.",
+        "en": "May cause cancer."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على التعليمات الخاصة قبل الاستخدام.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P281",
+        "ar": "استخدم معدات الوقاية الشخصية المناسبة.",
+        "en": "Use personal protective equipment."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل العين بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء النقي.",
+      "ingestion": "اشرب الماء واطلب المشورة الطبية."
+    },
+    "storage": "مكان جاف ومغلق بإحكام، بعيداً عن المؤكسدات القوية.",
+    "fire": "ماء، مسحوق كيميائي جاف، رغوة.",
+    "disposal": "نفايات مؤشرات كيميائية عضوية خاصة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sodium hydroxide",
+    "nameAr": "هيدروكسيد الصوديوم (الصودا الكاوية)",
+    "formula": "NaOH",
+    "mw": "40.00 g/mol",
+    "cas": "1310-73-2",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب / قشور)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "2 Bottles",
+    "category": "bases",
+    "categoryAr": "القواعد",
+    "ghs": [
+      "corrosive"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً جلدية شديدة وتلفاً خطيراً ودائماً في العينين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H290",
+        "ar": "قد يؤدي لتآكل المعادن.",
+        "en": "May be corrosive to metals."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "لا تستنشق غباره المتطاير أثناء التحضير.",
+        "en": "Do not breathe dust."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات مقاومة للقواعد، ونظارات واقية محكمة، ومعطف المعمل.",
+        "en": "Wear protective gloves/clothing/eye protection/face protection."
+      },
+      {
+        "code": "P301+P330+P331",
+        "ar": "في حال الابتلاع: اشطف الفم فوراً، ولا تحث على التقيؤ بتاتاً.",
+        "en": "IF SWALLOWED: Rinse mouth. Do NOT induce vomiting."
+      },
+      {
+        "code": "P305+P351+P338",
+        "ar": "في ملامسة العينين: اغسل فوراً بالماء المتدفق لمدة 20 دقيقة.",
+        "en": "IF IN EYES: Rinse cautiously with water for several minutes."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 20 دقيقة على الأقل واطلب الرعاية الطبية الفورية (خطر العمى).",
+      "skin": "انزع الملابس الملوثة فوراً واغسل بالماء الوفير لـ 15 دقيقة على الأقل.",
+      "inhalation": "انقل المريض للهواء المنعش واطلب المساعدة الطبية.",
+      "ingestion": "لا تستفرغ أبداً! اعطِ المصاب ماءً للشرب واستدعِ الإسعاف فوراً."
+    },
+    "storage": "محكم الإغلاق في أوعية بلاستيكية مقاومة في مكان جاف (شديد الشغف للماء ولثاني أكسيد الكربون).",
+    "fire": "غير قابل للاشتعال، ولكن تفاعله مع الماء يولد حرارة شديدة.",
+    "disposal": "يتم تحييده تدريجياً بواسطة حمض مخفف، ثم التخلص منه وفق الضوابط المعتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Sodium chloride",
+    "nameAr": "كلوريد الصوديوم (ملح الطعام النقي)",
+    "formula": "NaCl",
+    "mw": "58.44 g/mol",
+    "cas": "7647-14-5",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً طفيفاً للعين بملامستها المباشرة.",
+        "en": "May cause slight eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بعد الانتهاء.",
+        "en": "Wash hands thoroughly after handling."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء، غير ضار بالكميات المعملية المعتادة."
+    },
+    "storage": "مكان جاف ونظيف، وعاء مغلق.",
+    "fire": "غير قابل للاشتعال.",
+    "disposal": "نفايات أملاح عادية غير ضارة بالبيئة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sodium Sulphite Anhydrous",
+    "nameAr": "كبريتيت الصوديوم اللامائي",
+    "formula": "Na2SO3",
+    "mw": "126.04 g/mol",
+    "cas": "7757-83-7",
+    "purity": "≥ 97.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع بكميات كبيرة.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً للعينين.",
+        "en": "Causes eye irritation."
+      },
+      {
+        "code": "EUH031",
+        "ar": "يلامس الأحماض محرراً غازات سامة (SO2).",
+        "en": "Contact with acids liberates toxic gas."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً.",
+        "en": "Wash hands thoroughly."
+      },
+      {
+        "code": "P305+P351",
+        "ar": "اغسل بالماء بحذر.",
+        "en": "Rinse cautiously with water."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل العين بالماء 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب الطبيب إن لزم."
+    },
+    "storage": "محكم الإغلاق في مكان جاف وبارد بعيداً عن الأحماض والمؤكسدات.",
+    "fire": "غير قابل للاشتعال، وسائل إطفاء مناسبة للمحيط.",
+    "disposal": "نفايات أملاح كيميائية معالجة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sodium Acetate Anhydrous",
+    "nameAr": "أسيتات الصوديوم اللامائية",
+    "formula": "CH3COONa",
+    "mw": "82.03 g/mol",
+    "cas": "127-09-3",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "700g",
+    "notice": "2 Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً خفيفاً للعين.",
+        "en": "May cause eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بعد التعامل.",
+        "en": "Wash hands thoroughly after handling."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء النقي.",
+      "ingestion": "اشرب الماء واطلب النصيحة الطبية إن حدث مغص."
+    },
+    "storage": "مكان جاف تماماً، سريع امتصاص الرطوبة.",
+    "fire": "ماء، مسحوق كيميائي، CO2.",
+    "disposal": "نفايات أملاح عضوية غير ضارة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sodium tartrate 2-hydrate",
+    "nameAr": "طرطرات الصوديوم ثنائي الهيدرات",
+    "formula": "C4H4Na2O6·2H2O",
+    "mw": "230.08 g/mol",
+    "cas": "6106-24-7",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً خفيفاً في العينين.",
+        "en": "May cause slight eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين بعد الاستعمال.",
+        "en": "Wash hands thoroughly."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء الجاري لدقائق.",
+      "skin": "اغسل بالماء.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء."
+    },
+    "storage": "مكان جاف ومغلق جيداً.",
+    "fire": "وسائط إطفاء متوافقة مع المحيط.",
+    "disposal": "نفايات أملاح غير خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sulfuric acid",
+    "nameAr": "حمض الكبريتيك (ماء النار)",
+    "formula": "H2SO4",
+    "mw": "98.08 g/mol",
+    "cas": "7664-93-9",
+    "purity": "95% - 98%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "200mL",
+    "notice": "1 Bottle",
+    "category": "acids",
+    "categoryAr": "الأحماض",
+    "ghs": [
+      "corrosive"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً بالغة وشديدة للجلد وتلفاً لا رجعة فيه للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H290",
+        "ar": "قد يؤدي لتآكل المعادن بشدة.",
+        "en": "May be corrosive to metals."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "لا تستنشق رذاذ الحمض بتاتاً.",
+        "en": "Do not breathe mist or vapors."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء واقيات ومريلة جلدية وأكمام ونظارات وجه كاملة.",
+        "en": "Wear full protective clothing/gloves/eye protection."
+      },
+      {
+        "code": "P301+P330+P331",
+        "ar": "في حال الابتلاع: اشطف الفم، يمنع الاستفراغ منعاً باتاً.",
+        "en": "IF SWALLOWED: Rinse mouth. Do NOT induce vomiting."
+      },
+      {
+        "code": "P305+P351+P338",
+        "ar": "في حال ملامسة العينين: اغسل بالماء لـ 20 دقيقة مستمرة دون توقف.",
+        "en": "IF IN EYES: Rinse cautiously with water for several minutes."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء الجاري لـ 20 دقيقة على الأقل واطلب الإسعاف العاجل فوراً.",
+      "skin": "انزع الملابس الملوثة واغسل بالماء الغزير فوراً لـ 20 دقيقة.",
+      "inhalation": "انقل المريض للهواء المنعش فوراً، واطلب التدخل الطبي السريع.",
+      "ingestion": "لا تستفرغ أبداً! اشرب ماء واطلب الإسعاف فوراً."
+    },
+    "storage": "في خزانة أحماض مقاومة، بارد وجاف، يمنع إضافة الماء للحمض؛ يسكب الحمض ببطء إلى الماء عند التخفيف.",
+    "fire": "مسحوق كيميائي جاف أو ثاني أكسيد الكربون؛ تجنب استخدام الماء المباشر على الحمض المركز.",
+    "disposal": "تحييد تدريجي بطيء بقاعدة خفيفة مع التبريد قبل التخلص.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Zinc metal granular",
+    "nameAr": "زنك معدني حبيبي",
+    "formula": "Zn",
+    "mw": "65.38 g/mol",
+    "cas": "7440-66-6",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "environmental"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأجل.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب إلقاءه في البيئة أو الصرف الصحي.",
+        "en": "Avoid release to the environment."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لإزالة أي شوائب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء النقي.",
+      "ingestion": "اشرب الماء واستشر الطبيب."
+    },
+    "storage": "مكان جاف وبارد بعيداً عن الأحماض القوية والقواعد لتجنب تحرر الهيدروجين.",
+    "fire": "مسحوق فئة D أو رمل جاف.",
+    "disposal": "إعادة تدوير معادن أو مخلفات كيميائية معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Iron filings",
+    "nameAr": "برادة الحديد (حديد ناعم)",
+    "formula": "Fe",
+    "mw": "55.85 g/mol",
+    "cas": "7439-89-6",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottle",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "flammable"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H228",
+        "ar": "مادة صلبة قابلة للاشتعال كغبار أو برادة ناعمة.",
+        "en": "Flammable solid."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الشرر ومصادر اللهب.",
+        "en": "Keep away from sparks and open flames."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بحذر لإزالة الجزيئات بلطف، ولا تفرك العين.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء الطلق.",
+      "ingestion": "اشرب ماءً واستشر طبيباً."
+    },
+    "storage": "مكان جاف تماماً لتفادي الصدأ والأكسدة.",
+    "fire": "مسحوق جاف، رمل. تجنب ضخ الماء بضغط عالٍ يثير الغبار.",
+    "disposal": "إعادة تدوير مواد فلزية غير ضارة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Salicylaldehyde",
+    "nameAr": "ساليسيلألديهايد (ألدهيد الصفصاف)",
+    "formula": "C7H6O2 / 2-HOC6H4CHO",
+    "mw": "122.12 g/mol",
+    "cas": "90-02-8",
+    "purity": "≥ 98.0%",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "500ml",
+    "notice": "1 Bottle",
+    "category": "solvents",
+    "categoryAr": "المذيبات العضوية",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H315",
+        "ar": "يسبب تهيج الجلد.",
+        "en": "Causes skin irritation."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves and eye protection."
+      },
+      {
+        "code": "P305+P351",
+        "ar": "اشطف بالماء بحذر لعدة دقائق.",
+        "en": "Rinse cautiously with water."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لمدة 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء الطلق.",
+      "ingestion": "اشرب الماء واطلب المساعدة الطبية دون تحفيز القيء."
+    },
+    "storage": "في عبوة بنية محكمة، في مكان بارد ومظلم.",
+    "fire": "رذاذ الماء، مسحوق كيميائي جاف، رغوة، CO2.",
+    "disposal": "نفايات عضوية قابلة للحرق في أفران خاصة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Ammonium carbonate",
+    "nameAr": "كربونات الأمونيوم",
+    "formula": "(NH4)2CO3",
+    "mw": "96.09 g/mol",
+    "cas": "506-87-6",
+    "purity": "≥ 30.0% (NH3)",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1200g",
+    "notice": "2Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بعد المناولة.",
+        "en": "Wash hands thoroughly after handling."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء الطلق.",
+      "ingestion": "اشرب الماء واستشر الطبيب."
+    },
+    "storage": "مكان بارد وجاف مع إحكام الغلق لتفادي تطاير غاز الأمونيا.",
+    "fire": "وسائل إطفاء مناسبة للمحيط.",
+    "disposal": "نفايات أملاح عادية غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Ammonium chloride",
+    "nameAr": "كلوريد الأمونيوم (ملح النشادر)",
+    "formula": "NH4Cl",
+    "mw": "53.49 g/mol",
+    "cas": "12125-02-9",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "900g",
+    "notice": "1Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين جيداً بعد المناولة.",
+        "en": "Wash hands thoroughly after handling."
+      },
+      {
+        "code": "P305+P351",
+        "ar": "اغسل بالماء بحذر.",
+        "en": "Rinse cautiously with water."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة واستشر طبيب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب ماءً واستشر الطبيب."
+    },
+    "storage": "مكان جاف وبارد، حاوية محكمة الغلق.",
+    "fire": "غير قابل للاشتعال.",
+    "disposal": "نفايات أملاح غير خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Ammonium oxalate monohydrate",
+    "nameAr": "أوكسالات الأمونيوم أحادية الهيدرات",
+    "formula": "(NH4)2C2O4·H2O",
+    "mw": "142.11 g/mol",
+    "cas": "6009-70-7",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302+H312",
+        "ar": "ضار إذا ابتلع أو لامس الجلد.",
+        "en": "Harmful if swallowed or in contact with skin."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves and eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء واستدعِ الطبيب."
+    },
+    "storage": "مكان بارد وجاف، حاوية مغلقة.",
+    "fire": "ماء، مسحوق كيميائي جاف.",
+    "disposal": "نفايات كيميائية عضوية معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Ammonium sulphide solution",
+    "nameAr": "محلول كبريتيد الأمونيوم",
+    "formula": "(NH4)2S",
+    "mw": "68.14 g/mol",
+    "cas": "12135-76-1",
+    "purity": "20% in water",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "200ml",
+    "notice": "1 Bottles",
+    "category": "bases",
+    "categoryAr": "القواعد",
+    "ghs": [
+      "corrosive",
+      "flammable",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H226",
+        "ar": "سائل وبخار قابل للاشتعال.",
+        "en": "Flammable liquid and vapor."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H400",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والشرر.",
+        "en": "Keep away from heat/sparks."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ معدات حماية كاملة.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة واطلب الإسعاف فوراً.",
+      "skin": "اغسل فوراً بالماء الوفير والصابون.",
+      "inhalation": "انقل للهواء المنعش، أعطِ أكسجين واستدعِ الطبيب.",
+      "ingestion": "لا تستفرغ واطلب الإسعاف فوراً."
+    },
+    "storage": "مكان بارد وجيد التهوية بعيداً تماماً عن الأحماض (يطلق غاز H2S السام جداً).",
+    "fire": "رذاذ ماء، رغوة، مسحوق كيميائي جاف.",
+    "disposal": "معالجة كيميائية كنفايات كبريتيدات خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Ammonium sulphate",
+    "nameAr": "كبريتات الأمونيوم",
+    "formula": "(NH4)2SO4",
+    "mw": "132.14 g/mol",
+    "cas": "7783-20-2",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "2Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً خفيفاً في العينين.",
+        "en": "May cause slight eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين بعد الاستعمال.",
+        "en": "Wash hands thoroughly."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء واستشر الطبيب إن لزم."
+    },
+    "storage": "مكان جاف وبارد، في حاوية محكمة الغلق.",
+    "fire": "غير قابل للاشتعال.",
+    "disposal": "نفايات أملاح عادية غير ضارة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Bismuth nitrate pentahydrate",
+    "nameAr": "نترات البزموت خماسية الهيدرات",
+    "formula": "Bi(NO3)3·5H2O",
+    "mw": "485.07 g/mol",
+    "cas": "10035-06-0",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "corrosive"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H315+H319",
+        "ar": "يسبب تهيج الجلد والعيون.",
+        "en": "Causes skin and eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والمواد القابلة للاشتعال.",
+        "en": "Keep away from heat."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ القفازات والنظارات الواقية.",
+        "en": "Wear eye protection and gloves."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب الرعاية الطبية."
+    },
+    "storage": "مكان بارد وجاف ومحكم الإغلاق بعيداً عن المواد المختزلة.",
+    "fire": "رذاذ ماء بكميات وفيرة.",
+    "disposal": "نفايات أملاح بزموت كيميائية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Cobalt chloride hexahydrate",
+    "nameAr": "كلوريد الكوبالت سداسي الهيدرات",
+    "formula": "CoCl2·6H2O",
+    "mw": "237.93 g/mol",
+    "cas": "7791-13-1",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "400g",
+    "notice": "1Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H334",
+        "ar": "قد يسبب أعراض الربو أو الحساسية.",
+        "en": "May cause allergy or asthma symptoms."
+      },
+      {
+        "code": "H350i",
+        "ar": "قد يسبب السرطان عند الاستنشاق.",
+        "en": "May cause cancer by inhalation."
+      },
+      {
+        "code": "H360F",
+        "ar": "قد يضر بالخصوبة.",
+        "en": "May damage fertility."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأجل.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات السلامة قبل الاستخدام.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P261",
+        "ar": "تجنب استنشاق الغبار.",
+        "en": "Avoid breathing dust."
+      },
+      {
+        "code": "P273",
+        "ar": "تجنب إطلاقه في البيئة.",
+        "en": "Avoid release to the environment."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة واطلب الرعاية الطبية.",
+      "skin": "اغسل بالماء والصابون فوراً.",
+      "inhalation": "انقل للهواء المنعش واطلب الإسعاف فوراً.",
+      "ingestion": "اشرب الماء واطلب المساعدة الطبية الطارئة."
+    },
+    "storage": "في خزانة المواد السامة والمسرطنة المحكمة والمغلقة.",
+    "fire": "وسائط إطفاء ملائمة للبيئة المحيطة.",
+    "disposal": "نفايات أملاح كوبالت خطرة تسلم للشركات المعتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Chromium (III) chloride hexahydrate (Chrome chloride)",
+    "nameAr": "كلوريد الكروم الثلاثي سداسي الهيدرات",
+    "formula": "CrCl3·6H2O",
+    "mw": "266.45 g/mol",
+    "cas": "10060-12-5",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1300g",
+    "notice": "2Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H315+H319",
+        "ar": "يسبب تهيج الجلد والعيون.",
+        "en": "Causes skin and eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves and eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء النقي.",
+      "ingestion": "اشرب الماء واطلب الرعاية الصحية."
+    },
+    "storage": "مكان جاف وبارد، حاوية محكمة.",
+    "fire": "وسائل إطفاء مناسبة للمحيط.",
+    "disposal": "نفايات أملاح كروم كيميائية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Copper turnings",
+    "nameAr": "نشارة النحاس (نحاس معدني)",
+    "formula": "Cu",
+    "mw": "63.55 g/mol",
+    "cas": "7440-50-8",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "15g",
+    "notice": "1Bottle",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "environmental"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H410",
+        "ar": "شديد السمية للبيئة المائية في حالة الجزيئات الدقيقة.",
+        "en": "Very toxic to aquatic life."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب الإلقاء في البيئة.",
+        "en": "Avoid release to the environment."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لإزالة الشظايا المعدنية.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب ماءً واستشر طبيباً."
+    },
+    "storage": "مكان جاف لتجنب تكون أملاح النحاس السامة على السطح.",
+    "fire": "مسحوق جاف فئة D أو رمل.",
+    "disposal": "إعادة تدوير معادن.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Cadmium chloride",
+    "nameAr": "كلوريد الكادميوم",
+    "formula": "CdCl2",
+    "mw": "183.32 g/mol",
+    "cas": "10108-64-2",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "200g",
+    "notice": "1Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H301+H330",
+        "ar": "سام إذا ابتلع وقاتل إذا استنشق.",
+        "en": "Toxic if swallowed and fatal if inhaled."
+      },
+      {
+        "code": "H340+H350",
+        "ar": "قد يسبب عيوباً جينية وسرطاناً.",
+        "en": "May cause genetic defects and cancer."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات السلامة قبل التداول.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P260",
+        "ar": "لا تستنشق الغبار إطلاقاً.",
+        "en": "Do not breathe dust."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واستدعِ الإسعاف.",
+      "skin": "اغسل بالماء والصابون وانزع الثياب الملوثة بحذر.",
+      "inhalation": "انقل للهواء المنعش واطلب الإسعاف فوراً.",
+      "ingestion": "اطلب الإسعاف فوراً ولا تحفز القيء."
+    },
+    "storage": "في خزانة السموم المقفلة بمفتاح وخاصة بالمواد عالية الخطورة.",
+    "fire": "مسحوق كيميائي جاف، رذاذ ماء خفيف.",
+    "disposal": "مخلفات سمية خطرة تسلم للجهات المرخصة فقط.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Dimethylglyoxime",
+    "nameAr": "ثنائي ميثيل غليوكسيم",
+    "formula": "C4H8N2O2",
+    "mw": "116.12 g/mol",
+    "cas": "95-45-4",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "55g",
+    "notice": "1Bottle",
+    "category": "other",
+    "categoryAr": "مواد أخرى",
+    "ghs": [
+      "flammable"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H228",
+        "ar": "مادة صلبة قابلة للاشتعال.",
+        "en": "Flammable solid."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن مصادر الحرارة والشرر.",
+        "en": "Keep away from heat/sparks."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل العين بالماء لدقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء واستشر الطبيب."
+    },
+    "storage": "مكان بارد وجاف ومغلق جيداً.",
+    "fire": "ماء، مسحوق كيميائي جاف، رغوة.",
+    "disposal": "نفايات عضوية معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Ferric Chloride anhydrous",
+    "nameAr": "كلوريد الحديديك اللامائي (كلوريد الحديد الثلاثي)",
+    "formula": "FeCl3",
+    "mw": "162.20 g/mol",
+    "cas": "7705-08-0",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "300g",
+    "notice": "1Bottle",
+    "category": "corrosive",
+    "categoryAr": "المواد الأكالة",
+    "ghs": [
+      "corrosive",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H290",
+        "ar": "قد يؤدي لتآكل المعادن.",
+        "en": "May be corrosive to metals."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves and eye protection."
+      },
+      {
+        "code": "P301+P330+P331",
+        "ar": "في حال الابتلاع: اشطف الفم ولا تحث على التقيؤ.",
+        "en": "IF SWALLOWED: Rinse mouth. Do NOT induce vomiting."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة واستدعِ طبيب العيون.",
+      "skin": "اغسل فوراً بالماء والصابون وانزع الثياب الملوثة.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب المساعدة الطبية فوراً."
+    },
+    "storage": "محكم الإغلاق تماماً في مكان بارد وجاف (شديد الشغف للرطوبة ويسيل بسرعة).",
+    "fire": "غير قابل للاشتعال، وسائل إطفاء مناسبة للمحيط.",
+    "disposal": "تحييد خفيف والتخلص كنفايات كيميائية لأملاح الحديد.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Mercuric chloride (Mercury (II) chloride)",
+    "nameAr": "كلوريد الزئبقيك (كلوريد الزئبق الثنائي - السليماني)",
+    "formula": "HgCl2",
+    "mw": "271.50 g/mol",
+    "cas": "7487-94-7",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "corrosive",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H300+H310+H330",
+        "ar": "قاتل إذا ابتلع أو لامس الجلد أو استنشق.",
+        "en": "Fatal if swallowed, in contact with skin or if inhaled."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً بالغة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H341+H361f",
+        "ar": "يشتبه في إحداث تشوهات جينية وضرر للخصوبة.",
+        "en": "Suspected of causing genetic defects and damaging fertility."
+      },
+      {
+        "code": "H372",
+        "ar": "يسبب تلفاً خطيراً للأعضاء والجهاز العصبي والكلى.",
+        "en": "Causes damage to organs through prolonged exposure."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأجل.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات وإذن خاص للتعامل مع الزئبق.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P260",
+        "ar": "لا تتنفس الغبار بتاتاً.",
+        "en": "Do not breathe dust."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء واقيات كاملة ونظام تنفس محكم.",
+        "en": "Wear full protective clothing/gloves/eye protection/mask."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء فوراً لـ 20 دقيقة واستدعِ الإسعاف فوراً.",
+      "skin": "اغسل فوراً بالماء والصابون لـ 20 دقيقة وانزع الملابس فوراً، واطلب التدخل الطبي الطارئ.",
+      "inhalation": "انقل للهواء المنعش فوراً، تنفس اصطناعي إذا لزم واستدعِ الإسعاف في الحال.",
+      "ingestion": "اطلب الإسعاف فوراً بدون أي تأخير! اعطِ بياض البيض أو الحليب كإجراء مؤقت لترسيب الزئبق."
+    },
+    "storage": "في خزانة السموم المشددة المغلقة بقفل مزدوج وبسجل حركة خاص.",
+    "fire": "غير قابل للاشتعال، ولكن يسخن ويطلق أبخرة زئبق قاتلة؛ تبريد بالماء من بعد واستخدام كمامات غازات خاصة.",
+    "disposal": "نفايات زئبقية شديدة الخطورة تسلم حصرياً لمنشآت المعالجة النووية والكيميائية المتخصصة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Nickel sulphate hexahydrate",
+    "nameAr": "كبريتات النيكل سداسية الهيدرات",
+    "formula": "NiSO4·6H2O",
+    "mw": "262.85 g/mol",
+    "cas": "10101-97-0",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "400g",
+    "notice": "1 Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302+H332",
+        "ar": "ضار إذا ابتلع أو استنشق.",
+        "en": "Harmful if swallowed or inhaled."
+      },
+      {
+        "code": "H317",
+        "ar": "قد يسبب تفاعلاً تحسسياً للجلد.",
+        "en": "May cause an allergic skin reaction."
+      },
+      {
+        "code": "H350i",
+        "ar": "قد يسبب السرطان عند الاستنشاق.",
+        "en": "May cause cancer by inhalation."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات خاصة قبل الاستخدام.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات واقية ونظارات وكمامة.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لـ 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون فوراً.",
+      "inhalation": "انقل للهواء المنعش واطلب الرعاية الطبية.",
+      "ingestion": "اشرب الماء واطلب المساعدة الطبية فوراً."
+    },
+    "storage": "مكان جاف وبارد في خزانة المواد السامة.",
+    "fire": "وسائل إطفاء مناسبة للحرائق المحيطة.",
+    "disposal": "نفايات مركبات النيكل السامة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Nessler's Reagent",
+    "nameAr": "كاشف نيسلر (لكشف الأمونيا)",
+    "formula": "K2[HgI4] in KOH",
+    "mw": "محلول قلوي مركب",
+    "cas": "7783-21-5",
+    "purity": "محلول جاهز للاستخدام المخبري",
+    "state": "Liquid (سائل)",
+    "location": "Cabinet 1",
+    "quantity": "900ml",
+    "notice": "1 Bottle",
+    "category": "toxic",
+    "categoryAr": "المواد السامة",
+    "ghs": [
+      "toxic",
+      "corrosive",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H300+H310",
+        "ar": "قاتل إذا ابتلع أو لامس الجلد (يحتوي زئبق).",
+        "en": "Fatal if swallowed or in contact with skin."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً بالغة للجلد والعينين (محلول قلوي كاوٍ).",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H373",
+        "ar": "يسبب تلفاً للأعضاء والجهاز العصبي.",
+        "en": "Causes damage to organs."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P262",
+        "ar": "تجنب تماماً ملامسة العينين أو الجلد أو الملابس.",
+        "en": "Do not get in eyes, on skin, or on clothing."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء واقيات وجه وقفازات ثقيلة ومعطف معمل.",
+        "en": "Wear protective gloves/clothing/eye protection/face protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء الجاري لـ 20 دقيقة واستدعِ الإسعاف فوراً.",
+      "skin": "اغسل فوراً بماء غزير لـ 20 دقيقة وانزع الملابس الملوثة واطلب الرعاية الطبية الطارئة.",
+      "inhalation": "انقل للهواء المنعش واستدعِ الإسعاف.",
+      "ingestion": "اطلب الإسعاف في الحال دون تأخير، يمنع التقيؤ."
+    },
+    "storage": "في زجاجة بنية محكمة، في خزانة المواد السامة والمقفلة بإحكام.",
+    "fire": "رذاذ ماء، مسحوق كيميائي جاف.",
+    "disposal": "نفايات مركبات زئبق وقواعد خطرة تسلم للجهات المعتمدة فقط.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Potassium hydroxide",
+    "nameAr": "هيدروكسيد البوتاسيوم (البوتاس الكاوي)",
+    "formula": "KOH",
+    "mw": "56.11 g/mol",
+    "cas": "1310-58-3",
+    "purity": "≥ 85.0%",
+    "state": "Solid (صلب / قشور)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottles",
+    "category": "bases",
+    "categoryAr": "القواعد",
+    "ghs": [
+      "corrosive",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً خطيراً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H290",
+        "ar": "قد يؤدي لتآكل المعادن.",
+        "en": "May be corrosive to metals."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ معدات وقاية كاملة مقاومة للقواعد.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      },
+      {
+        "code": "P301+P330+P331",
+        "ar": "إذا ابتلع: اشطف الفم ولا تحث على التقيؤ.",
+        "en": "IF SWALLOWED: Rinse mouth. Do NOT induce vomiting."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 20 دقيقة واطلب العناية الطبية الفورية.",
+      "skin": "اغسل بالماء الوفير لـ 15 دقيقة وانزع الملابس الملوثة.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء ولا تحث على التقيؤ واطلب الإسعاف فوراً."
+    },
+    "storage": "محكم الإغلاق في مكان جاف تماماً بعيداً عن الأحماض والمعادن الخفيفة.",
+    "fire": "غير قابل للاشتعال، وسائل إطفاء مناسبة للحرائق المجاورة.",
+    "disposal": "تحييد تدريجي بحمض مخفف ثم التخلص وفق اللوائح.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Potassium thiocyanate",
+    "nameAr": "ثيوسيانات البوتاسيوم",
+    "formula": "KSCN",
+    "mw": "97.18 g/mol",
+    "cas": "333-20-0",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302+H312+H332",
+        "ar": "ضار إذا ابتلع أو لامس الجلد أو استنشق.",
+        "en": "Harmful if swallowed, in contact with skin or if inhaled."
+      },
+      {
+        "code": "H412",
+        "ar": "ضار بالأحياء المائية مع آثار ممتدة.",
+        "en": "Harmful to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves and eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء واستشر الطبيب فوراً."
+    },
+    "storage": "مكان جاف وبارد، مغلق بإحكام لتفادي الرطوبة وتفاعله مع الأحماض القوية.",
+    "fire": "ماء، مسحوق كيميائي جاف.",
+    "disposal": "نفايات أملاح كيميائية خاصة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Potassium dichromate",
+    "nameAr": "ثنائي كرومات البوتاسيوم (ديكرومات البوتاسيوم)",
+    "formula": "K2Cr2O7",
+    "mw": "294.18 g/mol",
+    "cas": "7778-50-9",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "700g",
+    "notice": "2 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "toxic",
+      "corrosive",
+      "health_hazard",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد شديد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H301+H330",
+        "ar": "سام إذا ابتلع وقاتل إذا استنشق.",
+        "en": "Toxic if swallowed and fatal if inhaled."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H340+H350",
+        "ar": "يسبب عيوباً وراثية وسرطاناً (كروم سداسي).",
+        "en": "May cause genetic defects and cancer."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأمد.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات وإذن خاص قبل الاستخدام.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P260",
+        "ar": "لا تستنشق الغبار إطلاقاً.",
+        "en": "Do not breathe dust."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتداء واقيات مشددة وعازلة بالكامل.",
+        "en": "Wear full protective clothing/gloves/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 20 دقيقة واستدعِ الإسعاف فوراً.",
+      "skin": "اغسل فوراً بالماء والصابون لـ 15 دقيقة وانزع الملابس الملوثة واطلب الرعاية الطبية.",
+      "inhalation": "انقل للهواء المنعش فوراً، تنفس اصطناعي إذا لزم واطلب الإسعاف.",
+      "ingestion": "اطلب الإسعاف فوراً دون إبطاء ولا تحفز القيء."
+    },
+    "storage": "في خزانة السموم المقفلة بمفتاح، بعيداً تماماً عن المواد القابلة للاشتعال والمختزلة.",
+    "fire": "رذاذ ماء بكميات كبيرة جداً.",
+    "disposal": "اختزال الكروم السداسي إلى ثلاثي باستخدام كبريتيت الصوديوم ثم الترسيب والتسليم لمنشأة نفايات خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Potassium oxalate monohydrate",
+    "nameAr": "أوكسالات البوتاسيوم أحادية الهيدرات",
+    "formula": "K2C2O4·H2O",
+    "mw": "184.23 g/mol",
+    "cas": "6487-48-5",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottles",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H302+H312",
+        "ar": "ضار إذا ابتلع أو لامس الجلد.",
+        "en": "Harmful if swallowed or in contact with skin."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves and eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب حليباً أو محلول كالسيوم واطلب الرعاية الطبية فوراً."
+    },
+    "storage": "مكان جاف ومغلق جيداً بعيداً عن المؤكسدات القوية.",
+    "fire": "ماء، مسحوق كيميائي جاف.",
+    "disposal": "نفايات كيميائية عضوية معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Potassium ferrocyanide trihydrate",
+    "nameAr": "فيروسيانيد البوتاسيوم ثلاثي الهيدرات (أصفر الدم)",
+    "formula": "K4[Fe(CN)6]·3H2O",
+    "mw": "422.39 g/mol",
+    "cas": "14459-95-1",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "300g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H412",
+        "ar": "ضار بالحياة المائية مع آثار طويلة الأجل.",
+        "en": "Harmful to aquatic life with long lasting effects."
+      },
+      {
+        "code": "EUH032",
+        "ar": "يلامس الأحماض محرراً غاز سيانيد الهيدروجين فائق السمية.",
+        "en": "Contact with acids liberates very toxic gas."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب إطلاقه في البيئة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P402",
+        "ar": "يحفظ بعيداً تماماً عن أي حمض.",
+        "en": "Store away from acids."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واستشر الطبيب."
+    },
+    "storage": "مكان بارد وجاف معزول تماماً عن الأحماض والمواد المؤكسدة.",
+    "fire": "وسائل إطفاء مناسبة للحرائق المحيطة.",
+    "disposal": "نفايات أملاح معقدة خاصة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sodium hydrogen carbonate (Sodium bicarbonate)",
+    "nameAr": "بيكربونات الصوديوم (كربونات الصوديوم الهيدروجينية)",
+    "formula": "NaHCO3",
+    "mw": "84.01 g/mol",
+    "cas": "144-55-8",
+    "purity": "≥ 99.5%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "100g",
+    "notice": "1 Bottle",
+    "category": "bases",
+    "categoryAr": "القواعد",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً خفيفاً للعينين.",
+        "en": "May cause mild eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين بعد الاستعمال.",
+        "en": "Wash hands thoroughly."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "غير ضار بالكميات العادية، اشرب ماء إن لزم."
+    },
+    "storage": "مكان جاف وبارد، وعاء مغلق.",
+    "fire": "غير قابل للاشتعال، يستخدم أصلاً في طفايات الحريق كمسحوق جاف.",
+    "disposal": "نفايات غير خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sodium nitrate",
+    "nameAr": "نترات الصوديوم (ملح بارود شيلي)",
+    "formula": "NaNO3",
+    "mw": "84.99 g/mol",
+    "cas": "7631-99-4",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "100g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "harmful"
+    ],
+    "signalWord": "تحذير / Warning",
+    "signalColor": "#f59e0b",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الاحتراق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H319",
+        "ar": "يسبب تهيجاً شديداً في العين.",
+        "en": "Causes serious eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن مصادر الحرارة والشرر والمواد القابلة للاشتعال.",
+        "en": "Keep away from heat, sparks, open flames."
+      },
+      {
+        "code": "P220",
+        "ar": "احفظ بعيداً عن الملابس والمواد العضوية.",
+        "en": "Keep away from combustible materials."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لمدة 15 دقيقة.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب النصيحة الطبية."
+    },
+    "storage": "مكان بارد وجاف معزول عن المواد القابلة للاحتراق كالكبريت أو الفحم.",
+    "fire": "كميات كبيرة من رذاذ الماء.",
+    "disposal": "نفايات مؤكسدة غير عضوية معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Sodium sulphide nonahydrate",
+    "nameAr": "كبريتيد الصوديوم تساعي الهيدرات",
+    "formula": "Na2S·9H2O",
+    "mw": "240.18 g/mol",
+    "cas": "1313-84-4",
+    "purity": "≥ 60.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "corrosive",
+    "categoryAr": "المواد الأكالة",
+    "ghs": [
+      "corrosive",
+      "harmful",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H400",
+        "ar": "شديد السمية للأحياء المائية.",
+        "en": "Very toxic to aquatic life."
+      },
+      {
+        "code": "EUH031",
+        "ar": "يلامس الأحماض محرراً غاز كبريتيد الهيدروجين السام والخانق.",
+        "en": "Contact with acids liberates toxic gas."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P260",
+        "ar": "لا تتنفس الأغبرة أو الأبخرة المتصاعدة.",
+        "en": "Do not breathe dust or vapors."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات وواقي وجه.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واطلب العناية الطبية الفورية.",
+      "skin": "اغسل فوراً بالماء الوفير لـ 15 دقيقة وانزع الملابس الملوثة.",
+      "inhalation": "انقل للهواء المنعش فوراً واطلب الإسعاف.",
+      "ingestion": "اشرب الماء ولا تحث على التقيؤ، اطلب الإسعاف في الحال."
+    },
+    "storage": "محكم الإغلاق تماماً في مكان بارد وجيد التهوية بعيداً عن الأحماض والهواء الرطب.",
+    "fire": "رذاذ ماء أو مسحوق كيميائي جاف مناسب.",
+    "disposal": "معالجة كيميائية متخصصة لتحويل الكبريتيد قبل التخلص.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Sodium cobaltinitrite",
+    "nameAr": "كوبالتينيتريت الصوديوم (كاشف البوتاسيوم)",
+    "formula": "Na3[Co(NO2)6]",
+    "mw": "403.94 g/mol",
+    "cas": "13600-98-1",
+    "purity": "≥ 95.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "500g",
+    "notice": "1 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "health_hazard"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H317",
+        "ar": "قد يسبب حساسية بالجلد.",
+        "en": "May cause an allergic skin reaction."
+      },
+      {
+        "code": "H350",
+        "ar": "قد يسبب السرطان (مركبات الكوبالت).",
+        "en": "May cause cancer."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P201",
+        "ar": "احصل على تعليمات السلامة قبل التداول.",
+        "en": "Obtain special instructions before use."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب الرعاية الطبية."
+    },
+    "storage": "مكان بارد وجاف معزول عن المواد القابلة للاشتعال والأحماض.",
+    "fire": "كميات كبيرة من رذاذ الماء.",
+    "disposal": "نفايات مركبات كوبالت معتمدة كيميائياً.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Sodium sulphate anhydrous",
+    "nameAr": "كبريتات الصوديوم اللامائية",
+    "formula": "Na2SO4",
+    "mw": "142.04 g/mol",
+    "cas": "7757-82-6",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "harmful"
+    ],
+    "signalWord": "تنبيه / Caution",
+    "signalColor": "#3b82f6",
+    "hazardStatements": [
+      {
+        "code": "H319",
+        "ar": "قد يسبب تهيجاً خفيفاً في العينين.",
+        "en": "May cause slight eye irritation."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P264",
+        "ar": "اغسل اليدين بعد التداول.",
+        "en": "Wash hands thoroughly."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل بالماء لعدة دقائق.",
+      "skin": "اغسل بالماء.",
+      "inhalation": "هواء نقي.",
+      "ingestion": "اشرب الماء."
+    },
+    "storage": "مكان جاف ومغلق لتفادي الرطوبة وتكتل المسحوق.",
+    "fire": "غير قابل للاشتعال.",
+    "disposal": "نفايات غير خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Strontium chloride hexahydrate",
+    "nameAr": "كلوريد السترونشيوم سداسي الهيدرات",
+    "formula": "SrCl2·6H2O",
+    "mw": "266.62 g/mol",
+    "cas": "10025-70-4",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "corrosive"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H318",
+        "ar": "يسبب تلفاً خطيراً للعينين.",
+        "en": "Causes serious eye damage."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ نظارات واقية وقفازات.",
+        "en": "Wear eye protection and protective gloves."
+      },
+      {
+        "code": "P305+P351+P338",
+        "ar": "في ملامسة العينين: اغسل بالماء لعدة دقائق.",
+        "en": "IF IN EYES: Rinse cautiously with water for several minutes."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واستدعِ طبيب العيون.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واستشر الطبيب."
+    },
+    "storage": "مكان جاف وبارد، حاوية محكمة الغلق.",
+    "fire": "وسائل إطفاء مناسبة للحرائق المحيطة.",
+    "disposal": "نفايات أملاح غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Silver nitrate",
+    "nameAr": "نترات الفضة (حجر جهنم)",
+    "formula": "AgNO3",
+    "mw": "169.87 g/mol",
+    "cas": "7761-88-8",
+    "purity": "≥ 99.8%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "150g",
+    "notice": "2 Bottle",
+    "category": "oxidizers",
+    "categoryAr": "المؤكسدات",
+    "ghs": [
+      "oxidizer",
+      "corrosive",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H272",
+        "ar": "قد يشدد الحريق؛ مؤكسد.",
+        "en": "May intensify fire; oxidizer."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين وتبقعات سوداء دائمة بالجلد.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأمد.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P210",
+        "ar": "احفظ بعيداً عن الحرارة والمواد القابلة للاشتعال.",
+        "en": "Keep away from heat and combustible materials."
+      },
+      {
+        "code": "P273",
+        "ar": "تجنب تماماً إطلاقه في البيئة أو الصرف.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية محكمة.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء الجاري لـ 15 دقيقة واستدعِ الإسعاف فوراً.",
+      "skin": "اغسل فوراً بالماء والصابون، واستخدم محلول ملحي مخفف (NaCl) لترسيب الفضة غير المتفاعلة ككلوريد فضة غير ضار.",
+      "inhalation": "انقل للهواء المنعش واطلب الرعاية الطبية.",
+      "ingestion": "اشرب محلول ماء وملح طعام (NaCl) فوراً لترسيب الفضة واطلب الإسعاف في الحال."
+    },
+    "storage": "في زجاجة عنبرية داكنة محكمة الإغلاق، في مكان بارد ومظلم (حساس جداً للضوء).",
+    "fire": "رذاذ ماء بكميات كبيرة.",
+    "disposal": "مخلفات فضة ثمينة تسلم لمنشآت استخلاص وإعادة تدوير المعادن الثمينة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Stannous chloride dihydrate (Tin(II) chloride)",
+    "nameAr": "كلوريد القصديروز ثنائي الهيدرات (كلوريد القصدير الثنائي)",
+    "formula": "SnCl2·2H2O",
+    "mw": "225.63 g/mol",
+    "cas": "10025-69-1",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "50g",
+    "notice": "1 Bottle",
+    "category": "corrosive",
+    "categoryAr": "المواد الأكالة",
+    "ghs": [
+      "corrosive",
+      "harmful"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H317",
+        "ar": "قد يسبب حساسية بالجلد.",
+        "en": "May cause an allergic skin reaction."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واستشر الطبيب.",
+      "skin": "اغسل بالماء والصابون وانزع الثياب الملوثة.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء ولا تستفرغ واطلب الطبيب فوراً."
+    },
+    "storage": "محكم الإغلاق في مكان بارد وجاف لمنع أكسدته وتكوين أملاح القصديريك.",
+    "fire": "وسائل إطفاء مناسبة للمحيط.",
+    "disposal": "تجميع كنفايات أملاح معادن غير عضوية.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  },
+  {
+    "nameEn": "Zinc chloride",
+    "nameAr": "كلوريد الزنك",
+    "formula": "ZnCl2",
+    "mw": "136.30 g/mol",
+    "cas": "7646-85-7",
+    "purity": "≥ 98.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "100g",
+    "notice": "1 Bottle",
+    "category": "corrosive",
+    "categoryAr": "المواد الأكالة",
+    "ghs": [
+      "corrosive",
+      "harmful",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H314",
+        "ar": "يسبب حروقاً شديدة للجلد وتلفاً للعين.",
+        "en": "Causes severe skin burns and eye damage."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأمد.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب إطلاقه في البيئة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ قفازات ونظارات واقية.",
+        "en": "Wear protective gloves/clothing/eye protection."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واستدعِ طبيب العيون.",
+      "skin": "اغسل فوراً بالماء والصابون لـ 15 دقيقة.",
+      "inhalation": "انقل للهواء المنعش واستدعِ الطبيب.",
+      "ingestion": "اشرب الماء ولا تحث على التقيؤ، اطلب الإسعاف فوراً."
+    },
+    "storage": "محكم الإغلاق جداً في مكان جاف تماماً (شديد الاسترطاب ويسيل بالجو).",
+    "fire": "وسائل إطفاء مناسبة للحرائق المحيطة.",
+    "disposal": "نفايات مركبات زنك كيميائية خطرة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat",
+      "mask"
+    ]
+  },
+  {
+    "nameEn": "Zinc sulphate heptahydrate",
+    "nameAr": "كبريتات الزنك سباعية الهيدرات",
+    "formula": "ZnSO4·7H2O",
+    "mw": "287.54 g/mol",
+    "cas": "7446-20-0",
+    "purity": "≥ 99.0%",
+    "state": "Solid (صلب)",
+    "location": "Cabinet 1",
+    "quantity": "1000g",
+    "notice": "1 Bottle",
+    "category": "salts",
+    "categoryAr": "الأملاح",
+    "ghs": [
+      "corrosive",
+      "harmful",
+      "environmental"
+    ],
+    "signalWord": "خطر / Danger",
+    "signalColor": "#ef4444",
+    "hazardStatements": [
+      {
+        "code": "H302",
+        "ar": "ضار إذا ابتلع.",
+        "en": "Harmful if swallowed."
+      },
+      {
+        "code": "H318",
+        "ar": "يسبب تلفاً خطيراً للعينين.",
+        "en": "Causes serious eye damage."
+      },
+      {
+        "code": "H410",
+        "ar": "شديد السمية للأحياء المائية مع آثار طويلة الأمد.",
+        "en": "Very toxic to aquatic life with long lasting effects."
+      }
+    ],
+    "precautionaryStatements": [
+      {
+        "code": "P273",
+        "ar": "تجنب إطلاقه في البيئة.",
+        "en": "Avoid release to the environment."
+      },
+      {
+        "code": "P280",
+        "ar": "ارتدِ نظارات واقية وقفازات.",
+        "en": "Wear eye protection and protective gloves."
+      }
+    ],
+    "firstAid": {
+      "eye": "اغسل فوراً بالماء لـ 15 دقيقة واستشر طبيب العيون.",
+      "skin": "اغسل بالماء والصابون.",
+      "inhalation": "انقل للهواء المنعش.",
+      "ingestion": "اشرب الماء واطلب الرعاية الطبية الفورية."
+    },
+    "storage": "مكان جاف وبارد في حاوية محكمة الغلق.",
+    "fire": "غير قابل للاشتعال، وسائط إطفاء مناسبة للمحيط.",
+    "disposal": "نفايات أملاح معادن ثقيلة معتمدة.",
+    "ppe": [
+      "goggles",
+      "gloves",
+      "labcoat"
+    ]
+  }
+];
+
+if (typeof module !== 'undefined') {
+  module.exports = chemicalDatabase;
+}

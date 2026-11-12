@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDS Smart | منصة السلامة الكيميائية الذكية</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- External Modular Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- QRCode CDN -->
+  <script src="js/qrcode.min.js"></script>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <span>SDS Smart</span>
+    </div>
+
+    <ul class="nav-links">
+      <a href="index.html"><li class="nav-item active"><i class="fa-solid fa-house"></i> الرئيسية</li></a>
+      <a href="pages/library.html"><li class="nav-item"><i class="fa-solid fa-book-bookmark"></i> دليل المواد الكيميائية</li></a>
+      <a href="pages/ghs.html"><li class="nav-item"><i class="fa-solid fa-triangle-exclamation"></i> رموز المخاطر GHS</li></a>
+      <a href="pages/storage.html"><li class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> التخزين الآمن</li></a>
+      <a href="pages/firstaid.html"><li class="nav-item"><i class="fa-solid fa-kit-medical"></i> الإسعافات الأولية</li></a>
+      <a href="pages/waste.html"><li class="nav-item"><i class="fa-solid fa-trash-can"></i> إدارة النفايات</li></a>
+      <a href="pages/calculators.html"><li class="nav-item"><i class="fa-solid fa-calculator"></i> حسابات كيميائية</li></a>
+      <a href="pages/about.html"><li class="nav-item"><i class="fa-solid fa-circle-info"></i> معلومات المنصة</li></a>
+    </ul>
+
+    <button class="user-profile-btn" onclick="toggleUserSession()">
+      <span id="user-display-name"><i class="fa-solid fa-user-lock"></i> تسجيل الدخول</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <!-- HOME CONTENT -->
+    <div id="tab-home" class="section-tab-pane active">
+
+      <!-- Hero Banner (Matching the Image) -->
+      <section class="hero-banner">
+        <div class="hero-content">
+          <h1 class="hero-title">SDS Smart</h1>
+          <h2 class="hero-subtitle">منصة السلامة الكيميائية الذكية</h2>
+          <div class="hero-tagline-en">Smart Chemical Safety Platform</div>
+          <span class="hero-badge">جزء من مبادرة "معمل كيمياء آمن وذكي" <i class="fa-solid fa-flask-vial"></i></span>
+        </div>
+
+        <div class="hero-features">
+          <div class="hero-pill">سلامة أوضح <i class="fa-solid fa-shield-halved"></i></div>
+          <div class="hero-pill">معرفة أسرع <i class="fa-solid fa-bolt" style="color: #f59e0b;"></i></div>
+          <div class="hero-pill">معمل أذكى <i class="fa-solid fa-microscope" style="color: #10b981;"></i></div>
+
+          <div class="hero-logo-box">
+            <div class="hero-logo-badge">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="#005a9c"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1 6h2v5h-2V8zm1 9.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>
+            </div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: #005a9c;">معمل كيمياء آمن وذكي</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Big Search Bar -->
+      <section class="search-section">
+        <div class="search-bar-wrap">
+          <div class="search-input-box">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" id="global-search-input" placeholder="ابحث باسم المادة الكيميائية أو رقم CAS أو الصيغة الكيميائية (عربي أو English)..." oninput="handleSearchSuggestions(this.value)" onkeydown="handleSearchNav(event)" autocomplete="off">
+            <ul id="search-autocomplete-box" class="autocomplete-dropdown"></ul>
+          </div>
+          <button class="search-btn" onclick="executeSearch()">بحث</button>
+        </div>
+
+        <div class="quick-examples">
+          <span>أمثلة للبحث السريع:</span>
+          <span class="quick-tag" onclick="quickSearch('H2SO4')">H₂SO₄ (حمض الكبريتيك)</span>
+          <span class="quick-tag" onclick="quickSearch('Ethanol')">Ethanol (إيثانول)</span>
+          <span class="quick-tag" onclick="quickSearch('KMnO4')">KMnO₄ (برمنغنات البوتاسيوم)</span>
+          <span class="quick-tag" onclick="quickSearch('Sodium hydroxide')">Sodium hydroxide (هيدروكسيد الصوديوم)</span>
+          <span class="quick-tag" onclick="quickSearch('HCl')">HCl (حمض الهيدروكلوريك)</span>
+          <span class="quick-tag" onclick="quickSearch('Manganese')">Manganese chloride</span>
+        </div>
+      </section>
+
+      <!-- 7 Main Action Cards (Direct navigation links) -->
+      <section class="feature-cards-grid">
+        <a href="pages/library.html" style="display: contents;">
+          <div class="f-card">
+            <div class="f-card-icon" style="background: #e0f2fe; color: #0284c7;"><i class="fa-solid fa-book-medical"></i></div>
+            <div class="f-card-title">دليل المواد الكيميائية</div>
+            <div class="f-card-subtitle">Chemical Library</div>
+          </div>
+        </a>
+
+        <a href="pages/ghs.html" style="display: contents;">
+          <div class="f-card">
+            <div class="f-card-icon" style="background: #fee2e2; color: #dc2626;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="f-card-title">رموز المخاطر GHS</div>
+            <div class="f-card-subtitle">GHS Pictograms</div>
+          </div>
+        </a>
+
+        <a href="pages/storage.html" style="display: contents;">
+          <div class="f-card">
+            <div class="f-card-icon" style="background: #e0e7ff; color: #4338ca;"><i class="fa-solid fa-box-archive"></i></div>
+            <div class="f-card-title">التخزين الآمن</div>
+            <div class="f-card-subtitle">Safe Storage</div>
+          </div>
+        </a>
+
+        <a href="pages/firstaid.html" style="display: contents;">
+          <div class="f-card">
+            <div class="f-card-icon" style="background: #ffe4e6; color: #e11d48;"><i class="fa-solid fa-briefcase-medical"></i></div>
+            <div class="f-card-title">الإسعافات الأولية</div>
+            <div class="f-card-subtitle">First Aid</div>
+          </div>
+        </a>
+
+        <a href="pages/waste.html" style="display: contents;">
+          <div class="f-card">
+            <div class="f-card-icon" style="background: #fef3c7; color: #d97706;"><i class="fa-solid fa-trash-can"></i></div>
+            <div class="f-card-title">إدارة النفايات الكيميائية</div>
+            <div class="f-card-subtitle">Waste Management</div>
+          </div>
+        </a>
+
+        <a href="pages/calculators.html" style="display: contents;">
+          <div class="f-card">
+            <div class="f-card-icon" style="background: #dbeafe; color: #1d4ed8;"><i class="fa-solid fa-calculator"></i></div>
+            <div class="f-card-title">حسابات كيميائية</div>
+            <div class="f-card-subtitle">Chemical Calculators</div>
+          </div>
+        </a>
+
+        <!-- Highlighted QR Card -->
+        <div class="f-card qr-card-highlight" onclick="openQrGenerator()">
+          <div class="f-card-icon" style="background: #dcfce7; color: #16a34a;"><i class="fa-solid fa-qrcode"></i></div>
+          <div class="f-card-title" style="color: #15803d;">إنشاء رمز QR</div>
+          <div class="f-card-subtitle">Generate QR Code</div>
+        </div>
+      </section>
+
+      <!-- Search Result / SDS Card Presentation Area -->
+      <div id="search-result-display" style="display: none; margin-bottom: 2.5rem;">
+        <div class="sds-action-bar">
+          <button class="action-btn action-btn-back" onclick="closeSdsView()">✖ إغلاق بطاقة SDS والعودة</button>
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="action-btn action-btn-qr" onclick="generateQrForCurrentChem()"><i class="fa-solid fa-qrcode"></i> رمز QR للعبوة</button>
+            <button class="action-btn action-btn-print" onclick="window.print()">🖨️ طباعة بطاقة السلامة</button>
+          </div>
+        </div>
+        <div id="sds-card-render-slot"></div>
+      </div>
+
+      <!-- Bottom 3 Columns matching image -->
+      <div class="dashboard-three-cols">
+
+        <!-- Column 1: Most Searched -->
+        <div class="dash-box">
+          <div class="dash-box-header">
+            <i class="fa-solid fa-chart-column" style="color: var(--primary);"></i> أكثر المواد بحثاً
+          </div>
+          <ul class="most-searched-list">
+            <li class="searched-item" onclick="quickSearch('Ethanol')">
+              <span>Ethanol (إيثانول)</span>
+              <i class="fa-solid fa-magnifying-glass" style="color: #0284c7;"></i>
+            </li>
+            <li class="searched-item" onclick="quickSearch('Sodium hydroxide')">
+              <span>Sodium hydroxide (هيدروكسيد الصوديوم)</span>
+              <i class="fa-solid fa-magnifying-glass" style="color: #0284c7;"></i>
+            </li>
+            <li class="searched-item" onclick="quickSearch('Hydrochloric acid')">
+              <span>Hydrochloric acid (حمض الهيدروكلوريك)</span>
+              <i class="fa-solid fa-magnifying-glass" style="color: #0284c7;"></i>
+            </li>
+            <li class="searched-item" onclick="quickSearch('Acetone')">
+              <span>Acetone (أسيتون)</span>
+              <i class="fa-solid fa-magnifying-glass" style="color: #0284c7;"></i>
+            </li>
+            <li class="searched-item" onclick="quickSearch('Potassium permanganate')">
+              <span>Potassium permanganate (برمنغنات البوتاسيوم)</span>
+              <i class="fa-solid fa-magnifying-glass" style="color: #0284c7;"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Chemical Classifications (8 Categories - navigates to library with filter) -->
+        <div class="dash-box">
+          <div class="dash-box-header">
+            <i class="fa-solid fa-folder-tree" style="color: var(--primary);"></i> تصنيفات المواد الكيميائية
+          </div>
+          <div class="category-grid">
+            <a href="pages/library.html?cat=acids" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #dc2626;"><i class="fa-solid fa-flask"></i></span>
+              <span class="cat-name">الأحماض</span>
+            </a>
+            <a href="pages/library.html?cat=bases" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #2563eb;"><i class="fa-solid fa-vial"></i></span>
+              <span class="cat-name">القواعد</span>
+            </a>
+            <a href="pages/library.html?cat=solvents" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #f59e0b;"><i class="fa-solid fa-prescription-bottle"></i></span>
+              <span class="cat-name">المذيبات العضوية</span>
+            </a>
+            <a href="pages/library.html?cat=salts" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #7c3aed;"><i class="fa-solid fa-atom"></i></span>
+              <span class="cat-name">الأملاح</span>
+            </a>
+            <a href="pages/library.html?cat=oxidizers" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #ea580c;"><i class="fa-solid fa-fire"></i></span>
+              <span class="cat-name">المؤكسدات</span>
+            </a>
+            <a href="pages/library.html?cat=flammable" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #e11d48;"><i class="fa-solid fa-explosion"></i></span>
+              <span class="cat-name">القابلة للاشتعال</span>
+            </a>
+            <a href="pages/library.html?cat=toxic" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #4b5563;"><i class="fa-solid fa-skull"></i></span>
+              <span class="cat-name">المواد السامة</span>
+            </a>
+            <a href="pages/library.html?cat=other" class="cat-item">
+              <span class="cat-icon-wrap" style="color: #64748b;"><i class="fa-solid fa-ellipsis"></i></span>
+              <span class="cat-name">مواد أخرى</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 3: Quick Tools -->
+        <div class="dash-box">
+          <div class="dash-box-header">
+            <i class="fa-solid fa-screwdriver-wrench" style="color: var(--primary);"></i> أدوات سريعة
+          </div>
+          <div class="quick-tools-list">
+            <a href="pages/calculators.html#calc-prep" class="tool-link-card">
+              <span>تحضير المحاليل القياسية</span>
+              <span class="tool-icon" style="color: #0284c7;"><i class="fa-solid fa-scale-balanced"></i></span>
+            </a>
+            <a href="pages/calculators.html#calc-dilution" class="tool-link-card">
+              <span>حاسبة التخفيف (C₁V₁ = C₂V₂)</span>
+              <span class="tool-icon" style="color: #0ea5e9;"><i class="fa-solid fa-droplet"></i></span>
+            </a>
+            <a href="pages/calculators.html#calc-converter" class="tool-link-card">
+              <span>تحويل الوحدات الكيميائية</span>
+              <span class="tool-icon" style="color: #10b981;"><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- QR GENERATOR MODAL VIEW -->
+  <div id="qr-modal" class="login-modal-overlay" style="display: none;" onclick="if(event.target === this) closeQrModal()">
+    <div class="qr-modal-view">
+      <h3 style="font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;" id="qr-chem-title">إنشاء ملصق QR للمادة الكيميائية</h3>
+      <p style="font-size: 0.88rem; color: var(--text-muted);">امسح هذا الرمز بواسطة كاميرا الهاتف للانتقال الفوري إلى بطاقة السلامة SDS الكاملة</p>
+      
+      <div id="qr-display-box"></div>
+
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <button class="action-btn action-btn-print" onclick="window.print()">🖨️ طباعة الملصق</button>
+        <button class="action-btn action-btn-back" onclick="closeQrModal()">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL (Protected by Email and Password) -->
+  <div id="login-modal" class="login-modal-overlay">
+    <div class="login-card">
+      <div class="login-logo"><i class="fa-solid fa-shield-halved"></i></div>
+      <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 0.2rem;">SDS Smart</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">تسجيل الدخول لمنظومة السلامة الكيميائية بالمعمل</p>
+
+      <div class="login-form-group">
+        <label>البريد الإلكتروني (Email)</label>
+        <input type="email" id="login-email" value="admin@sdssmart.com" placeholder="name@example.com">
+      </div>
+
+      <div class="login-form-group">
+        <label>كلمة المرور (Password)</label>
+        <input type="password" id="login-password" value="SDS2026" placeholder="أدخل كلمة السر">
+      </div>
+
+      <button class="login-submit-btn" onclick="performLogin()">دخول المنصة 🚀</button>
+
+      <div class="login-credentials-hint">
+        <strong>بيانات الدخول المعتمدة:</strong><br>
+        البريد: <code>admin@sdssmart.com</code><br>
+        الرمز السري: <code>SDS2026</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/chemicals_data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حسابات كيميائية | SDS Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <span>SDS Smart</span>
+    </div>
+
+    <ul class="nav-links">
+      <a href="../index.html"><li class="nav-item"><i class="fa-solid fa-house"></i> الرئيسية</li></a>
+      <a href="library.html"><li class="nav-item"><i class="fa-solid fa-book-bookmark"></i> دليل المواد الكيميائية</li></a>
+      <a href="ghs.html"><li class="nav-item"><i class="fa-solid fa-triangle-exclamation"></i> رموز المخاطر GHS</li></a>
+      <a href="storage.html"><li class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> التخزين الآمن</li></a>
+      <a href="firstaid.html"><li class="nav-item"><i class="fa-solid fa-kit-medical"></i> الإسعافات الأولية</li></a>
+      <a href="waste.html"><li class="nav-item"><i class="fa-solid fa-trash-can"></i> إدارة النفايات</li></a>
+      <a href="calculators.html"><li class="nav-item active"><i class="fa-solid fa-calculator"></i> حسابات كيميائية</li></a>
+      <a href="about.html"><li class="nav-item"><i class="fa-solid fa-circle-info"></i> معلومات المنصة</li></a>
+    </ul>
+
+    <button class="user-profile-btn" onclick="toggleUserSession()">
+      <span id="user-display-name"><i class="fa-solid fa-user-lock"></i> تسجيل الدخول</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">🧮 الحاسبات الكيميائية التفاعلية للتحضير المعملي</h2>
+      <p style="color: var(--text-muted); font-size: 1rem;">أدوات دقيقة لحساب التخفيف، التركيز المولاري، وتحضير المحاليل القياسية بدقة معتمدة.</p>
+    </div>
+
+    <div class="calc-container">
+      
+      <!-- Dilution Calculator -->
+      <div class="calc-card" id="calc-dilution">
+        <h3><i class="fa-solid fa-droplet" style="color: #0ea5e9;"></i> حاسبة التخفيف (C₁V₁ = C₂V₂)</h3>
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">حساب حجم المحلول المركز الواجب سحبه لتحضير تركيز مخفف محدد.</p>
+        <div class="calc-row">
+          <div class="input-item">
+            <label>التركيز الابتدائي (C₁)</label>
+            <input type="number" id="c1-val" placeholder="مثال: 12 M (حمض مركز)">
+          </div>
+          <div class="input-item">
+            <label>الحجم المطلوب أخذه (V₁)</label>
+            <input type="number" id="v1-val" placeholder="مجهول سيتم حسابه" disabled style="background: #f1f5f9;">
+          </div>
+        </div>
+        <div class="calc-row">
+          <div class="input-item">
+            <label>التركيز النهائي المراد تحضيره (C₂)</label>
+            <input type="number" id="c2-val" placeholder="مثال: 0.5 M">
+          </div>
+          <div class="input-item">
+            <label>الحجم النهائي للمحلول (V₂ mL)</label>
+            <input type="number" id="v2-val" placeholder="مثال: 250 mL">
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calculateDilution()">احسب الحجم الابتدائي V₁ المطلوب</button>
+        <div id="dilution-result" class="calc-result-box"></div>
+      </div>
+
+      <!-- Molarity Preparation Calculator -->
+      <div class="calc-card" id="calc-prep">
+        <h3><i class="fa-solid fa-scale-balanced" style="color: #0284c7;"></i> حاسبة تحضير المحاليل (الكتلة بالجرام)</h3>
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">حساب وزن المادة الصلبة المطلوبة لإذابتها في حجم معين للوصول للمولارية المستهدفة.</p>
+        <div class="calc-row">
+          <div class="input-item">
+            <label>الكتلة الجزيئية MW (g/mol)</label>
+            <input type="number" id="mw-val" placeholder="مثال: 58.44 للـ NaCl">
+          </div>
+          <div class="input-item">
+            <label>التركيز المولاري M (mol/L)</label>
+            <input type="number" id="target-m-val" placeholder="مثال: 0.1">
+          </div>
+        </div>
+        <div class="calc-row">
+          <div class="input-item">
+            <label>الحجم المراد تحضيره (mL)</label>
+            <input type="number" id="target-vol-val" placeholder="مثال: 500">
+          </div>
+          <div class="input-item">
+            <label>نسبة نقاوة المادة Purity (%)</label>
+            <input type="number" id="purity-val" value="100" placeholder="100%">
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calculateMassPrep()">احسب الكتلة الواجب وزنها (g)</button>
+        <div id="prep-result" class="calc-result-box"></div>
+      </div>
+
+      <!-- NEW: Liquid Acid Molarity Calculator -->
+      <div class="calc-card" id="calc-liquid-acid">
+        <h3><i class="fa-solid fa-flask" style="color: #ea580c;"></i> حاسبة مولارية الأحماض المركزة</h3>
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">حساب مولارية السوائل من الكثافة والنقاوة: M = (Density × 10 × %) / MW</p>
+        <div class="calc-row">
+          <div class="input-item">
+            <label>الكثافة النوعية (Density g/mL)</label>
+            <input type="number" id="acid-density" placeholder="مثال: 1.19 لحمض HCl أو 1.84 لـ H2SO4" step="0.01">
+          </div>
+          <div class="input-item">
+            <label>نسبة التركيز المئوية (Assay %)</label>
+            <input type="number" id="acid-assay" placeholder="مثال: 37% أو 98%" step="0.1">
+          </div>
+        </div>
+        <div class="calc-row">
+          <div class="input-item">
+            <label>الكتلة الجزيئية MW (g/mol)</label>
+            <input type="number" id="acid-mw" placeholder="مثال: 36.46 لـ HCl أو 98.08 لـ H2SO4" step="0.01">
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calculateLiquidMolarity()">احسب المولارية الفعلية للحمض المركز</button>
+        <div id="acid-molarity-result" class="calc-result-box"></div>
+      </div>
+
+      <!-- Unit Converter -->
+      <div class="calc-card" id="calc-converter">
+        <h3><i class="fa-solid fa-arrow-right-arrow-left" style="color: #10b981;"></i> محول الوحدات الكيميائية السريع</h3>
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">تحويل فوري بين وحدات القياس الحجمية والكتلية الأكثر استخداماً بالمعمل.</p>
+        <div class="calc-row">
+          <div class="input-item">
+            <label>القيمة المراد تحويلها</label>
+            <input type="number" id="conv-input" placeholder="أدخل الرقم">
+          </div>
+          <div class="input-item">
+            <label>نوع التحويل</label>
+            <select id="conv-type">
+              <option value="ml-to-l">مليلتر (mL) ➔ لتر (L)</option>
+              <option value="l-to-ml">لتر (L) ➔ مليلتر (mL)</option>
+              <option value="mg-to-g">مليجرام (mg) ➔ جرام (g)</option>
+              <option value="g-to-kg">جرام (g) ➔ كيلوجرام (kg)</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calculateUnitConversion()">تحويل الآن</button>
+        <div id="conv-result" class="calc-result-box"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../js/chemicals_data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
