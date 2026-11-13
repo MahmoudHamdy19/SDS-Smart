@@ -1952,3 +1952,359 @@ a {
   color: #1e293b;
   line-height: 1.7;
 }
+
+/* ========================================================
+   DS-16 Solution Calculator & Permanent Records Log Styles
+   ======================================================== */
+
+.ds16-hero-banner {
+  background: linear-gradient(135deg, #0c2340 0%, #173860 50%, #005a9c 100%);
+  color: white;
+  border-radius: 18px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  box-shadow: 0 8px 24px rgba(12, 35, 64, 0.15);
+  border: 1.5px solid #2a5a8c;
+}
+
+.ds16-badge {
+  background: #38bdf8;
+  color: #0c2340;
+  font-weight: 900;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.calc-tab-nav {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.calc-tab-btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: 1.5px solid #cbd5e1;
+  background: white;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calc-tab-btn:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+  background: #f0f9ff;
+}
+
+.calc-tab-btn.active {
+  background: #005a9c;
+  color: white;
+  border-color: #005a9c;
+  box-shadow: 0 4px 10px rgba(0, 90, 156, 0.2);
+}
+
+.solution-calc-card {
+  background: #ffffff;
+  border: 2px solid #bce3fb;
+  border-radius: 16px;
+  padding: 1.8rem;
+  box-shadow: 0 4px 20px rgba(0, 90, 156, 0.06);
+  margin-bottom: 2rem;
+}
+
+.state-switch-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  background: #f1f5f9;
+  padding: 0.35rem;
+  border-radius: 10px;
+  max-width: 320px;
+}
+
+.state-btn {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: transparent;
+  color: #475569;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.state-btn.active {
+  background: #005a9c;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 90, 156, 0.2);
+}
+
+.liquid-ref-note {
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: #92400e;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calc-action-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+.calc-btn-gold {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25);
+}
+
+.calc-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
+}
+
+.calc-btn-preset {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1.5px solid #93c5fd;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.calc-btn-preset:hover {
+  background: #dbeafe;
+  border-color: #60a5fa;
+}
+
+.calc-btn-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+}
+
+.calc-btn-green:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.35);
+}
+
+.calc-btn-outline {
+  background: white;
+  color: #64748b;
+  border: 1.5px solid #cbd5e1;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.calc-btn-outline:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.calc-breakdown-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #86efac;
+  border-radius: 14px;
+  padding: 1.4rem;
+  margin-top: 1.2rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+  text-align: center;
+}
+
+.calc-breakdown-quantity {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #166534;
+  margin-bottom: 0.3rem;
+  font-family: monospace;
+}
+
+.calc-breakdown-formula {
+  background: white;
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  border: 1px solid #bbf7d0;
+  font-weight: 800;
+  color: #047857;
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  direction: ltr;
+}
+
+.calc-breakdown-derivation {
+  font-size: 0.92rem;
+  color: #14532d;
+  font-weight: 700;
+  direction: ltr;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Records Log Table */
+.records-container {
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.records-table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+  font-size: 0.92rem;
+}
+
+.records-table th {
+  background: #005a9c;
+  color: white;
+  padding: 0.85rem 1rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.records-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.records-table tr:hover {
+  background: #f8fafc;
+}
+
+.record-action-btn {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: 0.2s;
+  margin: 0 0.15rem;
+}
+
+.rec-btn-edit {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.rec-btn-edit:hover {
+  background: #0284c7;
+  color: white;
+}
+
+.rec-btn-print {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.rec-btn-print:hover {
+  background: #10b981;
+  color: white;
+}
+
+.rec-btn-delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.rec-btn-delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.empty-records-notice {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #94a3b8;
+}
+
+.empty-records-notice i {
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+  color: #cbd5e1;
+}

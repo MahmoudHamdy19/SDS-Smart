@@ -6,6 +6,9 @@ let currentSelectedChemical = null;
 window.addEventListener('DOMContentLoaded', () => {
   enforceAuthGuard();
   initCustomStorage();
+  if (typeof initSolutionCalculator === 'function') {
+    initSolutionCalculator();
+  }
   
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat');
@@ -657,6 +660,464 @@ function calculateUnitConversion() {
 
   resBox.style.display = 'block';
   resBox.innerHTML = `النتيجة: <strong>${res} ${unit}</strong>`;
+}
+
+// ========================================================
+// 9.1 DS-16 Solution Calculator & Permanent Records Engine
+// ========================================================
+
+const STORAGE_KEY_PREPARATIONS = 'sds_solution_preparations_v1';
+let currentCalculatedSolution = null;
+
+// Permanent Storage Retrieval
+function getSavedPreparations() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_PREPARATIONS);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    console.error('Error reading saved preparations:', e);
+    return [];
+  }
+}
+
+function savePreparationsList(list) {
+  try {
+    localStorage.setItem(STORAGE_KEY_PREPARATIONS, JSON.stringify(list));
+  } catch (e) {
+    console.error('Error writing preparations list:', e);
+  }
+}
+
+// Populate Chemical Selector in Solution Calculator
+function initSolutionCalculator() {
+  const select = document.getElementById('ds16-chem-select');
+  if (!select) return;
+  const chems = getAllChemicals();
+  select.innerHTML = '<option value="">-- اختر مادة من معمل الكيمياء (أو أدخل يدوياً) --</option>';
+  chems.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.id;
+    opt.textContent = `${c.nameAr} (${c.nameEn}) - ${c.formula}`;
+    select.appendChild(opt);
+  });
+
+  // Set today's date
+  const dateInp = document.getElementById('ds16-prep-date');
+  if (dateInp && !dateInp.value) {
+    dateInp.value = new Date().toISOString().split('T')[0];
+  }
+
+  // Render initial saved records
+  renderSavedPreparationsTable();
+}
+
+function onSolutionChemSelect(chemId) {
+  if (!chemId) return;
+  const chems = getAllChemicals();
+  const chem = chems.find(c => c.id == chemId);
+  if (!chem) return;
+
+  const nameInp = document.getElementById('ds16-chem-name');
+  const mwInp = document.getElementById('ds16-mw-val');
+
+  if (nameInp) nameInp.value = `${chem.nameAr} (${chem.formula})`;
+  if (mwInp && chem.molecularWeight) {
+    const num = parseFloat(chem.molecularWeight);
+    if (!isNaN(num)) mwInp.value = num;
+  }
+
+  // Switch state if it's liquid
+  const isLiquid = (chem.physicalState || '').includes('Liquid') || (chem.physicalState || '').includes('سائل');
+  setDs16State(isLiquid ? 'liquid' : 'solid');
+}
+
+let ds16CurrentState = 'solid';
+
+function setDs16State(state) {
+  ds16CurrentState = state;
+  const btnSolid = document.getElementById('ds16-btn-solid');
+  const btnLiquid = document.getElementById('ds16-btn-liquid');
+  const liquidRef = document.getElementById('ds16-liquid-ref-box');
+  const liquidFields = document.getElementById('ds16-liquid-fields');
+
+  if (state === 'liquid') {
+    if (btnSolid) btnSolid.classList.remove('active');
+    if (btnLiquid) btnLiquid.classList.add('active');
+    if (liquidRef) liquidRef.style.display = 'flex';
+    if (liquidFields) liquidFields.style.display = 'flex';
+  } else {
+    if (btnLiquid) btnLiquid.classList.remove('active');
+    if (btnSolid) btnSolid.classList.add('active');
+    if (liquidRef) liquidRef.style.display = 'none';
+    if (liquidFields) liquidFields.style.display = 'none';
+  }
+}
+
+// Calculate Function
+function calculateDs16Solution() {
+  const name = document.getElementById('ds16-chem-name').value.trim() || 'محلول كيميائي';
+  const mw = parseFloat(document.getElementById('ds16-mw-val').value);
+  const targetM = parseFloat(document.getElementById('ds16-target-m').value);
+  const targetVol = parseFloat(document.getElementById('ds16-target-vol').value);
+  const notes = document.getElementById('ds16-notes').value.trim();
+  const prepBy = document.getElementById('ds16-prep-by').value.trim();
+  const date = document.getElementById('ds16-prep-date').value || new Date().toISOString().split('T')[0];
+
+  const resBox = document.getElementById('ds16-result-box');
+  if (!resBox) return;
+
+  if (isNaN(targetM) || isNaN(targetVol) || targetM <= 0 || targetVol <= 0) {
+    alert('يرجى إدخال التركيز المطلوب (mol/L) والحجم النهائي (mL) بأرقام موجبة صحيحة.');
+    return;
+  }
+  if (isNaN(mw) || mw <= 0) {
+    alert('يرجى إدخال الكتلة المولية / الوزن الجزيئي MW (g/mol).');
+    return;
+  }
+
+  let calculatedAmount = 0;
+  let unit = 'g';
+  let derivationHtml = '';
+
+  const vLiter = targetVol / 1000;
+
+  if (ds16CurrentState === 'solid') {
+    // Solid: Mass = M * V(L) * MW
+    calculatedAmount = targetM * vLiter * mw;
+    unit = 'g';
+    derivationHtml = `m = ${targetM} × (${targetVol} / 1000) × ${mw} = <strong>${calculatedAmount.toFixed(6)} g</strong>`;
+  } else {
+    // Liquid: Stock M = (Density * 10 * Assay%) / MW
+    // V1 (mL) = (Target M * Target Vol) / Stock M
+    const density = parseFloat(document.getElementById('ds16-density-val').value) || 1.19;
+    const assay = parseFloat(document.getElementById('ds16-assay-val').value) || 37;
+    const stockM = (density * 10 * assay) / mw;
+    calculatedAmount = (targetM * targetVol) / stockM;
+    unit = 'mL';
+    derivationHtml = `
+      مولارية السائل المركز M₁ = (${density} × 10 × ${assay}) / ${mw} = ${stockM.toFixed(2)} M<br>
+      الحجم المطلوب سحبه V₁ = (${targetM} × ${targetVol}) / ${stockM.toFixed(2)} = <strong>${calculatedAmount.toFixed(3)} mL</strong>
+    `;
+  }
+
+  currentCalculatedSolution = {
+    chemName: name,
+    mw: mw,
+    state: ds16CurrentState,
+    targetM: targetM,
+    targetVol: targetVol,
+    calculatedAmount: calculatedAmount.toFixed(unit === 'g' ? 4 : 2),
+    unit: unit,
+    derivationHtml: derivationHtml,
+    notes: notes,
+    prepBy: prepBy,
+    date: date
+  };
+
+  resBox.style.display = 'block';
+  resBox.innerHTML = `
+    <div style="font-size: 0.88rem; color: #166534; font-weight: 800; margin-bottom: 0.3rem;">نتيجة الحساب المعملي</div>
+    <div class="calc-breakdown-quantity">${calculatedAmount.toFixed(unit === 'g' ? 4 : 2)} ${unit}</div>
+    <div class="calc-breakdown-formula">${name}</div>
+    <div class="calc-breakdown-derivation">${derivationHtml}</div>
+    <div style="font-size: 0.85rem; color: #15803d; font-weight: 700; margin-top: 0.5rem;">
+      <i class="fa-solid fa-circle-check"></i> تم الحساب بنجاح. يمكنك الضغط على "حفظ التحضير" لتسجيله بشكل دائم في السجلات.
+    </div>
+  `;
+}
+
+// Preset Test Function (NaOH 0.1 M in 250 mL)
+function loadDs16Preset() {
+  const nameInp = document.getElementById('ds16-chem-name');
+  const mwInp = document.getElementById('ds16-mw-val');
+  const targetMInp = document.getElementById('ds16-target-m');
+  const targetVolInp = document.getElementById('ds16-target-vol');
+  const notesInp = document.getElementById('ds16-notes');
+  const prepByInp = document.getElementById('ds16-prep-by');
+
+  setDs16State('solid');
+  if (nameInp) nameInp.value = 'هيدروكسيد الصوديوم (NaOH)';
+  if (mwInp) mwInp.value = '39.997';
+  if (targetMInp) targetMInp.value = '0.1';
+  if (targetVolInp) targetVolInp.value = '250';
+  if (notesInp) notesInp.value = 'تجربة قياسية - معمل 1';
+  if (prepByInp) prepByInp.value = 'محضّرة المعمل';
+
+  calculateDs16Solution();
+}
+
+function clearDs16Fields() {
+  document.getElementById('ds16-chem-select').value = '';
+  document.getElementById('ds16-chem-name').value = '';
+  document.getElementById('ds16-mw-val').value = '';
+  document.getElementById('ds16-target-m').value = '';
+  document.getElementById('ds16-target-vol').value = '';
+  document.getElementById('ds16-notes').value = '';
+  document.getElementById('ds16-prep-by').value = '';
+  const resBox = document.getElementById('ds16-result-box');
+  if (resBox) resBox.style.display = 'none';
+  currentCalculatedSolution = null;
+}
+
+// Save Preparation to Permanent Storage
+function saveDs16Preparation() {
+  if (!currentCalculatedSolution) {
+    calculateDs16Solution();
+  }
+  if (!currentCalculatedSolution) {
+    alert('يرجى حساب المحلول أولاً قبل الحفظ.');
+    return;
+  }
+
+  const list = getSavedPreparations();
+  const newRecord = {
+    id: 'prep_' + Date.now(),
+    chemName: currentCalculatedSolution.chemName,
+    mw: currentCalculatedSolution.mw,
+    state: currentCalculatedSolution.state,
+    targetM: currentCalculatedSolution.targetM,
+    targetVol: currentCalculatedSolution.targetVol,
+    calculatedAmount: currentCalculatedSolution.calculatedAmount,
+    unit: currentCalculatedSolution.unit,
+    notes: document.getElementById('ds16-notes').value.trim() || currentCalculatedSolution.notes || '-',
+    prepBy: document.getElementById('ds16-prep-by').value.trim() || currentCalculatedSolution.prepBy || 'غير محدد',
+    date: document.getElementById('ds16-prep-date').value || currentCalculatedSolution.date,
+    createdAt: new Date().toISOString()
+  };
+
+  list.unshift(newRecord);
+  savePreparationsList(list);
+
+  renderSavedPreparationsTable();
+  alert(`✅ تم حفظ تحضير [${newRecord.chemName}] بنجاح في السجلات الدائمة!`);
+  switchCalcTab('records');
+}
+
+// Render Table
+function renderSavedPreparationsTable() {
+  const tbody = document.getElementById('preparations-table-body');
+  const countBadge = document.getElementById('records-count-badge');
+  if (!tbody) return;
+
+  const list = getSavedPreparations();
+  if (countBadge) countBadge.textContent = list.length;
+
+  if (list.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="7">
+          <div class="empty-records-notice">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <h4 style="font-weight: 800; color: #475569; margin-bottom: 0.3rem;">لا توجد محاليل مسجلة حتى الآن</h4>
+            <p style="font-size: 0.88rem;">قم بحساب أي محلول ثم اضغط "حفظ التحضير" وستظل محفوظة هنا بشكل دائم حتى بعد إغلاق المتصفح.</p>
+          </div>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = list.map(item => `
+    <tr>
+      <td>
+        <strong style="color: #005a9c;">${item.chemName}</strong>
+      </td>
+      <td>
+        <span style="direction: ltr; display: inline-block; font-weight: 700;">${item.targetM} M</span> في 
+        <span style="direction: ltr; display: inline-block; font-weight: 700;">${item.targetVol} mL</span>
+      </td>
+      <td>
+        <strong style="color: #166534; font-size: 1.05rem;">${item.calculatedAmount} ${item.unit}</strong>
+      </td>
+      <td>
+        <span style="font-size: 0.85rem; color: #64748b;">${item.date}</span>
+      </td>
+      <td>
+        <span style="font-weight: 700; color: #334155;">${item.prepBy || '-'}</span>
+      </td>
+      <td>
+        <small style="color: #64748b;">${item.notes || '-'}</small>
+      </td>
+      <td>
+        <button class="record-action-btn rec-btn-edit" onclick="openEditPreparationModal('${item.id}')" title="تعديل التحضير">
+          <i class="fa-solid fa-pen-to-square"></i> تعديل
+        </button>
+        <button class="record-action-btn rec-btn-print" onclick="printPreparedSolutionLabel('${item.id}')" title="طباعة ملصق">
+          <i class="fa-solid fa-print"></i> ملصق
+        </button>
+        <button class="record-action-btn rec-btn-delete" onclick="deletePreparation('${item.id}')" title="حذف">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+// Edit Record Modal
+let currentEditingId = null;
+
+function openEditPreparationModal(id) {
+  const list = getSavedPreparations();
+  const item = list.find(x => x.id === id);
+  if (!item) return;
+
+  currentEditingId = id;
+  const modal = document.getElementById('edit-prep-modal');
+  if (!modal) return;
+
+  document.getElementById('edit-prep-name').value = item.chemName;
+  document.getElementById('edit-prep-m').value = item.targetM;
+  document.getElementById('edit-prep-vol').value = item.targetVol;
+  document.getElementById('edit-prep-amount').value = item.calculatedAmount;
+  document.getElementById('edit-prep-unit').value = item.unit;
+  document.getElementById('edit-prep-by').value = item.prepBy || '';
+  document.getElementById('edit-prep-date').value = item.date;
+  document.getElementById('edit-prep-notes').value = item.notes || '';
+
+  modal.style.display = 'flex';
+}
+
+function closeEditPreparationModal() {
+  const modal = document.getElementById('edit-prep-modal');
+  if (modal) modal.style.display = 'none';
+  currentEditingId = null;
+}
+
+function saveEditedPreparation() {
+  if (!currentEditingId) return;
+  const list = getSavedPreparations();
+  const idx = list.findIndex(x => x.id === currentEditingId);
+  if (idx === -1) return;
+
+  list[idx].chemName = document.getElementById('edit-prep-name').value.trim();
+  list[idx].targetM = parseFloat(document.getElementById('edit-prep-m').value) || list[idx].targetM;
+  list[idx].targetVol = parseFloat(document.getElementById('edit-prep-vol').value) || list[idx].targetVol;
+  list[idx].calculatedAmount = document.getElementById('edit-prep-amount').value.trim();
+  list[idx].unit = document.getElementById('edit-prep-unit').value;
+  list[idx].prepBy = document.getElementById('edit-prep-by').value.trim();
+  list[idx].date = document.getElementById('edit-prep-date').value;
+  list[idx].notes = document.getElementById('edit-prep-notes').value.trim();
+
+  savePreparationsList(list);
+  renderSavedPreparationsTable();
+  closeEditPreparationModal();
+  alert('✅ تم حفظ التعديلات بنجاح في السجلات!');
+}
+
+function deletePreparation(id) {
+  if (!confirm('هل أنت متأكد من حذف هذا التحضير من السجلات؟')) return;
+  let list = getSavedPreparations();
+  list = list.filter(x => x.id !== id);
+  savePreparationsList(list);
+  renderSavedPreparationsTable();
+}
+
+function clearAllPreparations() {
+  if (!confirm('تحذير: هل أنت متأكد من مسح جميع سجلات التحضيرات؟ لا يمكن التراجع عن هذا الإجراء.')) return;
+  savePreparationsList([]);
+  renderSavedPreparationsTable();
+}
+
+function exportPreparationsCSV() {
+  const list = getSavedPreparations();
+  if (list.length === 0) {
+    alert('لا توجد سجلات لتصديرها.');
+    return;
+  }
+
+  let csvContent = '\uFEFF';
+  csvContent += 'المادة,التركيز (M),الحجم النهائي (mL),الكمية المحسوبة,الوحدة,تاريخ التحضير,المحضرة,الملاحظات\n';
+  list.forEach(i => {
+    csvContent += `"${i.chemName}","${i.targetM}","${i.targetVol}","${i.calculatedAmount}","${i.unit}","${i.date}","${i.prepBy}","${i.notes}"\n`;
+  });
+
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `سجلات_المحاليل_الكيميائية_${new Date().toISOString().split('T')[0]}.csv`;
+  link.click();
+}
+
+// Print Solution Label
+function printPreparedSolutionLabel(id) {
+  const list = getSavedPreparations();
+  const item = list.find(x => x.id === id);
+  if (!item) return;
+
+  const printWindow = window.open('', '_blank', 'width=650,height=550');
+  if (!printWindow) {
+    alert('يرجى السماح بالنوافذ المنبثقة للطباعة');
+    return;
+  }
+
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="ar" dir="rtl">
+    <head>
+      <meta charset="UTF-8">
+      <title>ملصق محلول محضر: ${item.chemName}</title>
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&display=swap" rel="stylesheet">
+      <style>
+        body { font-family: 'Cairo', sans-serif; padding: 20px; margin: 0; background: #fff; }
+        .solution-sticker {
+          max-width: 380px;
+          margin: 0 auto;
+          border: 3.5px solid #005a9c;
+          border-radius: 12px;
+          padding: 16px;
+          text-align: center;
+          background: #f8fafc;
+        }
+        .hdr { background: #005a9c; color: white; padding: 8px; border-radius: 6px; font-weight: 900; font-size: 16px; margin-bottom: 10px; }
+        .chem-title { font-size: 20px; font-weight: 900; color: #0f172a; margin-bottom: 4px; }
+        .conc-badge { background: #e0f2fe; color: #0369a1; padding: 6px 14px; border-radius: 20px; font-size: 16px; font-weight: 900; display: inline-block; margin-bottom: 12px; }
+        .row-info { display: flex; justify-content: space-between; border-bottom: 1px dashed #cbd5e1; padding: 6px 0; font-size: 13px; font-weight: 700; }
+        .ftr { font-size: 10px; color: #64748b; margin-top: 12px; font-weight: 700; }
+        @media print { body { padding: 0; } .solution-sticker { border-width: 2px; } }
+      </style>
+    </head>
+    <body>
+      <div class="solution-sticker">
+        <div class="hdr">🧪 محلول محضر - PREPARED SOLUTION</div>
+        <div class="chem-title">${item.chemName}</div>
+        <div class="conc-badge">${item.targetM} M (${item.targetVol} mL)</div>
+        <div class="row-info"><span>الوزن / الحجم الفعلي:</span><strong>${item.calculatedAmount} ${item.unit}</strong></div>
+        <div class="row-info"><span>تاريخ التحضير:</span><strong>${item.date}</strong></div>
+        <div class="row-info"><span>اسم المحضّرة:</span><strong>${item.prepBy || '-'}</strong></div>
+        <div class="row-info"><span>ملاحظات:</span><strong>${item.notes || '-'}</strong></div>
+        <div class="ftr">الدليل الرقمي لمعمل الكيمياء DS-16 - منصة SDS Smart</div>
+      </div>
+      <script>window.onload = function() { window.print(); };<\/script>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+}
+
+// Tab Switching
+function switchCalcTab(tab) {
+  const tabSolution = document.getElementById('tab-pane-solution');
+  const tabRecords = document.getElementById('tab-pane-records');
+  const tabQuick = document.getElementById('tab-pane-quick');
+
+  const btnSolution = document.getElementById('tab-btn-solution');
+  const btnRecords = document.getElementById('tab-btn-records');
+  const btnQuick = document.getElementById('tab-btn-quick');
+
+  [btnSolution, btnRecords, btnQuick].forEach(b => b && b.classList.remove('active'));
+  [tabSolution, tabRecords, tabQuick].forEach(p => p && (p.style.display = 'none'));
+
+  if (tab === 'records') {
+    if (tabRecords) tabRecords.style.display = 'block';
+    if (btnRecords) btnRecords.classList.add('active');
+    renderSavedPreparationsTable();
+  } else if (tab === 'quick') {
+    if (tabQuick) tabQuick.style.display = 'block';
+    if (btnQuick) btnQuick.classList.add('active');
+  } else {
+    if (tabSolution) tabSolution.style.display = 'block';
+    if (btnSolution) btnSolution.classList.add('active');
+  }
 }
 
 // ============================================
