@@ -68,6 +68,9 @@
       <button id="tab-btn-records" class="calc-tab-btn" onclick="switchCalcTab('records')">
         <i class="fa-solid fa-book-bookmark"></i> سجلات التحضير المعملية (حفظ دائم وتعديل)
       </button>
+      <button id="tab-btn-indicators" class="calc-tab-btn" onclick="switchCalcTab('indicators')">
+        <i class="fa-solid fa-vial"></i> دليل الكواشف والأدلة المعملية
+      </button>
       <button id="tab-btn-quick" class="calc-tab-btn" onclick="switchCalcTab('quick')">
         <i class="fa-solid fa-bolt"></i> حاسبات التخفيف والتحويل السريع
       </button>
@@ -100,9 +103,14 @@
         <!-- Chemical Selection -->
         <div class="calc-row">
           <div class="input-item" style="flex: 1.2;">
-            <label style="font-weight: 800; color: #0f172a;">اختر المادة من معمل الكيمياء (78 مادة متوفرة):</label>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <label style="font-weight: 800; color: #0f172a; margin: 0;">اختر المادة أو الدليل من المعمل:</label>
+              <button type="button" onclick="openAddIndicatorModal()" style="background: #0284c7; color: white; border: none; border-radius: 6px; padding: 0.25rem 0.65rem; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-plus-circle"></i> + إضافة مادة أو دليل جديد
+              </button>
+            </div>
             <select id="ds16-chem-select" onchange="onSolutionChemSelect(this.value)" style="border: 2px solid #cbd5e1; background: #f8fafc; font-weight: 700;">
-              <option value="">-- جارِ تحميل المواد --</option>
+              <option value="">-- جارِ تحميل المواد والأدلة --</option>
             </select>
           </div>
           <div class="input-item" style="flex: 1;">
@@ -358,6 +366,31 @@
 
     </div>
 
+    <!-- TAB 4: LABORATORY INDICATORS & REAGENTS GUIDE -->
+    <div id="tab-pane-indicators" class="tab-pane-content" style="display: none;">
+      <div class="records-container" style="background: #ffffff; border: 2px solid #bce3fb; border-radius: 16px; padding: 1.8rem;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.8rem;">
+          <div>
+            <h2 style="font-weight: 900; color: #005a9c; font-size: 1.5rem; margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-vial" style="color: #0284c7;"></i> دليل الكواشف والأدلة المعملية القياسية
+            </h2>
+            <p style="font-size: 0.88rem; color: #64748b; font-weight: 700; margin: 0;">
+              بروتوكولات تحضير أشهر أدلة المعايرة والكواشف اللونية وطرق وزنها مع إمكانية استخدامها وتعديلها مباشرة في حاسبة المحاليل.
+            </p>
+          </div>
+          <button type="button" class="calc-btn-gold" onclick="openAddIndicatorModal()" style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">
+            <i class="fa-solid fa-plus-circle"></i> + إضافة مادة / دليل جديد للمعمل
+          </button>
+        </div>
+
+        <div id="indicators-guide-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem;">
+          <!-- Rendered dynamically via JS -->
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   <!-- EDIT PREPARATION RECORD MODAL -->
@@ -425,6 +458,76 @@
         </button>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ADD CUSTOM CHEMICAL / INDICATOR MODAL -->
+  <div id="add-indicator-modal" class="login-modal-overlay" style="display: none;" onclick="if(event.target === this) closeAddIndicatorModal()">
+    <div class="login-card" style="max-width: 580px; text-align: right;">
+      <h3 style="font-weight: 900; color: #005a9c; margin-bottom: 0.3rem;">
+        <i class="fa-solid fa-vial-circle-check"></i> إضافة مادة أو دليل كيميائي جديد للمعمل
+      </h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+        تُحفظ المادة المضافة بشكل دائم في قائمة المعمل وتظهر تلقائياً في قائمة الاختيار وحاسبة المحاليل وسجلاتها.
+      </p>
+
+      <div class="calc-row">
+        <div class="input-item" style="flex: 1.5;">
+          <label style="font-weight: 700; font-size: 0.85rem;">اسم المادة / الدليل بالعربي *</label>
+          <input type="text" id="new-ind-name-ar" placeholder="مثال: دليل أزرق الثيمول أو برمنجنات مخففة">
+        </div>
+        <div class="input-item" style="flex: 1.2;">
+          <label style="font-weight: 700; font-size: 0.85rem;">الاسم بالإنجليزي (اختياري)</label>
+          <input type="text" id="new-ind-name-en" placeholder="Thymol Blue">
+        </div>
+      </div>
+
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الصيغة الكيميائية</label>
+          <input type="text" id="new-ind-formula" placeholder="مثال: C27H30O5S">
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الكتلة المولية MW (g/mol)</label>
+          <input type="number" id="new-ind-mw" step="0.01" placeholder="مثال: 466.59">
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">رقم CAS (اختياري)</label>
+          <input type="text" id="new-ind-cas" placeholder="76-61-9">
+        </div>
+      </div>
+
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">التصنيف</label>
+          <select id="new-ind-type" style="padding: 0.65rem; border-radius: 8px; border: 1px solid #cbd5e1; font-weight: 700;">
+            <option value="indicator">دليل معايرة / كاشف لوني (Indicator)</option>
+            <option value="reagent">محلول كاشف (Reagent)</option>
+            <option value="chemical">مادة كيميائية قياسية (Standard Chemical)</option>
+          </select>
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">الحالة الفيزيائية</label>
+          <select id="new-ind-state" style="padding: 0.65rem; border-radius: 8px; border: 1px solid #cbd5e1; font-weight: 700;">
+            <option value="solid">مادة صلبة (مسحوق / بلورات)</option>
+            <option value="liquid">مادة سائلة (محلول / حمض)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="login-form-group">
+        <label>طريقة / بروتوكول التحضير المعملي المعتمد:</label>
+        <textarea id="new-ind-method" rows="3" placeholder="مثال: إذابة 0.1 جرام في 50 mL إيثانول ثم تكملة الحجم إلى 100 mL بماء مقطر..." style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.9rem;"></textarea>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.2rem;">
+        <button class="login-submit-btn" onclick="saveNewLabIndicator()" style="flex: 2; margin-top: 0; background: #005a9c;">
+          <i class="fa-solid fa-floppy-disk"></i> حفظ وإضافة للمعمل ✅
+        </button>
+        <button class="action-btn action-btn-back" onclick="closeAddIndicatorModal()" style="flex: 1;">
+          إلغاء
+        </button>
+      </div>
     </div>
   </div>
 

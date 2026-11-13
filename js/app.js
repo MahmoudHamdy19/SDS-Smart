@@ -688,18 +688,149 @@ function savePreparationsList(list) {
   }
 }
 
+// Standard Laboratory Indicators & Reagents (الأدلة والكواشف المعملية القياسية)
+const STANDARD_LAB_INDICATORS = [
+  {
+    id: 'std_ind_1',
+    nameAr: 'دليل الفينولفثالين (Phenolphthalein)',
+    nameEn: 'Phenolphthalein Indicator',
+    formula: 'C20H14O4',
+    mw: 318.32,
+    state: 'solid',
+    phRange: '8.2 - 10.0 (عديم اللون ➔ وردي/قرمزي)',
+    prepMethod: 'إذابة 0.1 جرام في 50 mL إيثانول 95% ثم إكمال الحجم إلى 100 mL بماء مقطر (محلول 0.1%)',
+    recommendedVol: 100,
+    targetM: 0.0031
+  },
+  {
+    id: 'std_ind_2',
+    nameAr: 'دليل الميثيل البرتقالي (Methyl Orange)',
+    nameEn: 'Methyl Orange Indicator',
+    formula: 'C14H14N3NaO3S',
+    mw: 327.33,
+    state: 'solid',
+    phRange: '3.1 - 4.4 (أحمر ➔ أصفر برتقالي)',
+    prepMethod: 'إذابة 0.1 جرام في 100 mL ماء مقطر ساخن ثم تركه ليبرد وترشيحه (محلول 0.1%)',
+    recommendedVol: 100,
+    targetM: 0.003
+  },
+  {
+    id: 'std_ind_3',
+    nameAr: 'دليل أزرق البروموثيمول (Bromothymol Blue)',
+    nameEn: 'Bromothymol Blue Indicator',
+    formula: 'C27H28Br2O5S',
+    mw: 624.38,
+    state: 'solid',
+    phRange: '6.0 - 7.6 (أصفر ➔ أزرق)',
+    prepMethod: 'إذابة 0.1 جرام في 20 mL إيثانول ثم إضافة 80 mL ماء مقطر (محلول 0.1%)',
+    recommendedVol: 100,
+    targetM: 0.0016
+  },
+  {
+    id: 'std_ind_4',
+    nameAr: 'دليل الميثيل الأحمر (Methyl Red)',
+    nameEn: 'Methyl Red Indicator',
+    formula: 'C15H15N3O2',
+    mw: 269.30,
+    state: 'solid',
+    phRange: '4.4 - 6.2 (أحمر ➔ أصفر)',
+    prepMethod: 'إذابة 0.1 جرام في 60 mL إيثانول ثم إكمال الحجم إلى 100 mL بماء مقطر',
+    recommendedVol: 100,
+    targetM: 0.0037
+  },
+  {
+    id: 'std_ind_5',
+    nameAr: 'دليل الكروم الأسود T لمعايرة العسرة (EBT)',
+    nameEn: 'Eriochrome Black T (EBT)',
+    formula: 'C20H12N3NaO7S',
+    mw: 461.38,
+    state: 'solid',
+    phRange: 'معايرات الكالسيوم والماغنسيوم والـ EDTA (نبيذي ➔ أزرق)',
+    prepMethod: 'إذابة 0.5 جرام في 100 mL ثلاثي إيثانول أمين أو خلط 0.5 جرام مع 100 جرام ملح طعام نقي',
+    recommendedVol: 100,
+    targetM: 0.01
+  },
+  {
+    id: 'std_ind_6',
+    nameAr: 'دليل النشا للمعايرات اليودية (Starch Indicator)',
+    nameEn: 'Starch Indicator Solution',
+    formula: '(C6H10O5)n',
+    mw: 162.14,
+    state: 'solid',
+    phRange: 'كاشف لليود الحر (يعطي لون أزرق داكن)',
+    prepMethod: 'خلط 1 جرام نشا مع قليل من الماء البارد وسكبه في 100 mL ماء مغلي مع التحريك لدقيقتين',
+    recommendedVol: 100,
+    targetM: 0.06
+  },
+  {
+    id: 'std_ind_7',
+    nameAr: 'كاشف لوجول لليود (Lugol Iodine Reagent)',
+    nameEn: 'Lugol Iodine Solution',
+    formula: 'I2 + KI',
+    mw: 253.8,
+    state: 'solid',
+    phRange: 'كشف نوعي للنشا والجليكوجين والمعايرات التأكسدية',
+    prepMethod: 'إذابة 10 جرام يوديد بوتاسيوم KI في 100 mL ماء ثم إذابة 5 جرام يود نقي بلوري I2',
+    recommendedVol: 100,
+    targetM: 0.197
+  },
+  {
+    id: 'std_ind_8',
+    nameAr: 'كاشف بندكت للسكريات (Benedict Reagent)',
+    nameEn: 'Benedict Quantitative Reagent',
+    formula: 'CuSO4 + Na-Citrate',
+    mw: 159.6,
+    state: 'liquid',
+    phRange: 'كاشف لوني للسكريات المختزلة (راسب أحمر طوبي)',
+    prepMethod: 'إذابة 173g سترات صوديوم + 100g كربونات صوديوم في 800mL ماء ثم إضافة محلول 17.3g كبريتات نحاس في 100mL ماء وتكملة الحجم لـ 1L',
+    recommendedVol: 1000,
+    targetM: 0.1
+  }
+];
+
 // Populate Chemical Selector in Solution Calculator
 function initSolutionCalculator() {
   const select = document.getElementById('ds16-chem-select');
   if (!select) return;
   const chems = getAllChemicals();
-  select.innerHTML = '<option value="">-- اختر مادة من معمل الكيمياء (أو أدخل يدوياً) --</option>';
-  chems.forEach(c => {
+  
+  select.innerHTML = '<option value="">-- اختر مادة أو دليلاً من القائمة --</option>';
+
+  // Group 1: Standard Laboratory Indicators (كواشف وأدلة المعمل)
+  const indOptGroup = document.createElement('optgroup');
+  indOptGroup.label = '🧪 كواشف وأدلة المعمل القياسية (Indicators & Reagents)';
+  STANDARD_LAB_INDICATORS.forEach(ind => {
+    const opt = document.createElement('option');
+    opt.value = ind.id;
+    opt.textContent = `${ind.nameAr} - ${ind.formula}`;
+    indOptGroup.appendChild(opt);
+  });
+  select.appendChild(indOptGroup);
+
+  // Group 2: Custom Added Chemicals & Indicators
+  const customChems = (JSON.parse(localStorage.getItem('sds_custom_chemicals')) || []);
+  if (customChems.length > 0) {
+    const customGroup = document.createElement('optgroup');
+    customGroup.label = '✨ أدلة ومواد مضافة حديثاً للمعمل';
+    customChems.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.id;
+      opt.textContent = `★ ${c.nameAr} (${c.nameEn}) - ${c.formula}`;
+      customGroup.appendChild(opt);
+    });
+    select.appendChild(customGroup);
+  }
+
+  // Group 3: General Laboratory Inventory (المخزون الرئيسي)
+  const mainGroup = document.createElement('optgroup');
+  mainGroup.label = '🔬 مواد معمل الكيمياء (المخزون الرئيسي)';
+  chems.filter(c => !c.id.toString().startsWith('ind_')).forEach(c => {
     const opt = document.createElement('option');
     opt.value = c.id;
     opt.textContent = `${c.nameAr} (${c.nameEn}) - ${c.formula}`;
-    select.appendChild(opt);
+    mainGroup.appendChild(opt);
   });
+  select.appendChild(mainGroup);
 
   // Set today's date
   const dateInp = document.getElementById('ds16-prep-date');
@@ -713,6 +844,14 @@ function initSolutionCalculator() {
 
 function onSolutionChemSelect(chemId) {
   if (!chemId) return;
+
+  // Check if it's one of the standard indicators
+  const stdInd = STANDARD_LAB_INDICATORS.find(x => x.id === chemId);
+  if (stdInd) {
+    useIndicatorInCalculator(chemId);
+    return;
+  }
+
   const chems = getAllChemicals();
   const chem = chems.find(c => c.id == chemId);
   if (!chem) return;
@@ -726,9 +865,173 @@ function onSolutionChemSelect(chemId) {
     if (!isNaN(num)) mwInp.value = num;
   }
 
+  if (chem.preparationMethod) {
+    const notesInp = document.getElementById('ds16-notes');
+    if (notesInp) notesInp.value = chem.preparationMethod;
+  }
+
   // Switch state if it's liquid
   const isLiquid = (chem.physicalState || '').includes('Liquid') || (chem.physicalState || '').includes('سائل');
   setDs16State(isLiquid ? 'liquid' : 'solid');
+}
+
+function useIndicatorInCalculator(indId) {
+  let ind = STANDARD_LAB_INDICATORS.find(x => x.id === indId);
+  if (!ind) {
+    const customChems = JSON.parse(localStorage.getItem('sds_custom_chemicals')) || [];
+    const custom = customChems.find(x => x.id === indId);
+    if (custom) {
+      ind = {
+        id: custom.id,
+        nameAr: custom.nameAr,
+        nameEn: custom.nameEn,
+        formula: custom.formula,
+        mw: parseFloat(custom.molecularWeight) || 0,
+        state: custom.physicalState || 'solid',
+        prepMethod: custom.preparationMethod || '',
+        recommendedVol: 100,
+        targetM: 0.1
+      };
+    }
+  }
+  if (!ind) return;
+
+  switchCalcTab('solution');
+  setDs16State(ind.state);
+
+  const nameInp = document.getElementById('ds16-chem-name');
+  const mwInp = document.getElementById('ds16-mw-val');
+  const volInp = document.getElementById('ds16-target-vol');
+  const mInp = document.getElementById('ds16-target-m');
+  const notesInp = document.getElementById('ds16-notes');
+  const prepByInp = document.getElementById('ds16-prep-by');
+
+  if (nameInp) nameInp.value = ind.nameAr;
+  if (mwInp && ind.mw) mwInp.value = ind.mw;
+  if (volInp && ind.recommendedVol) volInp.value = ind.recommendedVol;
+  if (mInp && ind.targetM) mInp.value = ind.targetM;
+  if (notesInp && ind.prepMethod) notesInp.value = ind.prepMethod;
+  if (prepByInp && !prepByInp.value) prepByInp.value = 'محضّرة المعمل';
+
+  calculateDs16Solution();
+}
+
+// Modal for Adding New Indicator or Chemical
+function openAddIndicatorModal() {
+  const modal = document.getElementById('add-indicator-modal');
+  if (modal) modal.style.display = 'flex';
+}
+
+function closeAddIndicatorModal() {
+  const modal = document.getElementById('add-indicator-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+function saveNewLabIndicator() {
+  const nameAr = document.getElementById('new-ind-name-ar').value.trim();
+  const nameEn = document.getElementById('new-ind-name-en').value.trim() || nameAr;
+  const formula = document.getElementById('new-ind-formula').value.trim() || '---';
+  const mw = parseFloat(document.getElementById('new-ind-mw').value) || 0;
+  const type = document.getElementById('new-ind-type').value;
+  const prepMethod = document.getElementById('new-ind-method').value.trim();
+
+  if (!nameAr) {
+    alert('يرجى كتابة اسم الدليل أو المادة.');
+    return;
+  }
+
+  const customChems = JSON.parse(localStorage.getItem('sds_custom_chemicals')) || [];
+  const newInd = {
+    id: 'ind_' + Date.now(),
+    nameAr: nameAr,
+    nameEn: nameEn,
+    formula: formula,
+    cas: document.getElementById('new-ind-cas').value.trim() || 'N/A',
+    molecularWeight: mw ? mw.toString() : '---',
+    category: type === 'indicator' ? 'indicators' : 'other',
+    physicalState: document.getElementById('new-ind-state').value,
+    quantity: '100 mL',
+    location: 'Cabinet 1 - كواشف وأدلة',
+    preparationMethod: prepMethod,
+    isCustomIndicator: true
+  };
+
+  customChems.push(newInd);
+  localStorage.setItem('sds_custom_chemicals', JSON.stringify(customChems));
+
+  // Re-populate select and choose this new item
+  initSolutionCalculator();
+  const select = document.getElementById('ds16-chem-select');
+  if (select) select.value = newInd.id;
+  onSolutionChemSelect(newInd.id);
+
+  if (prepMethod) {
+    const notesInp = document.getElementById('ds16-notes');
+    if (notesInp && !notesInp.value) notesInp.value = prepMethod;
+  }
+
+  closeAddIndicatorModal();
+  renderLabIndicatorsGuide();
+  alert(`✅ تم حفظ وإضافة [${nameAr}] بنجاح إلى قائمة الأدلة والمواد المعتمدة في المعمل!`);
+}
+
+// Render Standard and Custom Laboratory Indicators Guide
+function renderLabIndicatorsGuide() {
+  const container = document.getElementById('indicators-guide-grid');
+  if (!container) return;
+
+  const customChems = JSON.parse(localStorage.getItem('sds_custom_chemicals')) || [];
+  const customIndicators = customChems.filter(c => c.category === 'indicators' || c.isCustomIndicator);
+
+  const allIndicators = [
+    ...STANDARD_LAB_INDICATORS.map(ind => ({ ...ind, isCustom: false })),
+    ...customIndicators.map(c => ({
+      id: c.id,
+      nameAr: c.nameAr,
+      nameEn: c.nameEn,
+      formula: c.formula,
+      mw: c.molecularWeight,
+      state: c.physicalState,
+      phRange: c.cas && c.cas !== 'N/A' ? `رقم CAS: ${c.cas}` : 'مضاف بواسطة المعمل',
+      prepMethod: c.preparationMethod || 'تحضير حسب بروتوكول المعمل',
+      isCustom: true
+    }))
+  ];
+
+  container.innerHTML = allIndicators.map(ind => `
+    <div class="indicator-card" style="background: #ffffff; border: 1.5px solid ${ind.isCustom ? '#f59e0b' : '#bce3fb'}; border-radius: 12px; padding: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; gap: 0.5rem;">
+          <h4 style="font-weight: 800; color: #005a9c; margin: 0; font-size: 1.05rem;">
+            ${ind.isCustom ? '<span style="background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; margin-left: 5px;">مضاف يدوياً</span>' : ''}
+            ${ind.nameAr}
+          </h4>
+          <span style="font-size: 0.8rem; font-weight: 700; color: #64748b; direction: ltr;">${ind.formula}</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 0.7rem; font-weight: 600;">${ind.nameEn}</p>
+
+        <div style="background: #f8fafc; border-radius: 8px; padding: 0.6rem 0.8rem; margin-bottom: 0.8rem; font-size: 0.85rem;">
+          <div style="margin-bottom: 0.3rem;">
+            <strong style="color: #0f172a;">المدى اللوني / الوظيفة:</strong>
+            <span style="color: #0284c7; font-weight: 700;"> ${ind.phRange}</span>
+          </div>
+          <div>
+            <strong style="color: #0f172a;">الكتلة المولية MW:</strong>
+            <span style="color: #475569; font-weight: 700;"> ${ind.mw} g/mol</span>
+          </div>
+        </div>
+
+        <div style="background: #eff6ff; border-right: 3px solid #0284c7; padding: 0.6rem 0.8rem; border-radius: 6px; font-size: 0.82rem; color: #1e3a8a; line-height: 1.5; margin-bottom: 1rem;">
+          <strong>بروتوكول التحضير المعملي:</strong><br>
+          ${ind.prepMethod}
+        </div>
+      </div>
+
+      <button class="calc-btn-gold" onclick="useIndicatorInCalculator('${ind.id}')" style="width: 100%; padding: 0.6rem; font-size: 0.9rem; margin-top: auto;">
+        <i class="fa-solid fa-calculator"></i> استخدام في الحاسبة DS-16
+      </button>
+    </div>
+  `).join('');
 }
 
 let ds16CurrentState = 'solid';
@@ -1287,13 +1590,15 @@ function switchCalcTab(tab) {
   const tabSolution = document.getElementById('tab-pane-solution');
   const tabRecords = document.getElementById('tab-pane-records');
   const tabQuick = document.getElementById('tab-pane-quick');
+  const tabIndicators = document.getElementById('tab-pane-indicators');
 
   const btnSolution = document.getElementById('tab-btn-solution');
   const btnRecords = document.getElementById('tab-btn-records');
   const btnQuick = document.getElementById('tab-btn-quick');
+  const btnIndicators = document.getElementById('tab-btn-indicators');
 
-  [btnSolution, btnRecords, btnQuick].forEach(b => b && b.classList.remove('active'));
-  [tabSolution, tabRecords, tabQuick].forEach(p => p && (p.style.display = 'none'));
+  [btnSolution, btnRecords, btnQuick, btnIndicators].forEach(b => b && b.classList.remove('active'));
+  [tabSolution, tabRecords, tabQuick, tabIndicators].forEach(p => p && (p.style.display = 'none'));
 
   if (tab === 'records') {
     if (tabRecords) tabRecords.style.display = 'block';
@@ -1302,6 +1607,10 @@ function switchCalcTab(tab) {
   } else if (tab === 'quick') {
     if (tabQuick) tabQuick.style.display = 'block';
     if (btnQuick) btnQuick.classList.add('active');
+  } else if (tab === 'indicators') {
+    if (tabIndicators) tabIndicators.style.display = 'block';
+    if (btnIndicators) btnIndicators.classList.add('active');
+    renderLabIndicatorsGuide();
   } else {
     if (tabSolution) tabSolution.style.display = 'block';
     if (btnSolution) btnSolution.classList.add('active');
