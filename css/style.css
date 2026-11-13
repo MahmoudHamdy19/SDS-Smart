@@ -1492,3 +1492,463 @@ a {
 #qr-code-canvas {
   image-rendering: pixelated;
 }
+
+/* ========================================================
+   Chemical Waste Management Page (إدارة النفايات الكيميائية)
+   ======================================================== */
+
+.waste-hero {
+  background: linear-gradient(135deg, #0a2540 0%, #10375c 40%, #005a9c 80%, #0284c7 100%);
+  color: white;
+  border-radius: 18px;
+  padding: 2.2rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px rgba(10, 37, 64, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.waste-hero::after {
+  content: "";
+  position: absolute;
+  left: -20px;
+  bottom: -20px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 168, 204, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.waste-hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.waste-hero-title-group {
+  max-width: 650px;
+}
+
+.waste-hero-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.waste-hero-subtitle {
+  font-size: 1.25rem;
+  color: #bae6fd;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.waste-hero-pillars {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #fef08a;
+  border: 1px solid rgba(254, 240, 138, 0.4);
+}
+
+.waste-hero-art {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Objective Box */
+.waste-objective-card {
+  background: #ffffff;
+  border: 2px solid #38bdf8;
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.waste-target-badge {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+}
+
+.waste-target-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* Infographic Layout */
+.waste-info-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+  .waste-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.waste-section-card {
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.waste-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.waste-step-badge {
+  width: 36px;
+  height: 36px;
+  background: #0284c7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+  flex-shrink: 0;
+}
+
+.waste-step-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+}
+
+/* Segregation Categories */
+.segregation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.2rem;
+}
+
+.seg-item {
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.seg-item:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.seg-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.seg-text {
+  flex: 1;
+}
+
+.seg-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-bottom: 0.15rem;
+}
+
+.seg-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* Alert Note */
+.waste-warning-callout {
+  background: #fffbeb;
+  border: 2px solid #fde68a;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  color: #92400e;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 600;
+}
+
+/* Green Checklist */
+.waste-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.waste-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.waste-checklist-item i {
+  color: #10b981;
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+/* Containers Showcase */
+.containers-showcase {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.cont-item {
+  background: white;
+  border-radius: 8px;
+  padding: 0.6rem 0.4rem;
+  border: 1px solid #dcfce7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cont-item svg {
+  width: 36px;
+  height: 36px;
+}
+
+.cont-name {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #166534;
+}
+
+/* Waste Bottle Label */
+.waste-bottle-label {
+  background: #fffef0;
+  border: 2.5px solid #eab308;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.15);
+  font-family: 'Cairo', sans-serif;
+}
+
+.label-banner-title {
+  background: #eab308;
+  color: #713f12;
+  font-weight: 900;
+  text-align: center;
+  padding: 0.4rem;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+}
+
+.label-fields-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.label-field-row {
+  display: flex;
+  border-bottom: 1px dashed #ca8a04;
+  padding-bottom: 0.3rem;
+}
+
+.label-field-key {
+  font-weight: 800;
+  color: #854d0e;
+  width: 140px;
+}
+
+.label-field-val {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* Prohibitions List */
+.prohibitions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.prohibition-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  color: #991b1b;
+  font-weight: 700;
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+
+.prohibition-item i {
+  color: #dc2626;
+  font-size: 1.2rem;
+  margin-top: 0.15rem;
+}
+
+/* Spill Response Protocol */
+.spill-steps-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.spill-step-box {
+  background: #fff1f2;
+  border: 2px solid #fda4af;
+  border-radius: 12px;
+  padding: 0.8rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.spill-step-icon {
+  font-size: 1.6rem;
+}
+
+.spill-step-word {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #be123c;
+}
+
+.spill-step-desc {
+  font-size: 0.75rem;
+  color: #881337;
+  font-weight: 600;
+}
+
+/* Golden Rule Section */
+.golden-rule-section {
+  background: linear-gradient(135deg, #fefce8 0%, #fef08a 50%, #fef9c3 100%);
+  border: 2.5px solid #eab308;
+  border-radius: 16px;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 20px rgba(234, 179, 8, 0.15);
+}
+
+.ask-yourself-header {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: #713f12;
+  margin-bottom: 1.2rem;
+}
+
+.questions-pills-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.q-pill {
+  background: #0284c7;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 8px rgba(2, 132, 199, 0.25);
+  border: 2px solid #ffffff;
+}
+
+.golden-rule-box {
+  background: #ffffff;
+  border: 2px solid #ca8a04;
+  border-radius: 12px;
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.golden-rule-title {
+  color: #b45309;
+  font-weight: 900;
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.golden-rule-quote {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.7;
+}

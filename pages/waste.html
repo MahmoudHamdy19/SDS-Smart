@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إدارة النفايات الكيميائية | SDS Smart</title>
+  <title>إدارة النفايات الكيميائية | مبادرة معمل كيمياء آمن وذكي</title>
+  <!-- Google Fonts: Cairo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/style.css">
-  <!-- Font Awesome 6 -->
+  <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="../js/qrcode.min.js"></script>
 </head>
 <body>
 
-  <!-- Top Navbar -->
+  <!-- Top Blue Navbar -->
   <header class="top-navbar">
     <div class="nav-brand">
       <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
@@ -26,7 +29,7 @@
       <a href="ghs.html"><li class="nav-item"><i class="fa-solid fa-triangle-exclamation"></i> رموز المخاطر GHS</li></a>
       <a href="storage.html"><li class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> التخزين الآمن</li></a>
       <a href="firstaid.html"><li class="nav-item"><i class="fa-solid fa-kit-medical"></i> الإسعافات الأولية</li></a>
-      <a href="waste.html"><li class="nav-item active"><i class="fa-solid fa-trash-can"></i> إدارة النفايات</li></a>
+      <a href="waste.html"><li class="nav-item active"><i class="fa-solid fa-trash-can"></i> إدارة النفايات الكيميائية</li></a>
       <a href="calculators.html"><li class="nav-item"><i class="fa-solid fa-calculator"></i> حسابات كيميائية</li></a>
       <a href="about.html"><li class="nav-item"><i class="fa-solid fa-circle-info"></i> معلومات المنصة</li></a>
     </ul>
@@ -39,51 +42,601 @@
   <!-- Main Container -->
   <main class="app-container">
 
-    <div style="margin-bottom: 2rem;">
-      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">🗑️ الدليل البيئي للتخلص وإدارة النفايات الكيميائية</h2>
-      <p style="color: var(--text-muted); font-size: 1rem;">المعايير المعتمدة لفرز المخلفات المعملية ومعالجتها لتفادي التلوث البيئي والأضرار بشبكات الصرف.</p>
+    <!-- Waste Infographic Header Banner (Matching Poster) -->
+    <section class="waste-hero">
+      <div class="waste-hero-header">
+        
+        <div class="waste-hero-title-group">
+          <h1 class="waste-hero-title">
+            <i class="fa-solid fa-recycle" style="color: #38bdf8;"></i> إدارة النفايات الكيميائية
+          </h1>
+          <div class="waste-hero-subtitle">مبادرة معمل كيمياء آمن وذكي</div>
+          <div class="waste-hero-pillars">
+            سلامة أوضح ... معرفة أسرع ... معمل أذكى
+          </div>
+        </div>
+
+        <div class="waste-hero-art">
+          <!-- Glassware & Recycle Icon Watermark -->
+          <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <path d="M7 14l5-5 5 5" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 9v9" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Objective Section (الهدف) -->
+    <div class="waste-objective-card">
+      <div class="waste-target-badge">
+        <i class="fa-solid fa-bullseye"></i> الهدف
+      </div>
+      <div class="waste-target-text">
+        التعامل الآمن مع النفايات الكيميائية منذ لحظة تولدها وحتى تسليمها للجهة المختصة، بما يقلل مخاطر التعرض والتفاعلات غير المتوقعة والتلوث البيئي.
+      </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-      
-      <div class="dash-box" style="background: #fffbeb; border: 1.5px solid #fde68a; padding: 1.6rem;">
-        <h3 style="font-weight: 800; color: #b45309; font-size: 1.2rem; margin-bottom: 0.8rem;">🟨 حاوية المذيبات العضوية غير المكلورة</h3>
-        <p style="font-size: 0.92rem; color: #78350f; line-height: 1.7;">
-          <strong>المواد المشمولة:</strong> الإيثانول، الأسيتون، أسيتات الإيثيل، وأسيتات الميثيل.<br>
-          <strong>الإجراء:</strong> تجمع في براميل معدنية مخصصة ذات توصيل أرضي لتفريغ الشحنات الاستاتيكية، وترسل لمحطات الحرق الحراري الصناعي المعتمد بيئياً.
+    <!-- MAIN INFOGRAPHIC GRID: Row 1 (Sections 1, 2, 3) -->
+    <div class="waste-info-grid">
+
+      <!-- Column 1: SECTION 1 (فرز النفايات من المصدر) -->
+      <div class="waste-section-card">
+        <div class="waste-card-header">
+          <div class="waste-step-badge">1</div>
+          <h2 class="waste-step-title">فرز النفايات من المصدر</h2>
+        </div>
+
+        <p style="font-size: 0.92rem; color: #475569; font-weight: 700; margin-bottom: 1rem; line-height: 1.6;">
+          يجب عدم خلط النفايات عشوائياً. تُفصل حسب طبيعتها وتوافقها الكيميائي، ومن الفئات الشائعة:
         </p>
+
+        <div class="segregation-list">
+
+          <!-- 1. المذيبات العضوية المهلجنة -->
+          <div class="seg-item" style="border-right: 4px solid #78350f;">
+            <div class="seg-icon-box" style="background: #fef3c7; color: #78350f;">
+              <i class="fa-solid fa-vial-virus"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">المذيبات العضوية المهلجنة</div>
+              <div class="seg-desc">مثل: النفايات المحتوية على الكلوروفورم أو ثنائي كلورو ميثان.</div>
+            </div>
+          </div>
+
+          <!-- 2. المذيبات العضوية غير المهلجنة -->
+          <div class="seg-item" style="border-right: 4px solid #ea580c;">
+            <div class="seg-icon-box" style="background: #ffedd5; color: #ea580c;">
+              <i class="fa-solid fa-fire-flame-simple"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">المذيبات العضوية غير المهلجنة</div>
+              <div class="seg-desc">مثل: الإيثانول والأسيتون عند تصنيفها كنفايات.</div>
+            </div>
+          </div>
+
+          <!-- 3. النفايات الحمضية -->
+          <div class="seg-item" style="border-right: 4px solid #dc2626;">
+            <div class="seg-icon-box" style="background: #fee2e2; color: #dc2626;">
+              <i class="fa-solid fa-flask-vial"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">النفايات الحمضية.</div>
+              <div class="seg-desc">محاليل حمض الهيدروكلوريك، الكبريتيك، النيتريك (تُعزل عن القواعد والمواد العضوية).</div>
+            </div>
+          </div>
+
+          <!-- 4. النفايات القلوية -->
+          <div class="seg-item" style="border-right: 4px solid #2563eb;">
+            <div class="seg-icon-box" style="background: #dbeafe; color: #2563eb;">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">النفايات القلوية.</div>
+              <div class="seg-desc">محاليل هيدروكسيد الصوديوم، هيدروكسيد البوتاسيوم ومحاليل الأمونيا.</div>
+            </div>
+          </div>
+
+          <!-- 5. النفايات المحتوية على معادن ثقيلة -->
+          <div class="seg-item" style="border-right: 4px solid #d97706;">
+            <div class="seg-icon-box" style="background: #fef3c7; color: #d97706;">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">النفايات المحتوية على معادن ثقيلة.</div>
+              <div class="seg-desc">مخلفات مركبات الرصاص، الكادميوم، الفضة، والكروم والزئبق.</div>
+            </div>
+          </div>
+
+          <!-- 6. المؤكسدات والمواد شديدة التفاعل -->
+          <div class="seg-item" style="border-right: 4px solid #16a34a;">
+            <div class="seg-icon-box" style="background: #dcfce7; color: #16a34a;">
+              <i class="fa-solid fa-burst"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">المؤكسدات والمواد شديدة التفاعل</div>
+              <div class="seg-desc">تُحفظ منفصلة تماماً وفق متطلبات التوافق الكيميائي.</div>
+            </div>
+          </div>
+
+          <!-- 7. المواد الصلبة الملوثة كيميائياً -->
+          <div class="seg-item" style="border-right: 4px solid #9333ea;">
+            <div class="seg-icon-box" style="background: #f3e8ff; color: #9333ea;">
+              <i class="fa-solid fa-box-archive"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">المواد الصلبة الملوثة كيميائياً.</div>
+              <div class="seg-desc">تُجمع في حاويات مخصصة (قفازات ملوثة، ورق ترشيح، أطراف ماصات).</div>
+            </div>
+          </div>
+
+          <!-- 8. الزجاج الملوث أو المكسور -->
+          <div class="seg-item" style="border-right: 4px solid #475569;">
+            <div class="seg-icon-box" style="background: #f1f5f9; color: #475569;">
+              <i class="fa-solid fa-wine-glass-empty"></i>
+            </div>
+            <div class="seg-text">
+              <div class="seg-title">الزجاج الملوث أو المكسور.</div>
+              <div class="seg-desc">يوضع في حاوية مقاومة للثقب ومخصصة لهذا الغرض.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Warning Callout Box -->
+        <div class="waste-warning-callout">
+          <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.3rem; margin-top: 0.1rem; color: #d97706;"></i>
+          <div>
+            <strong>مهم:</strong> لا يعني وجود مادتين ضمن الفئة نفسها أنه يمكن خلطهما. يجب التحقق من التوافق الكيميائي ونشرة بيانات السلامة وإجراءات المنشأة أولاً.
+          </div>
+        </div>
+
       </div>
 
-      <div class="dash-box" style="background: #fef2f2; border: 1.5px solid #fecaca; padding: 1.6rem;">
-        <h3 style="font-weight: 800; color: #b91c1c; font-size: 1.2rem; margin-bottom: 0.8rem;">🟥 نفايات الأحماض غير العضوية</h3>
-        <p style="font-size: 0.92rem; color: #7f1d1d; line-height: 1.7;">
-          <strong>المواد المشمولة:</strong> مخلفات حمض الهيدروكلوريك وحمض الكبريتيك.<br>
-          <strong>الإجراء:</strong> تخفف بالماء مع التبريد التدريجي، ثم تعادل ببطء بإضافة كربونات الصوديوم أو محلول هيدروكسيد الصوديوم حتى الوصول لرقم هيدروجيني متوازن (pH 6-8) قبل الصرف.
-        </p>
-      </div>
+      <!-- Column 2: SECTION 2 & SECTION 3 -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- SECTION 2: اختيار حاوية النفايات -->
+        <div class="waste-section-card">
+          <div class="waste-card-header">
+            <div class="waste-step-badge">2</div>
+            <h2 class="waste-step-title">اختيار حاوية النفايات</h2>
+          </div>
 
-      <div class="dash-box" style="background: #eff6ff; border: 1.5px solid #bfdbfe; padding: 1.6rem;">
-        <h3 style="font-weight: 800; color: #1d4ed8; font-size: 1.2rem; margin-bottom: 0.8rem;">🟦 نفايات المحاليل القلوية المركزة</h3>
-        <p style="font-size: 0.92rem; color: #1e3a8a; line-height: 1.7;">
-          <strong>المواد المشمولة:</strong> محاليل هيدروكسيد الصوديوم، هيدروكسيد البوتاسيوم ومحلول الأمونيا.<br>
-          <strong>الإجراء:</strong> تعادل بحمض هيدروكلوريك مخفف أو حمض الستريك مع مراقبة مؤشر pH والتأكد من خلوها من أي معادن ثقيلة مذابة.
-        </p>
-      </div>
+          <ul class="waste-checklist">
+            <li class="waste-checklist-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>استخدام حاوية متوافقة مع المادة الكيميائية ومقاومة للتسرب.</span>
+            </li>
+            <li class="waste-checklist-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>إبقاء الحاوية مغلقة عندما لا تتم إضافة النفايات إليها.</span>
+            </li>
+            <li class="waste-checklist-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>عدم ملء الحاوية بالكامل وترك حيز مناسب للتمدد (Headspace 10-15%).</span>
+            </li>
+            <li class="waste-checklist-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>وضع الحاوية داخل احتواء ثانوي (Secondary Containment) عند الحاجة.</span>
+            </li>
+            <li class="waste-checklist-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>عدم استخدام عبوات مجهولة أو غير مناسبة.</span>
+            </li>
+          </ul>
 
-      <div class="dash-box" style="background: #faf5ff; border: 1.5px solid #e9d5ff; padding: 1.6rem;">
-        <h3 style="font-weight: 800; color: #7e22ce; font-size: 1.2rem; margin-bottom: 0.8rem;">⬛ نفايات المعادن الثقيلة والسامة</h3>
-        <p style="font-size: 0.92rem; color: #581c87; line-height: 1.7;">
-          <strong>المواد المشمولة:</strong> مركبات الرصاص، الكادميوم، الفضة، والزئبق والكوبالت.<br>
-          <strong>تحذير صارم:</strong> <em>يمنع منعاً باتاً صرفها بأحواض المعمل</em>؛ يجب ترسيبها كبريتيدياً أو هيدروكسيدياً وجمع الراسب كحمأة كيميائية خطرة تسلم للشركات المرخصة.
-        </p>
+          <!-- Showcase of Laboratory Containers -->
+          <div class="containers-showcase">
+            <div class="cont-item">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="17" rx="3" fill="#2563eb"/><line x1="5" y1="9" x2="19" y2="9" stroke="#1d4ed8" stroke-width="1.5"/><circle cx="12" cy="14" r="2.5" fill="#facc15"/></svg>
+              <span class="cont-name">برميل أزرق HDPE للمذيبات</span>
+            </div>
+            <div class="cont-item">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="7" y="5" width="10" height="15" rx="2" fill="#78350f"/><rect x="9" y="2" width="6" height="3" fill="#451a03"/><rect x="8" y="10" width="8" height="6" fill="#fef3c7"/></svg>
+              <span class="cont-name">زجاج كهرماني كيميائي</span>
+            </div>
+            <div class="cont-item">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="16" height="15" rx="3" fill="#eab308"/><rect x="2" y="3" width="20" height="4" rx="2" fill="#ca8a04"/><path d="M12 9 L15 15 L9 15 Z" fill="#dc2626"/></svg>
+              <span class="cont-name">حاوية صفراء للمخلفات الخطرة</span>
+            </div>
+            <div class="cont-item">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="6" y="5" width="12" height="16" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/><circle cx="12" cy="13" r="3" fill="#ef4444"/></svg>
+              <span class="cont-name">عبوة احتواء ثانوي مقاومة</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: بطاقة تعريف النفايات -->
+        <div class="waste-section-card">
+          <div class="waste-card-header">
+            <div class="waste-step-badge">3</div>
+            <h2 class="waste-step-title">بطاقة تعريف النفايات</h2>
+          </div>
+
+          <p style="font-size: 0.92rem; color: #475569; font-weight: 700; margin-bottom: 0.8rem;">
+            يجب أن تكون كل حاوية واضحة ومقروءة، ويُسجل عليها:
+          </p>
+
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.92rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">
+            <li>• أسماء المكونات الكيميائية الفعلية.</li>
+            <li>• التركيز أو النسبة التقريبية عند توفرها.</li>
+            <li>• نوع الخطر (قابل للاشتعال، تآكلي، سام، مؤكسد).</li>
+            <li>• تاريخ بدء التجميع.</li>
+            <li>• اسم المعمل أو الجهة المسؤولة وفق نظام المنشأة.</li>
+          </ul>
+
+          <!-- Waste Chemical Label Simulation (Yellow Lab Bottle Label) -->
+          <div class="waste-bottle-label">
+            <div class="label-banner-title">
+              <i class="fa-solid fa-triangle-exclamation"></i> نفايات كيميائية - CHEMICAL WASTE
+            </div>
+            <div class="label-fields-grid">
+              <div class="label-field-row">
+                <span class="label-field-key">أسماء المكونات:</span>
+                <span class="label-field-val" id="lbl-chem-names">إيثانول 70% + أسيتون 30%</span>
+              </div>
+              <div class="label-field-row">
+                <span class="label-field-key">التركيز التقريبي:</span>
+                <span class="label-field-val" id="lbl-chem-conc">محلول غسيل مخفف</span>
+              </div>
+              <div class="label-field-row">
+                <span class="label-field-key">نوع الخطر:</span>
+                <span class="label-field-val" id="lbl-chem-hazard" style="color: #dc2626; font-weight: 800;">سائل قابل للاشتعال (Flammable)</span>
+              </div>
+              <div class="label-field-row">
+                <span class="label-field-key">تاريخ بدء التجميع:</span>
+                <span class="label-field-val" id="lbl-chem-date">2026-11-13</span>
+              </div>
+              <div class="label-field-row">
+                <span class="label-field-key">اسم المعمل:</span>
+                <span class="label-field-val" id="lbl-chem-lab">معمل الكيمياء العامة - مبنى العلوم</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Red Warning Note -->
+          <div style="background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 8px; padding: 0.65rem 0.9rem; color: #991b1b; font-size: 0.88rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;">
+            <i class="fa-solid fa-circle-xmark" style="color: #dc2626; font-size: 1.1rem;"></i>
+            <span>لا يُكتفى بكتابة «نفايات» أو استخدام اختصارات غير واضحة.</span>
+          </div>
+
+          <!-- Interactive Label Print Button -->
+          <button class="action-btn action-btn-print" onclick="openWasteLabelModal()" style="width: 100%; justify-content: center; font-size: 0.95rem;">
+            <i class="fa-solid fa-tag"></i> إنشاء وطباعة ملصق نفاية كيميائية للمعمل
+          </button>
+
+        </div>
+
       </div>
 
     </div>
+
+    <!-- MAIN INFOGRAPHIC GRID: Row 2 (Sections 4, 5, 6, 7) -->
+    <div class="waste-info-grid">
+
+      <!-- Column 1: SECTION 4 & SECTION 5 -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- SECTION 4: التخزين المؤقت -->
+        <div class="waste-section-card">
+          <div class="waste-card-header">
+            <div class="waste-step-badge">4</div>
+            <h2 class="waste-step-title">التخزين المؤقت</h2>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <div style="flex: 1;">
+              <p style="font-size: 0.95rem; color: #1e293b; font-weight: 700; line-height: 1.8;">
+                تُحفظ النفايات في المكان المخصص لها بعيداً عن مصادر الحرارة والاشتعال، مع فصل المواد غير المتوافقة واستخدام احتواء ثانوي مناسب. يجب أن تبقى الملصقات ظاهرة وأن يكون موقع التخزين آمناً ومحدداً.
+              </p>
+            </div>
+            <div style="width: 80px; height: 80px; background: #e0f2fe; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0284c7; font-size: 2.2rem; flex-shrink: 0;">
+              <i class="fa-solid fa-boxes-stacked"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: ممنوعات أساسية -->
+        <div class="waste-section-card" style="border: 2px solid #fecaca; background: #fffafb;">
+          <div class="waste-card-header" style="border-bottom-color: #fecaca;">
+            <div class="waste-step-badge" style="background: #dc2626;">5</div>
+            <h2 class="waste-step-title" style="color: #991b1b;"><i class="fa-solid fa-ban"></i> ممنوعات أساسية</h2>
+          </div>
+
+          <div class="prohibitions-list">
+            <div class="prohibition-item">
+              <i class="fa-solid fa-ban"></i>
+              <span>لا تخلط نفايات مجهولة التركيب.</span>
+            </div>
+            <div class="prohibition-item">
+              <i class="fa-solid fa-ban"></i>
+              <span>لا تخلط الأحماض والقواعد أو المؤكسدات والمذيبات العضوية دون إجراء معتمد.</span>
+            </div>
+            <div class="prohibition-item">
+              <i class="fa-solid fa-ban"></i>
+              <span>لا تُعِد النفايات إلى عبوة المادة الأصلية.</span>
+            </div>
+            <div class="prohibition-item">
+              <i class="fa-solid fa-ban"></i>
+              <span>لا تترك حاوية النفايات دون بطاقة تعريف واضحة.</span>
+            </div>
+            <div class="prohibition-item">
+              <i class="fa-solid fa-ban"></i>
+              <span>لا تتخلص من المواد الكيميائية في المغسلة أو المصارف العامة إلا إذا كان ذلك مسموحاً صراحة وفق إجراءات المنشأة واللوائح المعمول بها.</span>
+            </div>
+            <div class="prohibition-item">
+              <i class="fa-solid fa-ban"></i>
+              <span>لا تحاول معالجة أو معادلة النفايات دون بروتوكول معتمد.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Column 2: SECTION 6 & SECTION 7 -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- SECTION 6: عند الانسكاب (Emergency Spill Response) -->
+        <div class="waste-section-card">
+          <div class="waste-card-header">
+            <div class="waste-step-badge" style="background: #e11d48;">6</div>
+            <h2 class="waste-step-title" style="color: #9f1239;"><i class="fa-solid fa-biohazard"></i> عند الانسكاب</h2>
+          </div>
+
+          <!-- 4 Pillars of Spill Response -->
+          <div class="spill-steps-row">
+            <div class="spill-step-box">
+              <span class="spill-step-icon">🛑</span>
+              <span class="spill-step-word">أوقف</span>
+              <span class="spill-step-desc">العمل فوراً</span>
+            </div>
+            <div class="spill-step-box">
+              <span class="spill-step-icon">⚠️</span>
+              <span class="spill-step-word">حذّر</span>
+              <span class="spill-step-desc">من حولك</span>
+            </div>
+            <div class="spill-step-box">
+              <span class="spill-step-icon">🚧</span>
+              <span class="spill-step-word">اعزل</span>
+              <span class="spill-step-desc">منطقة الحادث</span>
+            </div>
+            <div class="spill-step-box">
+              <span class="spill-step-icon">📞</span>
+              <span class="spill-step-word">أبلغ</span>
+              <span class="spill-step-desc">المسؤول فوراً</span>
+            </div>
+          </div>
+
+          <p style="font-size: 0.95rem; color: #334155; font-weight: 700; line-height: 1.8; background: #fff1f2; padding: 1rem; border-radius: 10px; border: 1px solid #fecdd3;">
+            لا تحاول تنظيف انسكاب غير معروف أو شديد الخطورة بنفسك. أبعد الآخرين عن المنطقة، وأبلغ المسؤول واتّبع خطة الاستجابة لحالات الطوارئ ونشرة بيانات السلامة (SDS). استخدم عدة الانسكاب المناسبة فقط إذا كنت مدرباً وكان التعامل آمناً.
+          </p>
+        </div>
+
+        <!-- SECTION 7: التخلص النهائي -->
+        <div class="waste-section-card">
+          <div class="waste-card-header">
+            <div class="waste-step-badge" style="background: #0d9488;">7</div>
+            <h2 class="waste-step-title" style="color: #115e59;"><i class="fa-solid fa-truck-moving"></i> التخلص النهائي</h2>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <div style="width: 76px; height: 76px; background: #ccfbf1; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0d9488; font-size: 2rem; flex-shrink: 0;">
+              <i class="fa-solid fa-truck-ramp-box"></i>
+            </div>
+            <div>
+              <p style="font-size: 0.98rem; color: #1e293b; font-weight: 800; line-height: 1.8;">
+                تُسلّم النفايات إلى الجهة أو المتعهد المعتمد وفق نظام المنشأة والأنظمة البيئية المعمول بها. لا يتم التخلص النهائي منها بصورة فردية أو عشوائية.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Golden Rule & Questions Section (قبل إضافة أي نفاية اسأل) -->
+    <section class="golden-rule-section">
+      <div class="ask-yourself-header">
+        <i class="fa-solid fa-circle-question" style="color: #0284c7;"></i> قبل إضافة أي نفاية اسأل نفسك:
+      </div>
+
+      <!-- 4 Questions -->
+      <div class="questions-pills-row">
+        <div class="q-pill">❓ ما المادة؟</div>
+        <div class="q-pill">⚠️ ما مخاطرها؟</div>
+        <div class="q-pill">🔗 مع ماذا تتوافق؟</div>
+        <div class="q-pill">🧪 ما الحاوية المناسبة؟ وأين تخزن؟</div>
+      </div>
+
+      <!-- The Golden Rule Box -->
+      <div class="golden-rule-box">
+        <div class="golden-rule-title">
+          <i class="fa-solid fa-award"></i> القاعدة الذهبية لإدارة النفايات الكيميائية
+        </div>
+        <div class="golden-rule-quote">
+          "إذا لم تكن متأكداً من نوع النفاية أو توافقها، فلا تخلطها. اعزلها وارجع إلى نشرة بيانات السلامة (SDS) ومسؤول السلامة."
+        </div>
+      </div>
+    </section>
 
   </main>
 
+  <!-- Interactive Waste Label Generator Modal -->
+  <div id="waste-label-modal" class="login-modal-overlay" style="display: none;" onclick="if(event.target === this) closeWasteLabelModal()">
+    <div class="login-card" style="max-width: 580px; text-align: right;">
+      <h3 style="font-weight: 900; color: #005a9c; margin-bottom: 0.5rem;">
+        <i class="fa-solid fa-tag"></i> إصدار بطاقة تعريف نفاية كيميائية
+      </h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+        املأ بيانات الحاوية لطباعة بطاقة مطابقة للاشتراطات المعملية والبيئية ولصقها على العبوة.
+      </p>
+
+      <div class="login-form-group">
+        <label>أسماء المكونات الكيميائية الفعلية *</label>
+        <input type="text" id="inp-waste-names" placeholder="مثال: مخلفات إيثانول وأسيتون">
+      </div>
+
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">التركيز أو النسبة التقريبية</label>
+          <input type="text" id="inp-waste-conc" placeholder="مثال: 50% محلول غسيل">
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">نوع الخطر الأساسي *</label>
+          <select id="inp-waste-hazard" style="width: 100%; padding: 0.65rem; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: 'Cairo'; font-weight: 700;">
+            <option value="سائل قابل للاشتعال (Flammable Liquid)">سائل قابل للاشتعال (Flammable)</option>
+            <option value="مادة تآكلية حمضية (Corrosive Acid)">مادة تآكلية حمضية (Corrosive Acid)</option>
+            <option value="مادة تآكلية قلوية (Corrosive Base)">مادة تآكلية قلوية (Corrosive Base)</option>
+            <option value="مادة مؤكسدة (Oxidizer)">مادة مؤكسدة (Oxidizer)</option>
+            <option value="مادة سامة ومعادن ثقيلة (Toxic / Heavy Metal)">مادة سامة ومعادن ثقيلة (Toxic)</option>
+            <option value="نفايات صلبة ملوثة (Contaminated Solids)">نفايات صلبة ملوثة (Solids)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-row">
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">تاريخ بدء التجميع</label>
+          <input type="date" id="inp-waste-date">
+        </div>
+        <div class="input-item">
+          <label style="font-weight: 700; font-size: 0.85rem;">اسم المعمل أو الجهة المسؤولة</label>
+          <input type="text" id="inp-waste-lab" value="معمل الكيمياء - SDS Smart">
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.2rem;">
+        <button class="login-submit-btn" onclick="printOfficialWasteLabel()" style="flex: 2; margin-top: 0; background: #0284c7;">
+          <i class="fa-solid fa-print"></i> معاينة وطباعة البطاقة
+        </button>
+        <button class="action-btn action-btn-back" onclick="closeWasteLabelModal()" style="flex: 1;">
+          إلغاء
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <script src="../js/chemicals_data.js"></script>
   <script src="../js/app.js"></script>
+
+  <script>
+    // Waste Label Modal Functions
+    function openWasteLabelModal() {
+      const modal = document.getElementById('waste-label-modal');
+      const dateInp = document.getElementById('inp-waste-date');
+      if (dateInp && !dateInp.value) {
+        dateInp.value = new Date().toISOString().split('T')[0];
+      }
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeWasteLabelModal() {
+      const modal = document.getElementById('waste-label-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function printOfficialWasteLabel() {
+      const names = document.getElementById('inp-waste-names').value || 'نفايات كيميائية معملية';
+      const conc = document.getElementById('inp-waste-conc').value || 'غير محدد';
+      const hazard = document.getElementById('inp-waste-hazard').value;
+      const date = document.getElementById('inp-waste-date').value || new Date().toISOString().split('T')[0];
+      const lab = document.getElementById('inp-waste-lab').value || 'معمل الكيمياء';
+
+      const printWindow = window.open('', '_blank', 'width=650,height=600');
+      if (!printWindow) {
+        alert('يرجى السماح بالنوافذ المنبثقة للطباعة');
+        return;
+      }
+
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="ar" dir="rtl">
+        <head>
+          <meta charset="UTF-8">
+          <title>بطاقة نفاية كيميائية: ${names}</title>
+          <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&display=swap" rel="stylesheet">
+          <style>
+            body { font-family: 'Cairo', sans-serif; padding: 20px; margin: 0; background: #fff; }
+            .label-box {
+              max-width: 440px;
+              margin: 0 auto;
+              border: 4px solid #ca8a04;
+              border-radius: 12px;
+              padding: 16px;
+              background: #fffef0;
+            }
+            .header-banner {
+              background: #eab308;
+              color: #713f12;
+              text-align: center;
+              padding: 10px;
+              font-weight: 900;
+              font-size: 20px;
+              border-radius: 8px;
+              margin-bottom: 12px;
+            }
+            .hazard-pill {
+              background: #fee2e2;
+              color: #dc2626;
+              padding: 6px 14px;
+              border-radius: 20px;
+              font-weight: 900;
+              text-align: center;
+              font-size: 15px;
+              margin-bottom: 12px;
+              border: 1px solid #fecaca;
+            }
+            .row-item {
+              display: flex;
+              border-bottom: 1.5px dashed #d97706;
+              padding: 8px 0;
+              font-size: 14px;
+            }
+            .row-key {
+              width: 140px;
+              font-weight: 900;
+              color: #92400e;
+            }
+            .row-val {
+              flex: 1;
+              color: #0f172a;
+              font-weight: 700;
+            }
+            .footer-note {
+              font-size: 11px;
+              color: #b45309;
+              text-align: center;
+              margin-top: 14px;
+              font-weight: 700;
+            }
+            @media print {
+              body { padding: 0; }
+              .label-box { border-width: 3px; box-shadow: none; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="label-box">
+            <div class="header-banner">⚠️ نفايات كيميائية - CHEMICAL WASTE</div>
+            <div class="hazard-pill">${hazard}</div>
+            <div class="row-item"><span class="row-key">أسماء المكونات:</span><span class="row-val">${names}</span></div>
+            <div class="row-item"><span class="row-key">التركيز التقريبي:</span><span class="row-val">${conc}</span></div>
+            <div class="row-item"><span class="row-key">تاريخ بدء التجميع:</span><span class="row-val">${date}</span></div>
+            <div class="row-item"><span class="row-key">اسم المعمل:</span><span class="row-val">${lab}</span></div>
+            <div class="footer-note">مبادرة معمل كيمياء آمن وذكي - سلامة أوضح ... معرفة أسرع ... معمل أذكى</div>
+          </div>
+          <script>
+            window.onload = function() { window.print(); };
+          <\/script>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+    }
+  </script>
 </body>
 </html>
-
