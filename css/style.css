@@ -1291,3 +1291,204 @@ a {
   color: #94a3b8;
   font-weight: 600;
 }
+
+/* ========================================================
+   Hero Banner, Feature Cards, Categories & QR Studio Styles
+   ======================================================== */
+
+/* Left Glassware Art */
+.hero-left-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-left-art svg {
+  filter: drop-shadow(0 4px 10px rgba(2, 132, 199, 0.15));
+}
+
+@media (max-width: 868px) {
+  .hero-left-art {
+    display: none;
+  }
+}
+
+/* Sub-note in Hero */
+.hero-subnote {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: rgba(255, 255, 255, 0.65);
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #bae6fd;
+  margin-top: 0.4rem;
+}
+
+/* Right Pillars & Shield in Hero */
+.hero-pillars-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-end;
+}
+
+.hero-pillar-item {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f4c81;
+  letter-spacing: -0.2px;
+}
+
+.hero-shield-icon {
+  width: 54px;
+  height: 54px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 90, 156, 0.15);
+  border: 2px solid #bae6fd;
+}
+
+.hero-brand-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.hero-brand-caption strong {
+  font-size: 0.92rem;
+  color: #005a9c;
+}
+
+.hero-brand-caption small {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+/* GHS Mock Diamond in Feature Card */
+.ghs-mock-diamond {
+  width: 38px;
+  height: 38px;
+  border: 3.5px solid #dc2626;
+  background: white;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.2);
+}
+
+.ghs-mock-excl {
+  transform: rotate(-45deg);
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: #0f172a;
+  line-height: 1;
+}
+
+/* Feature Card SVG Icons Containers */
+.f-icon-doc, .f-icon-storage, .f-icon-firstaid, .f-icon-waste, .f-icon-calc, .f-icon-qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom Category SVG Wrappers */
+.cat-svg-wrap {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.35rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.cat-item:hover .cat-svg-wrap {
+  transform: scale(1.08);
+  border-color: #0284c7;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.15);
+}
+
+/* Most Searched Item */
+.search-item-left {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.search-item-title {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* Quick Tools List */
+.tool-link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.tool-link-card:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+  transform: translateX(-4px);
+  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.1);
+}
+
+.tool-arrow {
+  color: #64748b;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.tool-link-card:hover .tool-arrow {
+  color: #0284c7;
+  transform: translateX(-2px);
+}
+
+.tool-title {
+  font-weight: 800;
+  color: #0f172a;
+  font-size: 0.95rem;
+  flex: 1;
+  text-align: right;
+  margin-right: 0.6rem;
+}
+
+.tool-icon-end {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+/* QR Sticker Card in Studio */
+.qr-sticker-card {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #005a9c;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+#qr-code-canvas {
+  image-rendering: pixelated;
+}

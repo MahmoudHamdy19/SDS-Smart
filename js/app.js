@@ -659,79 +659,334 @@ function calculateUnitConversion() {
   resBox.innerHTML = `النتيجة: <strong>${res} ${unit}</strong>`;
 }
 
-// 10. QR Code Operations
-function openQrGenerator() {
+// ============================================
+// 10. QR Code Studio & Label Printing System
+// ============================================
+let currentQrChemical = null;
+
+// Initialize UTF-8 for qrcode library immediately
+if (typeof qrcode !== 'undefined' && qrcode.stringToBytesFuncs && qrcode.stringToBytesFuncs['UTF-8']) {
+  qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+}
+
+function openQrGenerator(chem) {
   const chems = getAllChemicals();
-  const chem = currentSelectedChemical || (chems.length ? chems[0] : null);
-  if (chem) showQrForChemical(chem);
+  const targetChem = chem || currentSelectedChemical || (chems.length ? chems[0] : null);
+  populateQrChemicalSelector(targetChem ? targetChem.id : null);
+  if (targetChem) {
+    showQrForChemical(targetChem);
+  }
 }
 
 function generateQrForCurrentChem() {
   if (currentSelectedChemical) {
-    showQrForChemical(currentSelectedChemical);
+    openQrGenerator(currentSelectedChemical);
+  } else {
+    openQrGenerator();
+  }
+}
+
+function populateQrChemicalSelector(selectedId) {
+  const select = document.getElementById('qr-chem-select');
+  if (!select) return;
+  const chems = getAllChemicals();
+  select.innerHTML = '';
+  chems.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.id;
+    opt.textContent = `${c.nameAr} (${c.nameEn}) - ${c.formula}`;
+    if (selectedId && c.id == selectedId) {
+      opt.selected = true;
+    }
+    select.appendChild(opt);
+  });
+}
+
+function onQrChemicalSelectChange(chemId) {
+  const chems = getAllChemicals();
+  const chem = chems.find(c => c.id == chemId);
+  if (chem) {
+    showQrForChemical(chem);
   }
 }
 
 function showQrForChemical(chem) {
+  if (!chem) return;
+  currentQrChemical = chem;
+
   const modal = document.getElementById('qr-modal');
   const title = document.getElementById('qr-chem-title');
   const box = document.getElementById('qr-display-box');
-  if (!modal || !title || !box) return;
+  if (!modal) return;
 
   modal.style.display = 'flex';
-  title.textContent = 'رمز QR لملصق: ' + chem.nameAr + ' (' + chem.nameEn + ')';
-  box.innerHTML = '';
+  if (title) title.textContent = 'ملصق QR الذكي: ' + chem.nameAr;
 
-  const qrText = `SDS Smart - بطاقة أمان
+  // Populate chemical selector if needed
+  const select = document.getElementById('qr-chem-select');
+  if (select && select.children.length === 0) {
+    populateQrChemicalSelector(chem.id);
+  } else if (select && select.value != chem.id) {
+    select.value = chem.id;
+  }
+
+  // Update Preview Elements
+  const previewSignal = document.getElementById('qr-preview-signal');
+  const previewLoc = document.getElementById('qr-preview-loc');
+  const previewNameAr = document.getElementById('qr-preview-name-ar');
+  const previewNameEn = document.getElementById('qr-preview-name-en');
+  const previewCas = document.getElementById('qr-preview-cas');
+  const previewFormula = document.getElementById('qr-preview-formula');
+
+  const isDanger = (chem.signalWord || '').includes('خطر') || (chem.signalWord || '').toLowerCase().includes('danger');
+  if (previewSignal) {
+    previewSignal.textContent = chem.signalWord || (isDanger ? 'خطر DANGER' : 'تحذير WARNING');
+    previewSignal.style.background = isDanger ? '#fee2e2' : '#fef3c7';
+    previewSignal.style.color = isDanger ? '#dc2626' : '#d97706';
+  }
+  if (previewLoc) previewLoc.textContent = chem.location || 'Cabinet 1';
+  if (previewNameAr) previewNameAr.textContent = chem.nameAr;
+  if (previewNameEn) previewNameEn.textContent = chem.nameEn;
+  if (previewCas) previewCas.textContent = chem.cas || 'N/A';
+  if (previewFormula) previewFormula.textContent = chem.formula || '';
+
+  // Prepare standard QR payload text
+  const qrText = `SDS Smart - معمل الكيمياء
 المادة: ${chem.nameAr}
 English: ${chem.nameEn}
 الصيغة: ${chem.formula}
-CAS No: ${chem.cas}
+CAS: ${chem.cas}
 الرصيد: ${chem.quantity}
 الموقع: ${chem.location}
-كلمة التنبيه: ${chem.signalWord || 'تحذير'}`;
+التنبيه: ${chem.signalWord || 'تحذير'}`;
 
-  let generated = false;
+  // Find or create canvas
+  let canvas = document.getElementById('qr-code-canvas');
+  if (!canvas && box) {
+    box.innerHTML = '';
+    canvas = document.createElement('canvas');
+    canvas.id = 'qr-code-canvas';
+    canvas.width = 200;
+    canvas.height = 200;
+    canvas.style.display = 'block';
+    canvas.style.width = '190px';
+    canvas.style.height = '190px';
+    canvas.style.borderRadius = '8px';
+    canvas.style.border = '1px solid #e2e8f0';
+    box.appendChild(canvas);
+  }
 
-  // Method 1: qrcode-generator (Pure inline SVG, fast and 100% offline)
+  if (canvas) {
+    renderQrCodeToCanvas(canvas, qrText);
+  }
+}
+
+function renderQrCodeToCanvas(canvas, text) {
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const size = canvas.width || 200;
+
+  // Clear & background
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, size, size);
+
+  // Method 1: qrcode-generator
   if (typeof qrcode === 'function') {
     try {
+      if (qrcode.stringToBytesFuncs && qrcode.stringToBytesFuncs['UTF-8']) {
+        qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+      }
       const qr = qrcode(0, 'M');
-      qr.addData(qrText);
+      qr.addData(text);
       qr.make();
-      const svgTag = qr.createSvgTag({ scalable: true });
-      box.innerHTML = `<div style="width: 190px; height: 190px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 2px solid #e2e8f0;">${svgTag}</div>`;
-      generated = true;
+      
+      const count = qr.getModuleCount();
+      const padding = 10;
+      const cellSize = (size - padding * 2) / count;
+
+      ctx.fillStyle = '#0a2540';
+      for (let r = 0; r < count; r++) {
+        for (let c = 0; c < count; c++) {
+          if (qr.isDark(r, c)) {
+            const x = Math.round(padding + c * cellSize);
+            const y = Math.round(padding + r * cellSize);
+            const w = Math.ceil(cellSize);
+            const h = Math.ceil(cellSize);
+            ctx.fillRect(x, y, w, h);
+          }
+        }
+      }
+      return;
     } catch (e) {
-      console.warn('qrcode-generator exception:', e);
+      console.warn('qrcode render error:', e);
     }
   }
 
-  // Method 2: QRCode object (legacy/alternative library if present)
-  if (!generated && typeof QRCode !== 'undefined') {
+  // Method 2: QRCode object fallback
+  if (typeof QRCode !== 'undefined') {
     try {
-      new QRCode(box, {
-        text: qrText,
-        width: 180,
-        height: 180,
-        colorDark: "#0a2540",
-        colorLight: "#ffffff"
-      });
-      generated = true;
+      const parent = canvas.parentElement;
+      if (parent) {
+        parent.innerHTML = '';
+        new QRCode(parent, {
+          text: text,
+          width: 190,
+          height: 190,
+          colorDark: "#0a2540",
+          colorLight: "#ffffff"
+        });
+        return;
+      }
     } catch (e) {
-      console.warn('QRCode exception:', e);
+      console.warn('QRCode fallback error:', e);
     }
   }
 
-  // Method 3: High-reliability Image API Fallback
-  if (!generated) {
-    const encoded = encodeURIComponent(qrText);
-    box.innerHTML = `
-      <div style="width: 190px; height: 190px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 2px solid #e2e8f0;">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encoded}&color=0a2540" alt="QR Code" width="170" height="170" style="border-radius: 6px;">
-      </div>
-    `;
+  // Method 3: Visual fallback icon with label
+  ctx.fillStyle = '#f8fafc';
+  ctx.fillRect(10, 10, size - 20, size - 20);
+  ctx.strokeStyle = '#0284c7';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(10, 10, size - 20, size - 20);
+  ctx.fillStyle = '#005a9c';
+  ctx.font = 'bold 15px Cairo, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('SDS Smart QR', size / 2, size / 2 - 8);
+  ctx.font = '11px Cairo, sans-serif';
+  ctx.fillStyle = '#64748b';
+  ctx.fillText('معمل الكيمياء الذكي', size / 2, size / 2 + 16);
+}
+
+function downloadQrImage() {
+  const chem = currentQrChemical || currentSelectedChemical;
+  const chemName = chem ? (chem.nameEn || chem.nameAr).replace(/[^a-zA-Z0-9_-]/g, '_') : 'Chemical';
+
+  const labelCanvas = document.createElement('canvas');
+  labelCanvas.width = 420;
+  labelCanvas.height = 520;
+  const ctx = labelCanvas.getContext('2d');
+
+  // Background
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, 420, 520);
+
+  // Outer border
+  ctx.strokeStyle = '#005a9c';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(4, 4, 412, 512);
+
+  // Top header banner
+  ctx.fillStyle = '#005a9c';
+  ctx.fillRect(4, 4, 412, 60);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 22px Cairo, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('SDS Smart - معمل الكيمياء', 210, 40);
+
+  // Signal badge
+  const isDanger = chem && ((chem.signalWord || '').includes('خطر') || (chem.signalWord || '').toLowerCase().includes('danger'));
+  ctx.fillStyle = isDanger ? '#fee2e2' : '#fef3c7';
+  ctx.fillRect(25, 78, 370, 36);
+  ctx.fillStyle = isDanger ? '#dc2626' : '#d97706';
+  ctx.font = 'bold 16px Cairo, sans-serif';
+  ctx.fillText(chem ? (chem.signalWord || 'تحذير WARNING') : 'تحذير WARNING', 210, 102);
+
+  // Chemical Name (Arabic)
+  ctx.fillStyle = '#0f172a';
+  ctx.font = 'bold 22px Cairo, sans-serif';
+  ctx.fillText(chem ? chem.nameAr : '', 210, 148);
+
+  // Chemical Name (English)
+  ctx.fillStyle = '#0284c7';
+  ctx.font = 'bold 16px Cairo, sans-serif';
+  ctx.fillText(chem ? chem.nameEn : '', 210, 175);
+
+  // CAS & Formula
+  ctx.fillStyle = '#475569';
+  ctx.font = 'bold 13px Cairo, sans-serif';
+  ctx.fillText(`CAS: ${chem ? chem.cas : 'N/A'}  |  Formula: ${chem ? chem.formula : ''}`, 210, 202);
+  ctx.fillText(`الموقع: ${chem ? chem.location : 'Cabinet 1'}  |  الرصيد: ${chem ? chem.quantity : ''}`, 210, 224);
+
+  // Draw QR code canvas into label
+  const qrCanvas = document.getElementById('qr-code-canvas');
+  if (qrCanvas) {
+    ctx.drawImage(qrCanvas, 110, 245, 200, 200);
   }
+
+  // Footer instruction
+  ctx.fillStyle = '#64748b';
+  ctx.font = '11px Cairo, sans-serif';
+  ctx.fillText('امسح الرمز بواسطة الهاتف للانتقال الفوري إلى بطاقة السلامة SDS الكاملة', 210, 480);
+
+  const link = document.createElement('a');
+  link.download = `SDS_Label_${chemName}.png`;
+  link.href = labelCanvas.toDataURL('image/png');
+  link.click();
+}
+
+function printChemicalLabel() {
+  const chem = currentQrChemical || currentSelectedChemical;
+  const qrCanvas = document.getElementById('qr-code-canvas');
+  const qrDataUrl = qrCanvas ? qrCanvas.toDataURL('image/png') : '';
+
+  const printWindow = window.open('', '_blank', 'width=650,height=620');
+  if (!printWindow) {
+    window.print();
+    return;
+  }
+
+  const isDanger = chem && ((chem.signalWord || '').includes('خطر') || (chem.signalWord || '').toLowerCase().includes('danger'));
+
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="ar" dir="rtl">
+    <head>
+      <meta charset="UTF-8">
+      <title>طباعة ملصق: ${chem ? chem.nameAr : 'Chemical Label'}</title>
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&display=swap" rel="stylesheet">
+      <style>
+        body { font-family: 'Cairo', sans-serif; margin: 0; padding: 25px; background: #fff; text-align: center; }
+        .label-container {
+          max-width: 380px;
+          margin: 0 auto;
+          border: 3px solid #005a9c;
+          border-radius: 12px;
+          padding: 16px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .header { background: #005a9c; color: white; padding: 8px; border-radius: 6px; font-weight: 800; font-size: 16px; margin-bottom: 10px; }
+        .signal-badge { background: ${isDanger ? '#fee2e2' : '#fef3c7'}; color: ${isDanger ? '#dc2626' : '#d97706'}; font-weight: 800; font-size: 14px; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
+        .chem-ar { font-size: 20px; font-weight: 900; color: #0f172a; margin: 4px 0; }
+        .chem-en { font-size: 14px; font-weight: 700; color: #0284c7; margin-bottom: 8px; }
+        .meta-line { font-size: 12px; color: #334155; font-weight: 700; margin: 3px 0; }
+        .qr-img { width: 180px; height: 180px; margin: 10px auto; display: block; border-radius: 6px; border: 1px solid #cbd5e1; }
+        .footer { font-size: 11px; color: #64748b; margin-top: 8px; font-weight: 600; }
+        @media print {
+          body { padding: 0; }
+          .label-container { border: 2px solid #000; box-shadow: none; }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="label-container">
+        <div class="header">🛡️ SDS Smart - ملصق أمان المعمل</div>
+        <div class="signal-badge">${chem ? (chem.signalWord || 'تحذير WARNING') : 'تحذير'}</div>
+        <div class="chem-ar">${chem ? chem.nameAr : ''}</div>
+        <div class="chem-en">${chem ? chem.nameEn : ''}</div>
+        <div class="meta-line">الصيغة: <strong>${chem ? chem.formula : ''}</strong> | CAS: <strong>${chem ? chem.cas : ''}</strong></div>
+        <div class="meta-line">الموقع: <strong>${chem ? chem.location : 'Cabinet 1'}</strong> | الرصيد: <strong>${chem ? chem.quantity : ''}</strong></div>
+        <img class="qr-img" src="${qrDataUrl}" alt="QR Code">
+        <div class="footer">امسح الرمز بكاميرا الجوال لعرض بطاقة السلامة SDS كاملة</div>
+      </div>
+      <script>
+        window.onload = function() {
+          window.print();
+        };
+      <\/script>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
 }
 
 function closeQrModal() {
